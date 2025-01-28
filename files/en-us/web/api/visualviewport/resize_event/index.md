@@ -1,62 +1,32 @@
 ---
-title: 'VisualViewport: resize event'
+title: "VisualViewport: resize event"
+short-title: resize
 slug: Web/API/VisualViewport/resize_event
-tags:
-  - API
-  - Reference
-  - VisualViewport
-  - events
-  - resize
+page-type: web-api-event
 browser-compat: api.VisualViewport.resize_event
 ---
-{{APIRef("Window")}}
 
-The **`resize`** event of the [`VisualViewport`](/en-US/docs/Web/API/VisualViewport) interface is fired when the visual viewport is resized.
+{{APIRef("Visual Viewport")}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Bubbles</th>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th scope="row">Cancelable</th>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th scope="row">Interface</th>
-      <td>{{domxref("Event")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Event handler property</th>
-      <td>
-        <code
-          ><a href="/en-US/docs/Web/API/VisualViewport/onresize"
-            >onresize</a
-          ></code
-        >
-      </td>
-    </tr>
-  </tbody>
-</table>
+The **`resize`** event of the {{domxref("VisualViewport")}} interface is fired when the visual viewport is resized. This allows you to position elements relative to the visual viewport as it is zoomed, which would normally be anchored to the layout viewport.
+
+## Syntax
+
+Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
+
+```js
+addEventListener("resize", (event) => {});
+
+onresize = (event) => {};
+```
+
+## Event type
+
+A generic {{domxref("Event")}}.
 
 ## Examples
 
-You can use the `resize` event in an [`addEventListener`](/en-US/docs/Web/API/EventTarget/addEventListener) method:
-
-```js
-visualViewport.addEventListener('resize', function() {
-  ...
-});
-```
-
-Or use the [`onresize`](/en-US/docs/Web/API/VisualViewport/onresize) event handler property:
-
-```js
-visualViewport.onresize = function() {
-  ...
-};
-```
+See the [Visual Viewport API](/en-US/docs/Web/API/Visual_Viewport_API#examples) landing page for a usage demo.
 
 ## Specifications
 
@@ -65,7 +35,3 @@ visualViewport.onresize = function() {
 ## Browser compatibility
 
 {{Compat}}
-
-## See also
-
-- [Visual Viewport API homepage](/en-US/docs/Web/API/Visual_Viewport_API)

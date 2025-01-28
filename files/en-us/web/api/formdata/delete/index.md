@@ -1,26 +1,19 @@
 ---
-title: FormData.delete()
+title: "FormData: delete() method"
+short-title: delete()
 slug: Web/API/FormData/delete
-tags:
-  - API
-  - FormData
-  - Method
-  - Reference
-  - XHR
-  - XMLHttpRequest
-  - delete
+page-type: web-api-instance-method
 browser-compat: api.FormData.delete
 ---
-{{APIRef("XMLHttpRequest")}}
+
+{{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
 The **`delete()`** method of the {{domxref("FormData")}} interface deletes a key and its value(s) from a `FormData` object.
 
-> **Note:** This method is available in [Web Workers](/en-US/docs/Web/API/Web_Workers_API).
-
 ## Syntax
 
-```js
-formData.delete(name);
+```js-nolint
+delete(name)
 ```
 
 ### Parameters
@@ -28,22 +21,16 @@ formData.delete(name);
 - `name`
   - : The name of the key you want to delete.
 
-### Returns
+### Return value
 
-Void.
+None ({{jsxref("undefined")}}).
 
-## Example
+## Examples
 
-The following line creates an empty `FormData` object and prepopulates it with key/value pairs from a form:
-
-```js
-var formData = new FormData(myForm);
-```
-
-You can delete keys and their values using `delete()`:
+You can delete a key and its values using `delete()`:
 
 ```js
-formData.delete('username');
+formData.delete("username");
 ```
 
 ## Specifications
@@ -56,7 +43,5 @@ formData.delete('username');
 
 ## See also
 
-- {{domxref("XMLHTTPRequest")}}
-- [Using XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest "Using XMLHttpRequest")
-- [Using FormData objects](/en-US/docs/Web/API/FormData/Using_FormData_Objects)
+- [Using FormData objects](/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

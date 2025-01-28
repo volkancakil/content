@@ -1,43 +1,32 @@
 ---
-title: HTMLTableElement.width
+title: "HTMLTableElement: width property"
+short-title: width
 slug: Web/API/HTMLTableElement/width
-tags:
-  - API
-  - HTML DOM
-  - HTMLTableElement
-  - NeedsBrowserCompatibility
-  - NeedsSpecTable
-  - Property
-  - Reference
-  - Deprecated
+page-type: web-api-instance-property
+status:
+  - deprecated
 browser-compat: api.HTMLTableElement.width
 ---
+
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
 The **`HTMLTableElement.width`** property represents the
 desired width of the table.
 
-## Syntax
+## Value
+
+A string representing the width in number of pixels or as a percentage value.
+
+## Examples
 
 ```js
-HTMLTableElement.width = width;
-var width = HTMLTableElement.width;
+myTable.width = "75%";
 ```
 
-Where `width` is a string representing the width in number of pixels or as a
-percentage value.
+## Specifications
 
-## Example
-
-```js
-mytable.width = "75%";
-```
+{{Specifications}}
 
 ## Browser compatibility
 
 {{Compat}}
-
-## Specifications
-
-- W3C DOM 2 HTML Specification [_HTMLTableElement_
-  .width](https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-77447361)

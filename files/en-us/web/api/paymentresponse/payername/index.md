@@ -1,18 +1,12 @@
 ---
-title: PaymentRequest.payerName
+title: "PaymentRequest: payerName property"
+short-title: payerName
 slug: Web/API/PaymentResponse/payerName
-tags:
-  - API
-  - Experimental
-  - Payment Request
-  - Payment Request API
-  - PaymentResponse
-  - Property
-  - Reference
-  - Secure context
+page-type: web-api-instance-property
 browser-compat: api.PaymentResponse.payerName
 ---
-{{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
+
+{{securecontext_header}}{{APIRef("Payment Request API")}}
 
 The **`payerName`** read-only property of the
 {{domxref("PaymentResponse")}} interface returns the name supplied by the user. This
@@ -20,15 +14,13 @@ option is only present when the `requestPayerName` option is set to
 `true` in the options parameter of the
 {{domxref('PaymentRequest.PaymentRequest','PaymentRequest()')}} constructor.
 
-## Syntax
-
-```js
-var payerName = PaymentResponse.payerName;
-```
-
-### Value
+## Value
 
 A string containing the payer name.
+
+## Specifications
+
+{{Specifications}}
 
 ## Browser compatibility
 

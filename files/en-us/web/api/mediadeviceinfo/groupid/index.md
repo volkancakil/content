@@ -1,36 +1,24 @@
 ---
-title: MediaDeviceInfo.groupId
+title: "MediaDeviceInfo: groupId property"
+short-title: groupId
 slug: Web/API/MediaDeviceInfo/groupId
-tags:
-  - API
-  - Device
-  - Input
-  - Media
-  - MediaDevicesInfo
-  - Property
-  - groupId
-  - output
+page-type: web-api-instance-property
 browser-compat: api.MediaDeviceInfo.groupId
 ---
-{{APIRef("Media Capture")}}
 
-The **`groupId`** readonly property of
-the {{domxref("MediaDeviceInfo")}} interface returns a {{domxref("DOMString")}} that
+{{APIRef("Media Capture and Streams")}}{{securecontext_header}}
+
+The **`groupId`** read-only property of
+the {{domxref("MediaDeviceInfo")}} interface returns a string that
 is a group identifier.
 
 Two devices have the same group identifier if they
 belong to the same physical device; for example, a monitor with both a built-in camera
 and microphone.
 
-## Syntax
+## Value
 
-```js
-var groupID = mediaDeviceInfo.groupId;
-```
-
-### Value
-
-A {{domxref("DOMString")}} which uniquely identifies the group of related devices to
+A string which uniquely identifies the group of related devices to
 which this device belongs.
 
 ## Specifications
@@ -45,12 +33,11 @@ devices together for presentation purposes, or to make it easy for the user to c
 use the built-in camera and microphone on the same display at the same time.
 
 ```js
-const getDeviceGroup = mainDevInfo => {
+const getDeviceGroup = (mainDevInfo) => {
   let devList = [];
 
-  navigator.mediaDevices.enumerateDevices()
-  .then(devices => {
-    devices.forEach(device => {
+  navigator.mediaDevices.enumerateDevices().then((devices) => {
+    devices.forEach((device) => {
       if (device.groupId === mainDevInfo.groupId) {
         devList.push(device);
       }
@@ -66,11 +53,9 @@ The `getDeviceGroup()` function takes as input the
 be built. The function starts by initializing the result array, `devList`, to
 be an empty array.
 
-Then {{domxref("MediaDevices.enumerateDevices",
-  "navigator.mediaDevices.enumerateDevices()")}} is called to get the list of all media
-devices. Once the promise resolves, we walk the list using {{jsxref("Array.forEach",
-  "forEach()")}}. For each device, if its {{domxref("MediaDeviceInfo.groupId",
-  "groupId")}} matches the main device's `groupId`, we push the
+Then {{domxref("MediaDevices.enumerateDevices", "navigator.mediaDevices.enumerateDevices()")}} is called to get the list of all media
+devices. Once the promise resolves, we walk the list using {{jsxref("Array.forEach", "forEach()")}}.
+For each device, if its `groupId` matches the main device's `groupId`, we push the
 {{domxref("MediaDeviceInfo")}} object onto the list.
 
 Finally, the list, which now contains a `MediaDeviceInfo` object for each
@@ -85,14 +70,15 @@ This version of the example puts the passed-in device at the top of the result l
 then adds any other members of the group that are found:
 
 ```js
-const getDeviceGroup = mainDevInfo => {
+const getDeviceGroup = (mainDevInfo) => {
   let devList = [mainDevInfo];
 
-  navigator.mediaDevices.enumerateDevices()
-  .then(devices => {
-    devices.forEach(device => {
-      if ((device.groupId === mainDevInfo.groupId) &&
-          (device.deviceId !== mainDevInfo.deviceId)) {
+  navigator.mediaDevices.enumerateDevices().then((devices) => {
+    devices.forEach((device) => {
+      if (
+        device.groupId === mainDevInfo.groupId &&
+        device.deviceId !== mainDevInfo.deviceId
+      ) {
         devList.push(device);
       }
     });

@@ -1,22 +1,22 @@
 ---
 title: AudioData
 slug: Web/API/AudioData
-tags:
-  - API
-  - Interface
-  - Reference
-  - AudioData
+page-type: web-api-interface
 browser-compat: api.AudioData
 ---
-{{DefaultAPISidebar("WebCodecs API")}}
 
-The **`AudioData`** interface of the {{domxref('WebCodecs API')}} represents an audio sample.
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
+
+The **`AudioData`** interface of the [WebCodecs API](/en-US/docs/Web/API/WebCodecs_API) represents an audio sample.
+
+`AudioData` is a [transferable object](/en-US/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Description
 
 An audio track consists of a stream of audio samples, each sample representing a captured moment of sound. An `AudioData` object is a representation of such a sample. Working alongside the interfaces of the [Insertable Streams API](/en-US/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API), you can break a stream into individual `AudioData` objects with {{domxref("MediaStreamTrackProcessor")}}, or construct an audio track from a stream of frames with {{domxref("MediaStreamTrackGenerator")}}.
 
-> **Note**: Find out more about audio on the web in [Digital audio concepts](/en-US/docs/Web/Media/Formats/Audio_concepts).
+> [!NOTE]
+> Find out more about audio on the web in [Digital audio concepts](/en-US/docs/Web/Media/Formats/Audio_concepts).
 
 ### The media resource
 
@@ -24,31 +24,31 @@ An `AudioData` object contains a reference to an attached **media resource**. Th
 
 ### Planes and audio format
 
-To return the sample format of an `AudioData` use the {{domxref("AudioData.format")}} property. The format may be described as **interleaved** or **planar**. In interleaved formats, the audio samples from the different channels are laid out in a single buffer, described as a **plane**. This plane contains a number of elements equal to {{domxref("AudioData.numberOfFrames")}} * {{domxref("AudioData.numberOfChannels")}}.
+To return the sample format of an `AudioData` use the {{domxref("AudioData.format")}} property. The format may be described as **interleaved** or **planar**. In interleaved formats, the audio samples from the different channels are laid out in a single buffer, described as a **plane**. This plane contains a number of elements equal to {{domxref("AudioData.numberOfFrames")}} \* {{domxref("AudioData.numberOfChannels")}}.
 
 In planar format, the number of planes is equal to {{domxref("AudioData.numberOfChannels")}}, and each plane is a buffer containing a number of elements equal to {{domxref("AudioData.numberOfFrames")}}.
 
 ## Constructor
 
-- {{domxref("AudioData.AudioData()")}}
+- {{domxref("AudioData.AudioData", "AudioData()")}}
   - : Creates a new `AudioData` object.
 
-## Properties
+## Instance properties
 
-- {{domxref("AudioData.format")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.format")}} {{ReadOnlyInline}}
   - : Returns the sample format of the audio.
-- {{domxref("AudioData.sampleRate")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.sampleRate")}} {{ReadOnlyInline}}
   - : Returns the sample rate of the audio in Hz.
-- {{domxref("AudioData.numberofFrames")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.numberOfFrames")}} {{ReadOnlyInline}}
   - : Returns the number of frames.
-- {{domxref("AudioData.numberofChannels")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.numberOfChannels")}} {{ReadOnlyInline}}
   - : Returns the number of audio channels.
-- {{domxref("AudioData.duration")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.duration")}} {{ReadOnlyInline}}
   - : Returns the duration of the audio in microseconds.
-- {{domxref("AudioData.timestamp")}}{{ReadOnlyInline}}
+- {{domxref("AudioData.timestamp")}} {{ReadOnlyInline}}
   - : Returns the timestamp of the audio in microseconds.
 
-## Methods
+## Instance methods
 
 - {{domxref("AudioData.allocationSize()")}}
   - : Returns the number of bytes required to hold the sample as filtered by options passed into the method.
@@ -66,4 +66,3 @@ In planar format, the number of planes is equal to {{domxref("AudioData.numberOf
 ## Browser compatibility
 
 {{Compat}}
-

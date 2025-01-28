@@ -1,28 +1,21 @@
 ---
-title: Range.setEnd()
+title: "Range: setEnd() method"
+short-title: setEnd()
 slug: Web/API/Range/setEnd
-tags:
-  - API
-  - DOM
-  - DOM API
-  - End
-  - Method
-  - Range
-  - Reference
-  - setEnd
+page-type: web-api-instance-method
 browser-compat: api.Range.setEnd
 ---
+
 {{ApiRef("DOM")}}
 
-The **`Range.setEnd()`** method sets the end position of a {{
-  domxref("Range") }} to be located at the given offset into the specified node x.Setting
+The **`Range.setEnd()`** method sets the end position of a {{domxref("Range")}} to be located at the given offset into the specified node x.Setting
 the end point above (higher in the document) than the start point will result in a
 collapsed range with the start and end points both set to the specified end position.
 
 ## Syntax
 
-```js
-range.setEnd(endNode, endOffset);
+```js-nolint
+setEnd(endNode, endOffset)
 ```
 
 ### Parameters
@@ -34,7 +27,7 @@ range.setEnd(endNode, endOffset);
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 
@@ -51,11 +44,11 @@ the number of characters from the start of `endNode`. For other
 {{domxref("Node")}} types, `endOffset` is the number of child nodes between
 the start of the `endNode`.
 
-## Example
+## Examples
 
 ```js
 const range = document.createRange();
-const endNode = document.getElementsByTagName('p').item(3);
+const endNode = document.getElementsByTagName("p").item(3);
 const endOffset = endNode.childNodes.length;
 range.setEnd(endNode, endOffset);
 ```

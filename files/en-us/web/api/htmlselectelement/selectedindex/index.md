@@ -1,30 +1,20 @@
 ---
-title: HTMLSelectElement.selectedIndex
+title: "HTMLSelectElement: selectedIndex property"
+short-title: selectedIndex
 slug: Web/API/HTMLSelectElement/selectedIndex
-tags:
-  - API
-  - HTML DOM
-  - HTML forms
-  - HTMLSelectElement
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.HTMLSelectElement.selectedIndex
 ---
+
 {{APIRef("HTML DOM")}}
 
-The **`HTMLSelectElement.selectedIndex`** is a
-`long` that reflects the index of the first or last selected
-{{HTMLElement("option")}} element, depending on the value of `multiple`. The
-value `-1` indicates that no element is selected.
+The **`selectedIndex`** property of the {{DOMxRef("HTMLSelectElement")}} interface is the numeric index of the first selected {{HTMLElement("option")}} element in a {{HTMLElement("select")}} element, if any, or `−1` if no `<option>` is selected. Setting this property selects the option at that index and deselects all other options, while setting it to `-1` deselects any currently selected options.
 
-## Syntax
+## Value
 
-```js
-var index = selectElem.selectedIndex;
-selectElem.selectedIndex = index;
-```
+A number.
 
-## Example
+## Examples
 
 ### HTML
 
@@ -43,18 +33,18 @@ selectElem.selectedIndex = index;
 ### JavaScript
 
 ```js
-var selectElem = document.getElementById('select')
-var pElem = document.getElementById('p')
+const selectElem = document.getElementById("select");
+const pElem = document.getElementById("p");
 
 // When a new <option> is selected
-selectElem.addEventListener('change', function() {
-  var index = selectElem.selectedIndex;
+selectElem.addEventListener("change", () => {
+  const index = selectElem.selectedIndex;
   // Add that data to the <p>
-  pElem.innerHTML = 'selectedIndex: ' + index;
-})
+  pElem.textContent = `selectedIndex: ${index}`;
+});
 ```
 
-{{EmbedLiveSample("Example", "200px", "80px")}}
+{{EmbedLiveSample("Examples", "200px", "120px")}}
 
 ## Specifications
 
@@ -63,3 +53,9 @@ selectElem.addEventListener('change', function() {
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- {{DOMxRef("HTMLSelectElement")}}
+- {{DOMxRef("HTMLOptionElement")}}
+- {{DOMxRef("HTMLOptionsCollection")}}

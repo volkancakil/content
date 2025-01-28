@@ -1,32 +1,21 @@
 ---
-title: ElementInternals.ariaKeyShortcuts
+title: "ElementInternals: ariaKeyShortcuts property"
+short-title: ariaKeyShortcuts
 slug: Web/API/ElementInternals/ariaKeyShortcuts
-tags:
-  - API
-  - Property
-  - Reference
-  - ariaKeyShortcuts
-  - AriaAttributes
-  - AriaMixin
-  - ElementInternals
+page-type: web-api-instance-property
 browser-compat: api.ElementInternals.ariaKeyShortcuts
 ---
-{{DefaultAPISidebar("DOM")}}
 
-The **`ariaKeyShortcuts`** property of the {{domxref("ElementInternals")}} interface reflects the value of the `aria-keyshortcuts` attribute, which indicates keyboard shortcuts that an author has implemented to activate or give focus to an element.
+{{APIRef("Web Components")}}
 
-> **Note:** Setting aria attributes on `ElementInternals` allows default semantics to be defined on a custom element. These may be overwritten by author-defined attributes, but ensure that default semantics are retained should the author delete those attributes, or fail to add them at all. For more information see the [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+The **`ariaKeyShortcuts`** property of the {{domxref("ElementInternals")}} interface reflects the value of the [`aria-keyshortcuts`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts) attribute, which indicates keyboard shortcuts that an author has implemented to activate or give focus to an element.
 
-## Syntax
+> [!NOTE]
+> Setting aria attributes on `ElementInternals` allows default semantics to be defined on a custom element. These may be overwritten by author-defined attributes, but ensure that default semantics are retained should the author delete those attributes, or fail to add them at all. For more information see the [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
-```js
-let ariaKeyShortcuts = ElementInternals.ariaKeyShortcuts;
-ElementInternals.ariaKeyShortcuts = ariaKeyShortcuts;
-```
+## Value
 
-### Value
-
-A {{domxref("DOMString")}}.
+A string.
 
 ## Examples
 

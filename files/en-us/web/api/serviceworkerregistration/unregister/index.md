@@ -1,16 +1,12 @@
 ---
-title: ServiceWorkerRegistration.unregister()
+title: "ServiceWorkerRegistration: unregister() method"
+short-title: unregister()
 slug: Web/API/ServiceWorkerRegistration/unregister
-tags:
-  - API
-  - Method
-  - Reference
-  - Service Workers
-  - ServiceWorkerRegistration
-  - unregister
+page-type: web-api-instance-method
 browser-compat: api.ServiceWorkerRegistration.unregister
 ---
-{{APIRef("Service Workers API")}}
+
+{{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
 The **`unregister()`** method of the
 {{domxref("ServiceWorkerRegistration")}} interface unregisters the service worker
@@ -21,13 +17,10 @@ unregister if someone else just called {{domxref("ServiceWorkerContainer.registe
 with the same scope.) The service worker will finish any ongoing operations before it is
 unregistered.
 
-> **Note:** This feature is available in [Web Workers](/en-US/docs/Web/API/Web_Workers_API).
-
 ## Syntax
 
-```js
-serviceWorkerRegistration.unregister().then(function(boolean) {
-});
+```js-nolint
+unregister()
 ```
 
 ### Parameters
@@ -39,24 +32,27 @@ None.
 {{jsxref("Promise")}} resolves with a boolean indicating whether the service worker has
 unregistered or not.
 
-## Example
+## Examples
 
 The following simple example registers a service worker example, but then immediately
 unregisters it again:
 
 ```js
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw-test/sw.js', {scope: 'sw-test'}).then(function(registration) {
-    // registration worked
-    console.log('Registration succeeded.');
-    registration.unregister().then(function(boolean) {
-      // if boolean = true, unregister is successful
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js", { scope: "/" })
+    .then((registration) => {
+      // registration worked
+      console.log("Registration succeeded.");
+      registration.unregister().then((boolean) => {
+        // if boolean = true, unregister is successful
+      });
+    })
+    .catch((error) => {
+      // registration failed
+      console.error(`Registration failed with ${error}`);
     });
-  }).catch(function(error) {
-    // registration failed
-    console.log('Registration failed with ' + error);
-  });
-};
+}
 ```
 
 ## Specifications
@@ -69,11 +65,6 @@ if ('serviceWorker' in navigator) {
 
 ## See also
 
-- [Using Service
-  Workers](/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Service workers basic code example](https://github.com/mdn/sw-test)
-- [Is ServiceWorker
-  ready?](https://jakearchibald.github.io/isserviceworkerready/)
-- {{jsxref("Promise")}}
-- [Using web
-  workers](/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Using Service Workers](/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Service workers basic code example](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Using web workers](/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)

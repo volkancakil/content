@@ -1,14 +1,10 @@
 ---
 title: SVGAnimatedRect
 slug: Web/API/SVGAnimatedRect
-tags:
-  - API
-  - NeedsExample
-  - Reference
-  - SVG
-  - SVG DOM
+page-type: web-api-interface
 browser-compat: api.SVGAnimatedRect
 ---
+
 {{APIRef("SVG")}}
 
 The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGRect") }} which can be animated.
@@ -18,7 +14,7 @@ The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGR
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Also implement</th>
+      <th scope="row">Also implement</th>
       <td><em>None</em></td>
     </tr>
     <tr>
@@ -39,7 +35,7 @@ The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGR
       </td>
     </tr>
     <tr>
-      <th scope="row">Normative document</th>
+      <th scope="row">Normative document</th>
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedRect"
@@ -50,7 +46,7 @@ The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGR
   </tbody>
 </table>
 
-## Properties
+## Instance properties
 
 <table class="no-markdown">
   <thead>
@@ -62,14 +58,14 @@ The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGR
   </thead>
   <tbody>
     <tr>
-      <td><code>baseVal</code></td>
+      <td><code>{{domxref("SVGAnimatedRect.baseVal")}}</code></td>
       <td>{{ domxref("SVGRect") }}</td>
       <td>
         The base value of the given attribute before applying any animations.
       </td>
     </tr>
     <tr>
-      <td><code>animVal</code></td>
+      <td><code>{{domxref("SVGAnimatedRect.animVal")}}</code></td>
       <td>{{ domxref("SVGRect") }}</td>
       <td>
         A read only {{ domxref("SVGRect") }} representing the current
@@ -83,9 +79,13 @@ The `SVGAnimatedRect` interface is used for attributes of basic {{ domxref("SVGR
   </tbody>
 </table>
 
-## Methods
+## Instance methods
 
 _The `SVGAnimatedRect` interface do not provide any specific methods._
+
+## Specifications
+
+{{Specifications}}
 
 ## Browser compatibility
 

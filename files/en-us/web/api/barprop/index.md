@@ -1,16 +1,13 @@
 ---
 title: BarProp
 slug: Web/API/BarProp
-tags:
-  - API
-  - Interface
-  - Reference
-  - BarProp
+page-type: web-api-interface
 browser-compat: api.BarProp
 ---
+
 {{APIRef("DOM")}}
 
-The **`BarProp`** interface of the {{domxref('Document Object Model')}} represents the web browser user interface elements that are exposed to scripts in web pages. Each of the following interface elements are represented by a `BarProp` object.
+The **`BarProp`** interface of the [Document Object Model](/en-US/docs/Web/API/Document_Object_Model) represents the web browser user interface elements that are exposed to scripts in web pages. Each of the following interface elements are represented by a `BarProp` object.
 
 - {{domxref("Window.locationbar")}}
   - : The browser location bar.
@@ -27,9 +24,9 @@ The **`BarProp`** interface of the {{domxref('Document Object Model')}} represen
 
 The `BarProp` interface is not accessed directly, but via one of these elements.
 
-## Properties
+## Instance properties
 
-- {{domxref("BarProp.visible")}}{{ReadOnlyInline}}
+- {{domxref("BarProp.visible")}} {{ReadOnlyInline}}
   - : A {{jsxref("Boolean")}}, which is true if the bar represented by the used interface element is visible.
 
 ## Examples

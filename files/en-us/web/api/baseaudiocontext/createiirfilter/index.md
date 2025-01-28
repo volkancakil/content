@@ -1,34 +1,24 @@
 ---
-title: BaseAudioContext.createIIRFilter()
+title: "BaseAudioContext: createIIRFilter() method"
+short-title: createIIRFilter()
 slug: Web/API/BaseAudioContext/createIIRFilter
-tags:
-  - API
-  - Audio
-  - AudioContext
-  - BaseAudioContext
-  - CreateIIRFilter
-  - Method
-  - Reference
-  - Web Audio API
-  - filter
+page-type: web-api-instance-method
 browser-compat: api.BaseAudioContext.createIIRFilter
 ---
+
 {{ APIRef("Web Audio API") }}
 
-The **`createIIRFilter()`** method of the {{
-  domxref("BaseAudioContext") }} interface creates an {{ domxref("IIRFilterNode") }},
-which represents a general **{{interwiki("wikipedia", "infinite impulse
-    response")}}** (IIR) filter which can be configured to serve as various types
-of filter.
+The **`createIIRFilter()`** method of the {{domxref("BaseAudioContext")}} interface creates an {{ domxref("IIRFilterNode") }}, which represents a general **[infinite impulse response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR) filter which can be configured to serve as various types of filter.
 
-> **Note:** The {{domxref("IIRFilterNode.IIRFilterNode", "IIRFilterNode()")}}
+> [!NOTE]
+> The {{domxref("IIRFilterNode.IIRFilterNode", "IIRFilterNode()")}}
 > constructor is the recommended way to create a {{domxref("IIRFilterNode")}}; see
 > [Creating an AudioNode](/en-US/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
-```js
-var iirFilter = AudioContext.createIIRFilter(feedforward, feedback);
+```js-nolint
+createIIRFilter(feedforward, feedback)
 ```
 
 ### Parameters
@@ -49,11 +39,11 @@ feedforward coefficient arrays.
 
 ### Exceptions
 
-- `InvalidStateError`
-  - : All of the `feedforward` coefficients are 0, and/or the first
+- `InvalidStateError` {{domxref("DOMException")}}
+  - : Thrown if all of the `feedforward` coefficients are 0, or if the first
     `feedback` coefficient is 0.
-- `NotSupportedError`
-  - : One or both of the input arrays exceeds 20 members.
+- `NotSupportedError` {{domxref("DOMException")}}
+  - : Thrown if one or both of the input arrays exceeds 20 members.
 
 ## Specifications
 

@@ -1,27 +1,26 @@
 ---
-title: OES_texture_float
+title: OES_texture_float extension
+short-title: OES_texture_float
 slug: Web/API/OES_texture_float
-tags:
-  - API
-  - Reference
-  - WebGL
-  - WebGL extension
+page-type: webgl-extension
 browser-compat: api.OES_texture_float
 ---
+
 {{APIRef("WebGL")}}
 
 The **`OES_texture_float`** extension is part of the [WebGL API](/en-US/docs/Web/API/WebGL_API) and exposes floating-point pixel types for textures.
 
 WebGL extensions are available using the {{domxref("WebGLRenderingContext.getExtension()")}} method. For more information, see also [Using Extensions](/en-US/docs/Web/API/WebGL_API/Using_Extensions) in the [WebGL tutorial](/en-US/docs/Web/API/WebGL_API/Tutorial).
 
-> **Note:** This extension is only available to {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} contexts. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}, the functionality of this extension is available on the WebGL2 context by default.
+> [!NOTE]
+> This extension is only available to {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} contexts. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}, the functionality of this extension is available on the WebGL2 context by default.
 
 ## Extended methods
 
 This extension extends {{domxref("WebGLRenderingContext.texImage2D()")}} and {{domxref("WebGLRenderingContext.texSubImage2D()")}}:
 
 - The `type` parameter now accepts `gl.FLOAT`.
-- The `pixels` parameter now accepts an `ArrayBufferView` of type {{jsxref("Float32Array")}}.
+- The `pixels` parameter now accepts a {{jsxref("Float32Array")}}.
 
 ## Limitation: Linear filtering
 
@@ -36,9 +35,9 @@ This extension implicitly enables the {{domxref("WEBGL_color_buffer_float")}} ex
 ## Examples
 
 ```js
-var ext = gl.getExtension('OES_texture_float');
+const ext = gl.getExtension("OES_texture_float");
 
-var texture = gl.createTexture();
+const texture = gl.createTexture();
 gl.bindTexture(gl.TEXTURE_2D, texture);
 
 gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.FLOAT, image);

@@ -1,18 +1,17 @@
 ---
 title: break-after
 slug: Web/CSS/break-after
-tags:
-  - CSS
-  - CSS Fragmentation
-  - CSS Multi-column Layout
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.break-after
 ---
+
 {{CSSRef}}
 
 The **`break-after`** [CSS](/en-US/docs/Web/CSS) property sets how page, column, or region breaks should behave after a generated box. If there is no generated box, the property is ignored.
+
+{{EmbedInteractiveExample("pages/css/break-after.html")}}
+
+## Syntax
 
 ```css
 /* Generic break values */
@@ -41,6 +40,7 @@ break-after: region;
 break-after: inherit;
 break-after: initial;
 break-after: revert;
+break-after: revert-layer;
 break-after: unset;
 ```
 
@@ -48,14 +48,10 @@ Each possible break point (in other words, each element boundary) is affected by
 
 To determine if a break must be done, the following rules are applied:
 
-1.  If any of the three concerned values is a _forced break value_ (`always`, `left`, `right`, `page`, `column`, or `region`), it has precedence. If more than one of them are such a break, the one of the element that appears the latest in the flow is taken (i.e., the `break-before` value has precedence over the `break-after` value, which itself has precedence over the `break-inside` value).
-2.  If any of the three concerned values is an _avoid break value_ (`avoid`, `avoid-page`, `avoid-region`, or `avoid-column`), no such break will be applied at that point.
+1. If any of the three concerned values is a _forced break value_ (`always`, `left`, `right`, `page`, `column`, or `region`), it has precedence. If more than one of them are such a break, the one of the element that appears the latest in the flow is taken (i.e., the `break-before` value has precedence over the `break-after` value, which itself has precedence over the `break-inside` value).
+2. If any of the three concerned values is an _avoid break value_ (`avoid`, `avoid-page`, `avoid-region`, or `avoid-column`), no such break will be applied at that point.
 
 Once forced breaks have been applied, soft breaks may be added if needed, but not on element boundaries that resolve in a corresponding `avoid` value.
-
-## Syntax
-
-The `break-after` property is specified as one of the keyword values from the list below.
 
 ### Values
 
@@ -65,9 +61,9 @@ The `break-after` property is specified as one of the keyword values from the li
   - : Allows, but does not force, any break (page, column, or region) to be inserted right after the principal box.
 - `avoid`
   - : Avoids any break (page, column, or region) from being inserted right after the principal box.
-- `always` {{experimental_inline}}
+- `always`
   - : Forces a page break right after the principal box. The type of this break is that of the immediately-containing fragmentation context. If we are inside a multicol container then it would force a column break, inside paged media (but not inside a multicol container) a page break.
-- `all` {{experimental_inline}}
+- `all`
   - : Forces a page break right after the principal box. Breaking through all possible fragmentation contexts. So a break inside a multicol container, which was inside a page container would force a column and page break.
 
 #### Page break values
@@ -77,12 +73,12 @@ The `break-after` property is specified as one of the keyword values from the li
 - `page`
   - : Forces a page break right after the principal box.
 - `left`
-  - : Forces one or two page breaks right after the principal box, whichever will make the next page into a left page.
+  - : Forces one or two page breaks right after the principal box, whichever will make the next page into a left page. It's the page placed on the left side of the spine of the book or the back side of the page in duplex printing.
 - `right`
-  - : Forces one or two page breaks right after the principal box, whichever will make the next page into a right page.
-- `recto` {{experimental_inline}}
+  - : Forces one or two page breaks right after the principal box, whichever will make the next page into a right page. It's the page placed on the right side of the spine of the book or the front side of the page in duplex printing.
+- `recto`
   - : Forces one or two page breaks right after the principal box, whichever will make the next page into a recto page. (A recto page is a right page in a left-to-right spread or a left page in a right-to-left spread.)
-- `verso` {{experimental_inline}}
+- `verso`
   - : Forces one or two page breaks right after the principal box, whichever will make the next page into a verso page. (A verso page is a left page in a left-to-right spread or a right page in a right-to-left spread.)
 
 #### Column break values
@@ -94,9 +90,9 @@ The `break-after` property is specified as one of the keyword values from the li
 
 #### Region break values
 
-- `avoid-region` {{experimental_inline}}
+- `avoid-region`
   - : Avoids any region break right after the principal box.
-- `region` {{experimental_inline}}
+- `region`
   - : Forces a region break right after the principal box.
 
 ## Page break aliases
@@ -111,7 +107,8 @@ For compatibility reasons, the legacy {{cssxref("page-break-after")}} property s
 | `avoid`          | `avoid`     |
 | `always`         | `page`      |
 
-> **Note:** The `always` value of `page-break-*` was implemented by browsers as a page break, and not as a column break. Therefore the aliasing is to `page`, rather than the `always` value in the Level 4 spec.
+> [!NOTE]
+> The `always` value of `page-break-*` was implemented by browsers as a page break, and not as a column break. Therefore the aliasing is to `page`, rather than the `always` value in the Level 4 spec.
 
 ## Formal definition
 
@@ -137,19 +134,40 @@ By default, the subheadings and paragraphs were laid out rather messily because 
 
   <h2>Subheading</h2>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae fringilla mauris. Quisque commodo eget nisi sed pretium. Mauris luctus nec lacus in ultricies. Mauris vitae hendrerit arcu, ac scelerisque lacus. Aliquam lobortis in lacus sit amet posuere. Fusce iaculis urna id neque dapibus, eu lacinia lectus dictum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
+    fringilla mauris. Quisque commodo eget nisi sed pretium. Mauris luctus nec
+    lacus in ultricies. Mauris vitae hendrerit arcu, ac scelerisque lacus.
+    Aliquam lobortis in lacus sit amet posuere. Fusce iaculis urna id neque
+    dapibus, eu lacinia lectus dictum.
+  </p>
 
   <h2>Subheading</h2>
 
-  <p>Praesent condimentum dui dui, sit amet rutrum diam tincidunt eu. Cras suscipit porta leo sit amet rutrum. Sed vehicula ornare tincidunt. Curabitur a ipsum ac diam mattis volutpat ac ut elit. Nullam luctus justo non vestibulum gravida. Morbi metus libero, pharetra non porttitor a, molestie nec nisi.</p>
+  <p>
+    Praesent condimentum dui dui, sit amet rutrum diam tincidunt eu. Cras
+    suscipit porta leo sit amet rutrum. Sed vehicula ornare tincidunt. Curabitur
+    a ipsum ac diam mattis volutpat ac ut elit. Nullam luctus justo non
+    vestibulum gravida. Morbi metus libero, pharetra non porttitor a, molestie
+    nec nisi.
+  </p>
 
   <h2>Subheading</h2>
 
-  <p>Vivamus eleifend metus vitae neque placerat, eget interdum elit mattis. Donec eu vulputate nibh. Ut turpis leo, malesuada quis nisl nec, volutpat egestas tellus.
+  <p>
+    Vivamus eleifend metus vitae neque placerat, eget interdum elit mattis.
+    Donec eu vulputate nibh. Ut turpis leo, malesuada quis nisl nec, volutpat
+    egestas tellus.
+  </p>
 
   <h2>Subheading</h2>
 
-  <p>In finibus viverra enim vel suscipit. Quisque consequat velit eu orci malesuada, ut interdum tortor molestie. Proin sed pellentesque augue. Nam risus justo, faucibus non porta a, congue vel massa. Cras luctus lacus nisl, sed tincidunt velit pharetra ac. Duis suscipit faucibus dui sed ultricies.</p>
+  <p>
+    In finibus viverra enim vel suscipit. Quisque consequat velit eu orci
+    malesuada, ut interdum tortor molestie. Proin sed pellentesque augue. Nam
+    risus justo, faucibus non porta a, congue vel massa. Cras luctus lacus nisl,
+    sed tincidunt velit pharetra ac. Duis suscipit faucibus dui sed ultricies.
+  </p>
 </article>
 ```
 
@@ -189,7 +207,7 @@ article {
 
 ## Specifications
 
-{{Specifications("css.properties.break-after.multicol_context")}}
+{{Specifications}}
 
 ## Browser compatibility
 
@@ -197,5 +215,5 @@ article {
 
 ## See also
 
-- [Multiple-column Layout](/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Learn: Multiple-column Layout](/en-US/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - [Breaking Boxes With CSS Fragmentation](https://www.smashingmagazine.com/2019/02/css-fragmentation/)

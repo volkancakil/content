@@ -1,22 +1,15 @@
 ---
-title: SourceBuffer.removeAsync()
+title: "SourceBuffer: removeAsync() method"
+short-title: removeAsync()
 slug: Web/API/SourceBuffer/removeAsync
-tags:
-  - API
-  - Audio
-  - MSE
-  - Media
-  - Media Source Extensions
-  - Method
-  - Experimental
-  - Non-standard
-  - Reference
-  - SourceBuffer
-  - Video
-  - removeAsync
+page-type: web-api-instance-method
+status:
+  - experimental
+  - non-standard
 browser-compat: api.SourceBuffer.removeAsync
 ---
-{{APIRef("Media Source Extensions")}}{{non-standard_header}}{{SeeCompatTable}}
+
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
 The **`removeAsync()`** method of the
 {{domxref("SourceBuffer")}} interface starts the process of asynchronously removing
@@ -25,13 +18,12 @@ range. A {{jsxref("Promise")}} is returned, which is fulfilled when the buffers
 in the specified time range have been removed.
 
 This method can only be called when {{domxref("SourceBuffer.updating", "updating")}} is
-`false`. If that's not the case, call {{domxref("SourceBuffer.abort",
-  "abort()")}} instead.
+`false`. If that's not the case, call {{domxref("SourceBuffer.abort", "abort()")}} instead.
 
 ## Syntax
 
-```js
-removePromise = sourceBuffer.removeAsync(start, end);
+```js-nolint
+removeAsync(start, end)
 ```
 
 ### Parameters
@@ -46,16 +38,16 @@ removePromise = sourceBuffer.removeAsync(start, end);
 A {{jsxref("Promise")}} whose fulfillment handler is executed once the buffers in the
 specified time range have been removed from the `SourceBuffer`.
 
-## Example
+## Examples
 
 This example establishes an asynchronous function, `emptySourceBuffer()`,
 which clears the contents of the specified `SourceBuffer`.
 
 ```js
 async function emptySourceBuffer(msBuffer) {
-  await msBuffer.removeAsync(0, Infinity).catch(function(e) {
+  await msBuffer.removeAsync(0, Infinity).catch((e) => {
     handleException(e);
-  }
+  });
 }
 ```
 
@@ -69,8 +61,7 @@ This feature is not part of any specification. It is not on track to become a st
 
 ## See also
 
-- [Media Source Extensions
-  API](/en-US/docs/Web/API/Media_Source_Extensions_API)
+- [Media Source Extensions API](/en-US/docs/Web/API/Media_Source_Extensions_API)
 - {{domxref("SourceBuffer.remove()")}}
 - {{domxref("MediaSource")}}
 - {{domxref("SourceBufferList")}}

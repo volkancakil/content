@@ -1,14 +1,11 @@
 ---
-title: CanvasRenderingContext2D.shadowColor
+title: "CanvasRenderingContext2D: shadowColor property"
+short-title: shadowColor
 slug: Web/API/CanvasRenderingContext2D/shadowColor
-tags:
-  - API
-  - Canvas
-  - CanvasRenderingContext2D
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.CanvasRenderingContext2D.shadowColor
 ---
+
 {{APIRef}}
 
 The
@@ -20,22 +17,17 @@ Be aware that the shadow's rendered opacity will be affected by the opacity of t
 of the {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} color when
 stroking.
 
-> **Note:** Shadows are only drawn if the `shadowColor`
+> [!NOTE]
+> Shadows are only drawn if the `shadowColor`
 > property is set to a non-transparent value. One of the
 > {{domxref("CanvasRenderingContext2D.shadowBlur", "shadowBlur")}},
 > {{domxref("CanvasRenderingContext2D.shadowOffsetX", "shadowOffsetX")}}, or
 > {{domxref("CanvasRenderingContext2D.shadowOffsetY", "shadowOffsetY")}} properties must
 > be non-zero, as well.
 
-## Syntax
+## Value
 
-```js
-ctx.shadowColor = color;
-```
-
-- `color`
-  - : A {{domxref("DOMString")}} parsed as a [CSS](/en-US/docs/Web/CSS)
-    {{cssxref("&lt;color&gt;")}} value. The default value is fully-transparent black.
+A string parsed as a [CSS](/en-US/docs/Web/CSS) {{cssxref("&lt;color&gt;")}} value. The default value is fully-transparent black.
 
 ## Examples
 
@@ -55,11 +47,11 @@ the shapes.
 #### JavaScript
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 // Shadow
-ctx.shadowColor = 'red';
+ctx.shadowColor = "red";
 ctx.shadowOffsetX = 10;
 ctx.shadowOffsetY = 10;
 
@@ -94,22 +86,22 @@ The resulting alpha value of the fill shadow is `.8 * .2`, or
 `.48`.
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 // Shadow
-ctx.shadowColor = 'rgba(255, 0, 0, .8)';
+ctx.shadowColor = "rgb(255 0 0 / 80%)";
 ctx.shadowBlur = 8;
 ctx.shadowOffsetX = 30;
 ctx.shadowOffsetY = 20;
 
 // Filled rectangle
-ctx.fillStyle = 'rgba(0, 255, 0, .2)';
+ctx.fillStyle = "rgb(0 255 0 / 20%)";
 ctx.fillRect(10, 10, 150, 100);
 
 // Stroked rectangle
 ctx.lineWidth = 10;
-ctx.strokeStyle = 'rgba(0, 0, 255, .6)';
+ctx.strokeStyle = "rgb(0 0 255 / 60%)";
 ctx.strokeRect(10, 10, 150, 100);
 ```
 

@@ -1,17 +1,16 @@
 ---
 title: direction
 slug: Web/CSS/direction
-tags:
-  - BiDi
-  - CSS
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.direction
 ---
+
 {{CSSRef}}
 
-The **`direction`** CSS property sets the direction of text, table columns, and horizontal overflow. Use `rtl` for languages written from right to left (like Hebrew or Arabic), and `ltr` for those written from left to right (like English and most other languages).
+> [!WARNING]
+> Where possible, authors are encouraged to avoid using the `direction` CSS property and use the HTML [`dir`](/en-US/docs/Web/HTML/Global_attributes/dir) global attribute instead.
+
+The **`direction`** [CSS](/en-US/docs/Web/CSS) property sets the direction of text, table columns, and horizontal overflow. Use `rtl` for languages written from right to left (like Hebrew or Arabic), and `ltr` for those written from left to right (like English and most other languages).
 
 {{EmbedInteractiveExample("pages/css/direction.html")}}
 
@@ -34,6 +33,7 @@ direction: rtl;
 direction: inherit;
 direction: initial;
 direction: revert;
+direction: revert-layer;
 direction: unset;
 ```
 
@@ -69,11 +69,13 @@ blockquote {
 
 ```html
 <blockquote>
-<p>This paragraph is in English but incorrectly goes right to left.<p>
+  <p>This paragraph is in English but incorrectly goes right to left.</p>
+  <p></p>
 </blockquote>
 
 <blockquote>
-<p>هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.<p>
+  <p>هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.</p>
+  <p></p>
 </blockquote>
 ```
 
@@ -91,4 +93,5 @@ blockquote {
 
 - {{Cssxref("unicode-bidi")}}
 - {{Cssxref("writing-mode")}}
-- The HTML {{htmlattrxref("dir")}} global attribute
+- The HTML [`dir`](/en-US/docs/Web/HTML/Global_attributes/dir) global attribute
+- [Creating vertical form controls](/en-US/docs/Web/CSS/CSS_writing_modes/Vertical_controls)

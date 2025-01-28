@@ -1,13 +1,10 @@
 ---
 title: Web Animations API
 slug: Web/API/Web_Animations_API
-tags:
-  - API
-  - Animation
-  - Landing
-  - Reference
-  - Web Animations
+page-type: web-api-overview
+spec-urls: https://drafts.csswg.org/web-animations/
 ---
+
 {{DefaultAPISidebar("Web Animations")}}
 
 The **Web Animations API** allows for synchronizing and timing changes to the presentation of a Web page, i.e. animation of DOM elements. It does so by combining two models: the Timing Model and the Animation Model.
@@ -21,19 +18,17 @@ The Web Animations API provides a common language for browsers and developers to
 - {{domxref("Animation")}}
   - : Provides playback controls and a timeline for an animation node or source. Can take an object created with the {{domxref("KeyframeEffect.KeyframeEffect", "KeyframeEffect()")}} constructor.
 - {{domxref("KeyframeEffect")}}
-  - : Describes sets of animatable properties and values, called **keyframes** and their [timing options](/en-US/docs/Web/API/EffectTiming). These can then be played using the {{domxref("Animation.Animation", "Animation()")}} constructor.
+  - : Describes sets of animatable properties and values, called **keyframes** and their timing options. These can then be played using the {{domxref("Animation.Animation", "Animation()")}} constructor.
 - {{domxref("AnimationTimeline")}}
   - : Represents the timeline of animation. This interface exists to define timeline features (inherited by {{domxref("DocumentTimeline")}} and future timeline objects) and is not itself accessed by developers.
 - {{domxref("AnimationEvent")}}
-  - : Actually part of CSS Animations.
+  - : Part of the [CSS Animations](/en-US/docs/Web/CSS/CSS_animations) module, capturing the animation name and elapsed time.
 - {{domxref("DocumentTimeline")}}
   - : Represents animation timelines, including the default document timeline (accessed using the {{domxref("Document.timeline")}} property).
-- {{domxref("EffectTiming")}}
-  - : {{domxref("Element.animate()")}} and {{domxref("KeyframeEffect.KeyframeEffect()")}} both accept an optional dictionary object of timing properties.
 
 ## Extensions to other interfaces
 
-The Web Animations API adds some new features to {{domxref("document")}} and {{domxref("element")}}.
+The Web Animations API adds features to {{domxref("document")}} and {{domxref("element")}}.
 
 ### Extensions to the `Document` interface
 
@@ -47,18 +42,17 @@ The Web Animations API adds some new features to {{domxref("document")}} and {{d
 - {{domxref("Element.animate()")}}
   - : A shortcut method for creating and playing an animation on an element. It returns the created {{domxref("Animation")}} object instance.
 - {{domxref("Element.getAnimations()")}}
-  - : Returns an Array of {{domxref("Animation")}} objects currently affecting an element or which are scheduled to do so in future.
+  - : Returns an Array of {{domxref("Animation")}} objects currently affecting an element or which are scheduled to do so in the future.
 
 ## Specifications
 
-| Specification                                                |
-| ------------------------------------------------------------ |
-| [Web Animations](https://drafts.csswg.org/web-animations-1/) |
+{{Specifications}}
 
 ## See also
 
+- CSS {{cssxref("animation")}} shorthand property
+- CSS {{cssxref("animation-timeline")}} property
 - [Using the Web Animations API](/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
-- [Web Animations demos](https://mozdevs.github.io/Animation-examples/)
-- [Polyfill](https://github.com/web-animations/web-animations-js)
-- Firefox's current implementation: [AreWeAnimatedYet](https://birtles.github.io/areweanimatedyet/)
-- [Browser support test](https://codepen.io/danwilson/pen/xGBKVq)
+- [Using CSS animations](/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS animations](/en-US/docs/Web/CSS/CSS_animations) module
+- [CSS scroll-driven animations](/en-US/docs/Web/CSS/CSS_scroll-driven_animations) module

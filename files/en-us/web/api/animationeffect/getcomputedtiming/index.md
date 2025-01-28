@@ -1,53 +1,60 @@
 ---
-title: AnimationEffect.getComputedTiming()
+title: "AnimationEffect: getComputedTiming() method"
+short-title: getComputedTiming()
 slug: Web/API/AnimationEffect/getComputedTiming
-tags:
-  - API
-  - Animation
-  - Method
-  - Reference
-  - getComputedTiming
-  - waapi
-  - web animations api
+page-type: web-api-instance-method
 browser-compat: api.AnimationEffect.getComputedTiming
 ---
-{{ SeeCompatTable() }}{{ APIRef("Web Animations API") }}
+
+{{ APIRef("Web Animations") }}
 
 The `getComputedTiming()` method of the {{domxref("AnimationEffect")}} interface returns the calculated timing properties for this animation effect.
 
-Although many of the attributes of the returned object are common to the {{domxref("EffectTiming")}} contained in the object returned by the {{domxref("AnimationEffect.getTiming()")}} method, the values returned by this object differ in the following ways:
-
-- `duration`
-  - : Returns the calculated value of the iteration duration. If {{domxref("EffectTiming.duration")}} is the string `auto`, this attribute will return `0`.
-- `fill`
-  - : The `auto` value is replaced with the appropriate {{domxref("EffectTiming.fill")}} value.
-
-> **Note:** These values are comparable to the computed styles of an Element returned using `window.getComputedStyle(elem)`.
+> [!NOTE]
+> These values are comparable to the computed styles of an Element returned using `window.getComputedStyle(elem)`.
 
 ## Syntax
 
-```js
-var currentTimeValues = animation.getComputedTiming();
+```js-nolint
+getComputedTiming()
 ```
 
 ### Parameters
 
 None.
 
-### Return Value
+### Return value
 
-A [`ComputedEffectTiming`](https://drafts.csswg.org/web-animations/#dictdef-computedeffecttiming) dictionary object, which contains the following properties:
+An object which contains:
 
-- endTime
-  - : The end time of the animation in milliseconds from the animation's start (if the {{domxref("KeyframeEffect")}} is associated with an {{domxref("Animation")}}). (Also includes {{domxref("EffectTiming.endDelay")}} in that calculation.)
-- activeDuration
-  - : The length of time in milliseconds that the animation's effects will run. This is equal to the [iteration duration](/en-US/docs/Web/API/EffectTiming/duration) multiplied by the [iteration count](/en-US/docs/Web/API/EffectTiming/iterations).
-- localTime
-  - : The [current time](/en-US/docs/Web/API/AnimationTimeline/currentTime) of the animation in milliseconds. If the `KeyframeEffect` is not associated with an `Animation`, its value is `null`.
-- progress
-  - : Indicates how far along the animation is through its current iteration with values between `0` and `1`. Returns `null` if the animation is not running or its `KeyframeEffect` isn't associated with an `Animation`.
-- currentIteration
-  - : The number of times this animation has looped, starting from `0`. Returns `null` if the animation is not running or its `KeyframeEffect` isn't associated with an `Animation`.
+- all of the properties of the object returned by {{domxref("AnimationEffect.getTiming()")}}, except that any `"auto"` values are replaced by computed values that may depend on the type of {{domxref("AnimationEffect")}}.
+- the following additional properties:
+
+  - `endTime`
+    - : A `number` indicating the end time of the effect in milliseconds from the effect's start. This is equal to `activeDuration` plus `delay` and `endDelay`.
+  - `activeDuration`
+    - : A `number` indicating the total duration in milliseconds of all iterations of the effect. This is equal to `duration` multiplied by `iterations` (or zero if that product would be {{jsxref("NaN")}}).
+  - `localTime`
+
+    - : A `number` or `null`.
+
+      Indicates the length of time in milliseconds that the effect has run. This is equal to the {{domxref("Animation.currentTime","currentTime")}} of the associated animation, or `null` if the effect is not associated with an animation.
+
+  - `progress`
+
+    - : `null` or a `number` at least `0` and less than `1`.
+
+      Indicates the effect's progress through its current iteration. At the start of the `activeDuration`, this equals the fractional part of `iterationStart`.
+
+      Returns `null` if the effect isn't mid-iteration, for example because the effect is in the `delay` or `endDelay` periods, the effect is finished, or `localTime` is `null`.
+
+  - `currentIteration`
+
+    - : `null` or an integer `number`.
+
+      Indicates the index of the current iteration. At the start of the `activeDuration`, this equals the integer part of `iterationStart`.
+
+      Returns `null` whenever `progress` is `null`.
 
 ## Specifications
 

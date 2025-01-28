@@ -1,30 +1,18 @@
 ---
-title: CanvasRenderingContext2D.fillText()
+title: "CanvasRenderingContext2D: fillText() method"
+short-title: fillText()
 slug: Web/API/CanvasRenderingContext2D/fillText
-tags:
-  - API
-  - Canvas
-  - CanvasRenderingContext2D
-  - Draw String
-  - Draw Text
-  - Drawing Strings
-  - Drawing Text
-  - Fill Text
-  - Filling Text
-  - Method
-  - Reference
-  - Text
-  - fillText
+page-type: web-api-instance-method
 browser-compat: api.CanvasRenderingContext2D.fillText
 ---
+
 {{APIRef("HTML DOM")}}
 
 The {{domxref("CanvasRenderingContext2D")}} method
 **`fillText()`**, part of the Canvas 2D API, draws a text string
 at the specified coordinates, filling the string's characters with the current
 {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}}. An optional parameter
-allows specifying a maximum width for the rendered text, which the {{Glossary("user
-  agent")}} will achieve by condensing the text or by using a lower font size.
+allows specifying a maximum width for the rendered text, which the {{Glossary("user agent")}} will achieve by condensing the text or by using a lower font size.
 
 This method draws directly to the canvas without modifying the current path, so any
 subsequent {{domxref("CanvasRenderingContext2D.fill()", "fill()")}} or
@@ -37,19 +25,21 @@ The text is rendered using the font and text layout configuration as defined by 
 {{domxref("CanvasRenderingContext2D.textBaseline","textBaseline")}}, and
 {{domxref("CanvasRenderingContext2D.direction","direction")}} properties.
 
-> **Note:** To draw the outlines of the characters in a string, call the context's
+> [!NOTE]
+> To draw the outlines of the characters in a string, call the context's
 > {{domxref("CanvasRenderingContext2D.strokeText", "strokeText()")}} method.
 
 ## Syntax
 
-```js
-CanvasRenderingContext2D.fillText(text, x, y [, maxWidth]);
+```js-nolint
+fillText(text, x, y)
+fillText(text, x, y, maxWidth)
 ```
 
 ### Parameters
 
 - `text`
-  - : A {{domxref("DOMString")}} specifying the text string to render into the context.
+  - : A string specifying the text string to render into the context.
     The text is rendered using the settings specified by
     {{domxref("CanvasRenderingContext2D.font","font")}},
     {{domxref("CanvasRenderingContext2D.textAlign","textAlign")}},
@@ -68,7 +58,7 @@ CanvasRenderingContext2D.fillText(text, x, y [, maxWidth]);
 
 ### Return value
 
-{{jsxref("undefined")}}.
+None ({{jsxref("undefined")}}).
 
 ## Examples
 
@@ -90,18 +80,18 @@ First, we need a canvas to draw into. This code creates a context 400 pixels wid
 The JavaScript code for this example follows.
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-ctx.font = '50px serif';
-ctx.fillText('Hello world', 50, 90);
+ctx.font = "50px serif";
+ctx.fillText("Hello world", 50, 90);
 ```
 
 This code obtains a reference to the {{HTMLElement("canvas")}}, then gets a reference
 to its 2D graphics context.
 
 With that in hand, we set the {{domxref("CanvasRenderingContext2D.font", "font")}} to
-50-pixel-tall "serif" (the user's default {{interwiki("wikipedia", "serif")}} font),
+50-pixel-tall "serif" (the user's default [serif](https://en.wikipedia.org/wiki/Serif) font),
 then call `fillText()` to draw the text "Hello world," starting at the
 coordinates (50, 90).
 
@@ -122,11 +112,11 @@ This example writes the words "Hello world," restricting its width to 140 pixels
 #### JavaScript
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-ctx.font = '50px serif';
-ctx.fillText('Hello world', 50, 90, 140);
+ctx.font = "50px serif";
+ctx.fillText("Hello world", 50, 90, 140);
 ```
 
 #### Result

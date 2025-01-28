@@ -1,15 +1,12 @@
 ---
-title: WebGL2RenderingContext.createSampler()
+title: "WebGL2RenderingContext: createSampler() method"
+short-title: createSampler()
 slug: Web/API/WebGL2RenderingContext/createSampler
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGL2
+page-type: web-api-instance-method
 browser-compat: api.WebGL2RenderingContext.createSampler
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGL2RenderingContext.createSampler()`** method of the
 [WebGL 2 API](/en-US/docs/Web/API/WebGL_API) creates and initializes
@@ -17,8 +14,8 @@ The **`WebGL2RenderingContext.createSampler()`** method of the
 
 ## Syntax
 
-```js
-WebGLSampler gl.createSampler();
+```js-nolint
+createSampler()
 ```
 
 ### Parameters
@@ -35,7 +32,7 @@ A {{domxref("WebGLSampler")}} object.
 `WebGLSampler` objects are not available in WebGL 1.
 
 ```js
-var sampler = gl.createSampler();
+const sampler = gl.createSampler();
 ```
 
 ## Specifications

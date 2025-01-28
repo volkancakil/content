@@ -1,29 +1,24 @@
 ---
-title: WorkerLocation.hostname
+title: "WorkerLocation: hostname property"
+short-title: hostname
 slug: Web/API/WorkerLocation/hostname
-tags:
-  - API
-  - Property
-  - Read-only
-  - Reference
-  - WorkerLocation
+page-type: web-api-instance-property
 browser-compat: api.WorkerLocation.hostname
 ---
-{{ApiRef("WorkerLocation")}}
 
-The **`hostname`** property of a {{domxref("WorkerLocation")}} object returns the {{domxref("URL.hostname", "hostname")}} part of the worker’s location.
+{{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-## Syntax
+The **`hostname`** property of a {{domxref("WorkerLocation")}} object returns the {{domxref("URL.hostname", "hostname")}} part of the worker's location.
 
-```js
-string = location.hostname;
-```
+## Value
+
+A string.
 
 ## Examples
 
 ```js
 // In a Web worker, on the page http://localhost:8080/
-var result = location.hostname; // Returns 'localhost'
+const result = location.hostname; // Returns 'localhost'
 ```
 
 ## Specifications

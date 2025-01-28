@@ -1,29 +1,24 @@
 ---
-title: WebGLRenderingContext.clear()
+title: "WebGLRenderingContext: clear() method"
+short-title: clear()
 slug: Web/API/WebGLRenderingContext/clear
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGLRenderingContext
+page-type: web-api-instance-method
 browser-compat: api.WebGLRenderingContext.clear
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGLRenderingContext.clear()`** method of the [WebGL API](/en-US/docs/Web/API/WebGL_API) clears buffers to preset values.
 
-The preset values can be set by {{domxref("WebGLRenderingContext.clearColor",
-  "clearColor()")}}, {{domxref("WebGLRenderingContext.clearDepth", "clearDepth()")}} or
-{{domxref("WebGLRenderingContext.clearStencil", "clearStencil()")}}.
+The preset values can be set by {{domxref("WebGLRenderingContext.clearColor", "clearColor()")}}, {{domxref("WebGLRenderingContext.clearDepth", "clearDepth()")}} or {{domxref("WebGLRenderingContext.clearStencil", "clearStencil()")}}.
 
 The scissor box, dithering, and buffer writemasks can affect the `clear()`
 method.
 
 ## Syntax
 
-```js
-void gl.clear(mask);
+```js-nolint
+clear(mask)
 ```
 
 ### Parameters
@@ -39,7 +34,7 @@ void gl.clear(mask);
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 

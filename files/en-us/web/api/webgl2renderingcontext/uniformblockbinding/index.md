@@ -1,15 +1,12 @@
 ---
-title: WebGL2RenderingContext.uniformBlockBinding()
+title: "WebGL2RenderingContext: uniformBlockBinding() method"
+short-title: uniformBlockBinding()
 slug: Web/API/WebGL2RenderingContext/uniformBlockBinding
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGL2
+page-type: web-api-instance-method
 browser-compat: api.WebGL2RenderingContext.uniformBlockBinding
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGL2RenderingContext.uniformBlockBinding()`** method
 of the [WebGL 2 API](/en-US/docs/Web/API/WebGL_API) assigns binding points
@@ -17,8 +14,8 @@ for active uniform blocks.
 
 ## Syntax
 
-```js
-void gl.uniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
+```js-nolint
+uniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding)
 ```
 
 ### Parameters
@@ -29,13 +26,13 @@ void gl.uniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 - `uniformBlockIndex`
   - : A {{domxref("WebGL_API/Types", "GLuint")}} specifying the index of the active uniform block within the
     program.
-- uniformBlockBinding
+- `uniformBlockBinding`
   - : A {{domxref("WebGL_API/Types", "GLuint")}} specifying the binding point to which to bind the uniform
     block.
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ## Examples
 

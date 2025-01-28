@@ -1,22 +1,19 @@
 ---
-title: WebGLRenderingContext.drawArrays()
+title: "WebGLRenderingContext: drawArrays() method"
+short-title: drawArrays()
 slug: Web/API/WebGLRenderingContext/drawArrays
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGLRenderingContext
+page-type: web-api-instance-method
 browser-compat: api.WebGLRenderingContext.drawArrays
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGLRenderingContext.drawArrays()`** method of the [WebGL API](/en-US/docs/Web/API/WebGL_API) renders primitives from array data.
 
 ## Syntax
 
-```js
-void gl.drawArrays(mode, first, count);
+```js-nolint
+drawArrays(mode, first, count)
 ```
 
 ### Parameters
@@ -35,14 +32,17 @@ void gl.drawArrays(mode, first, count);
     - [`gl.TRIANGLE_FAN`](https://en.wikipedia.org/wiki/Triangle_fan)
     - `gl.TRIANGLES`: Draws a triangle for a group of three vertices.
 
-- first
+    > [!NOTE]
+    > If `mode` is `POINTS`, [`gl_PointSize`](https://registry.khronos.org/OpenGL-Refpages/gl4/html/gl_PointSize.xhtml) may need to be set for `drawArrays` to render, as its value is unknown if not explicitly written. Only some GPUs set its default as `1.0`.
+
+- `first`
   - : A {{domxref("WebGL_API/Types", "GLint")}} specifying the starting index in the array of vector points.
-- count
+- `count`
   - : A {{domxref("WebGL_API/Types", "GLsizei")}} specifying the number of indices to be rendered.
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 
@@ -50,7 +50,7 @@ None.
   `gl.INVALID_ENUM` error is thrown.
 - If `first` or `count` are negative, a
   `gl.INVALID_VALUE` error is thrown.
-- if `gl.CURRENT_PROGRAM` is {{jsxref("null")}}, a
+- if `gl.CURRENT_PROGRAM` is [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null), a
   `gl.INVALID_OPERATION` error is thrown.
 
 ## Examples
@@ -70,12 +70,9 @@ gl.drawArrays(gl.POINTS, 0, 8);
 ## See also
 
 - {{domxref("WebGLRenderingContext.drawElements()")}}
-- {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()",
-    "ext.drawArraysInstancedANGLE()")}}
-- {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()",
-    "ext.drawElementsInstancedANGLE()")}}
-- {{domxref("ANGLE_instanced_arrays.vertexAttribDivisorANGLE()",
-    "ext.vertexAttribDivisorANGLE()")}}
+- {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()", "ext.drawArraysInstancedANGLE()")}}
+- {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()", "ext.drawElementsInstancedANGLE()")}}
+- {{domxref("ANGLE_instanced_arrays.vertexAttribDivisorANGLE()", "ext.vertexAttribDivisorANGLE()")}}
 - {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
 - {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
 - {{domxref("WebGL2RenderingContext.vertexAttribDivisor()")}}

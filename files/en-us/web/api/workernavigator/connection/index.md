@@ -1,28 +1,19 @@
 ---
-title: WorkerNavigator.connection
+title: "WorkerNavigator: connection property"
+short-title: connection
 slug: Web/API/WorkerNavigator/connection
-tags:
-  - API
-  - Connection
-  - Experimental
-  - Property
-  - Reference
-  - WorkerNavigator
+page-type: web-api-instance-property
 browser-compat: api.WorkerNavigator.connection
 ---
-{{APIRef("Network Information API")}}{{SeeCompatTable}}
 
-The **`WorkerNavigator.connection`** read-only property returns
-a {{domxref("NetworkInformation")}} object containing information about the system's
-connection, such as the current bandwidth of the user's device or whether the connection
-is metered. This could be used to select high definition content or low definition
-content based on the user's connection.
+{{APIRef("Network Information API")}}{{AvailableInWorkers("worker")}}
 
-## Syntax
+The **`connection`** read-only property of the {{domxref("WorkerNavigator")}} interface returns a {{domxref("NetworkInformation")}} object containing information about the system's connection, such as the current bandwidth of the user's device or whether the connection is metered.
+This could be used to select high definition content or low definition content based on the user's connection.
 
-```js
-connectionInfo = navigator.connection
-```
+## Value
+
+A {{domxref("NetworkInformation")}} object.
 
 ## Specifications
 
@@ -34,5 +25,5 @@ connectionInfo = navigator.connection
 
 ## See also
 
-- [Online and offline events](/en-US/docs/Online_and_offline_events)
+- [Online and offline events](/en-US/docs/Web/API/Navigator/onLine)
 - [Network Information API](/en-US/docs/Web/API/Network_Information_API)

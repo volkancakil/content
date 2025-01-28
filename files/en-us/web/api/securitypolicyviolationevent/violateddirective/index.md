@@ -1,36 +1,22 @@
 ---
-title: SecurityPolicyViolationEvent.violatedDirective
+title: "SecurityPolicyViolationEvent: violatedDirective property"
+short-title: violatedDirective
 slug: Web/API/SecurityPolicyViolationEvent/violatedDirective
-tags:
-  - API
-  - CSP
-  - Experimental
-  - HTTP
-  - Property
-  - Reference
-  - Security
-  - SecurityPolicyViolationEvent
-  - violatedDirective
+page-type: web-api-instance-property
 browser-compat: api.SecurityPolicyViolationEvent.violatedDirective
 ---
-{{APIRef("{{HTTPSidebar}}")}}{{ SeeCompatTable() }}
 
-The **`violatedDirective`** read-only property of the
-{{domxref("SecurityPolicyViolationEvent")}} interface is a {{domxref("DOMString")}}
-representing the directive whose enforcement uncovered the violation.
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-## Syntax
+The **`violatedDirective`** read-only property of the {{domxref("SecurityPolicyViolationEvent")}} interface is a string representing the [Content Security Policy (CSP)](/en-US/docs/Web/HTTP/CSP) directive that was violated.
 
-```js
-let violatedDir = violationEventInstance.violatedDirective;
-```
+This is a historical alias of {{domxref("SecurityPolicyViolationEvent.effectiveDirective")}}, and has the same value.
 
-### Value
+## Value
 
-A {{domxref("DOMString")}} representing the directive whose enforcement uncovered the
-violation.
+A string representing the [`Content-Security-Policy` directive](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives) that was violated.
 
-## Example
+## Examples
 
 ```js
 document.addEventListener("securitypolicyviolation", (e) => {
@@ -45,7 +31,3 @@ document.addEventListener("securitypolicyviolation", (e) => {
 ## Browser compatibility
 
 {{Compat}}
-
-## See also
-
-- [Content Security Policy (CSP)](/en-US/docs/Web/HTTP/CSP)

@@ -1,15 +1,10 @@
 ---
 title: <flex>
 slug: Web/CSS/flex_value
-tags:
-  - CSS
-  - CSS Data Type
-  - Data Type
-  - Layout
-  - Reference
-  - Web
+page-type: css-type
 browser-compat: css.types.flex
 ---
+
 {{CSSRef}}
 
 The **`<flex>`** [CSS](/en-US/docs/Web/CSS) [data type](/en-US/docs/Web/CSS/CSS_Types) denotes a flexible length within a grid container. It is used in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} and other related properties.
@@ -20,19 +15,19 @@ The `<flex>` data type is specified as a {{cssxref("&lt;number&gt;")}} followed 
 
 ## Examples
 
-### Examples of correct values for the fr data type
+### Examples of correct values for the fr data type
 
-```css
+```plain
 1fr    /* Using an integer value */
 2.5fr  /* Using a float value */
 ```
 
-### Example of use in a tracklisting for CSS Grid layout
+### Example of use in a track listing for CSS grid layout
 
 ```css
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 2.5fr 1.5fr;
+  grid-template-columns: 1fr 1fr 2.5fr 1.5fr;
 }
 ```
 
@@ -46,4 +41,4 @@ The `<flex>` data type is specified as a {{cssxref("&lt;number&gt;")}} followed 
 
 ## See also
 
-- [CSS Grid Layout](/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [CSS grid layout](/en-US/docs/Web/CSS/CSS_grid_layout)

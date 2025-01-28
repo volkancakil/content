@@ -1,13 +1,11 @@
 ---
-title: Range.compareBoundaryPoints()
+title: "Range: compareBoundaryPoints() method"
+short-title: compareBoundaryPoints()
 slug: Web/API/Range/compareBoundaryPoints
-tags:
-  - API
-  - DOM
-  - Method
-  - Range
+page-type: web-api-instance-method
 browser-compat: api.Range.compareBoundaryPoints
 ---
+
 {{ApiRef("DOM")}}
 
 The
@@ -16,16 +14,9 @@ boundary points of the {{domxref("Range")}} with those of another range.
 
 ## Syntax
 
-```js
-compare = range.compareBoundaryPoints(how, sourceRange);
+```js-nolint
+compareBoundaryPoints(how, sourceRange)
 ```
-
-### Return value
-
-- `compare`
-  - : A number, `-1`, `0`, or `1`, indicating whether the
-    corresponding boundary-point of the {{domxref("Range")}} is respectively before, equal
-    to, or after the corresponding boundary-point of _sourceRange_.
 
 ### Parameters
 
@@ -42,21 +33,28 @@ compare = range.compareBoundaryPoints(how, sourceRange);
     - `Range.START_TO_START` compares the start boundary-point of
       _sourceRange_ to the start boundary-point of `Range`.
 
-    If the value of the parameter is invalid, a {{domxref("DOMException")}} with a
-    `NotSupportedError` code is thrown.
-
 - `sourceRange`
   - : A {{domxref("Range")}} to compare boundary points with the range.
 
-## Example
+### Return value
+
+A number, `-1`, `0`, or `1`, indicating whether the
+corresponding boundary-point of the {{domxref("Range")}} is respectively before, equal
+to, or after the corresponding boundary-point of _sourceRange_.
+
+### Exceptions
+
+- `NotSupportedError` {{domxref("DOMException")}}
+  - : Thrown if the value of the `how` parameter is invalid.
+
+## Examples
 
 ```js
-var range, sourceRange, compare;
-range = document.createRange();
-range.selectNode(document.getElementsByTagName("div")[0]);
-sourceRange = document.createRange();
+const range = document.createRange();
+range.selectNode(document.querySelector("div"));
+const sourceRange = document.createRange();
 sourceRange.selectNode(document.getElementsByTagName("div")[1]);
-compare = range.compareBoundaryPoints(Range.START_TO_END, sourceRange);
+const compare = range.compareBoundaryPoints(Range.START_TO_END, sourceRange);
 ```
 
 ## Specifications

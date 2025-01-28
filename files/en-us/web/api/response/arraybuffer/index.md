@@ -1,16 +1,12 @@
 ---
-title: Response.arrayBuffer()
+title: "Response: arrayBuffer() method"
+short-title: arrayBuffer()
 slug: Web/API/Response/arrayBuffer
-tags:
-  - API
-  - ArrayBuffer
-  - Fetch
-  - Method
-  - Reference
-  - Response
+page-type: web-api-instance-method
 browser-compat: api.Response.arrayBuffer
 ---
-{{APIRef("Fetch")}}
+
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
 The **`arrayBuffer()`** method of the {{domxref("Response")}} interface
 takes a {{domxref("Response")}} stream and reads it to completion. It returns a promise
@@ -18,10 +14,8 @@ that resolves with an {{jsxref("ArrayBuffer")}}.
 
 ## Syntax
 
-```js
-response.arrayBuffer().then(function(buffer) {
-  // do something with buffer
-});
+```js-nolint
+arrayBuffer()
 ```
 
 ### Parameters
@@ -32,12 +26,23 @@ None.
 
 A promise that resolves with an {{jsxref("ArrayBuffer")}}.
 
+### Exceptions
+
+- {{domxref("DOMException")}} `AbortError`
+  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+- {{jsxref("TypeError")}}
+  - : Thrown for one of the following reasons:
+    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
+    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+- {{jsxref("RangeError")}}
+  - : There was a problem creating the associated `ArrayBuffer`.
+    For example, if the data size is more than [`Number.MAX_SAFE_INTEGER`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).
+
 ## Examples
 
 ### Playing music
 
-In our [fetch array
-buffer live](https://mdn.github.io/fetch-examples/fetch-array-buffer/), we have a Play button. When pressed, the `getData()`
+In our [fetch array buffer live](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-array-buffer), we have a Play button. When pressed, the `getData()`
 function is run. Note that before playing full audio file will be downloaded. If you
 need to play ogg during downloading (stream it) - consider
 {{domxref("HTMLAudioElement")}}:
@@ -61,27 +66,32 @@ when it is already playing (this would cause an error.)
 
 ```js
 function getData() {
-  source = audioCtx.createBufferSource();
+  const audioCtx = new AudioContext();
 
-  var myRequest = new Request('viper.ogg');
-
-  fetch(myRequest).then(function(response) {
-    return response.arrayBuffer();
-  }).then(function(buffer) {
-    audioCtx.decodeAudioData(buffer, function(decodedData) {
+  return fetch("viper.ogg")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error, status = ${response.status}`);
+      }
+      return response.arrayBuffer();
+    })
+    .then((buffer) => audioCtx.decodeAudioData(buffer))
+    .then((decodedData) => {
+      const source = new AudioBufferSourceNode(audioCtx);
       source.buffer = decodedData;
       source.connect(audioCtx.destination);
+      return source;
     });
-  });
-};
+}
 
 // wire up buttons to stop and play audio
 
-play.onclick = function() {
-  getData();
-  source.start(0);
-  play.setAttribute('disabled', 'disabled');
-}
+play.onclick = () => {
+  getData().then((source) => {
+    source.start(0);
+    play.setAttribute("disabled", "disabled");
+  });
+};
 ```
 
 ### Reading files
@@ -97,7 +107,7 @@ function readFile(file) {
 ```
 
 ```html
-<input type="file" onchange="readFile(this.files[0])">
+<input type="file" onchange="readFile(this.files[0])" />
 ```
 
 ## Specifications

@@ -1,19 +1,12 @@
 ---
-title: XMLHttpRequest.overrideMimeType()
+title: "XMLHttpRequest: overrideMimeType() method"
+short-title: overrideMimeType()
 slug: Web/API/XMLHttpRequest/overrideMimeType
-tags:
-  - API
-  - File Type
-  - MIME Type
-  - Method
-  - Reference
-  - XHR
-  - XHR MIME Type
-  - XMLHttpRequest
-  - overrideMimeType
+page-type: web-api-instance-method
 browser-compat: api.XMLHttpRequest.overrideMimeType
 ---
-{{APIRef('XMLHttpRequest')}}
+
+{{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
 The {{domxref("XMLHttpRequest")}} method
 **`overrideMimeType()`** specifies a MIME type other than the
@@ -22,32 +15,32 @@ transferred in a request.
 
 This may be used, for example, to force a stream to
 be treated and parsed as `"text/xml"`, even if the server does not report it
-as such. This method must be called before calling {{domxref("XMLHttpRequest.send",
-  "send()")}}.
+as such. This method must be called before calling {{domxref("XMLHttpRequest.send", "send()")}}.
 
 ## Syntax
 
-```js
-XMLHttpRequest.overrideMimeType(mimeType)
+```js-nolint
+overrideMimeType(mimeType)
 ```
 
 ### Parameters
 
 - `mimeType`
-  - : A {{domxref("DOMString")}} specifying the MIME type to use instead of the one
+  - : A string specifying the MIME type to use instead of the one
     specified by the server. If the server doesn't specify a type,
     `XMLHttpRequest` assumes `"text/xml"`.
 
 ### Return value
 
-`undefined`.
+None ({{jsxref("undefined")}}).
 
-## Example
+## Examples
 
 This example specifies a MIME type of `"text/plain"`, overriding the
 server's stated type for the data being received.
 
-> **Note:** If the server doesn't provide a
+> [!NOTE]
+> If the server doesn't provide a
 > [`Content-Type`](/en-US/docs/Web/HTTP/Headers/Content-Type)
 > header, {{domxref("XMLHttpRequest")}} assumes that the MIME type is
 > `"text/xml"`. If the content isn't valid XML, an "XML Parsing Error: not
@@ -74,6 +67,5 @@ req.send();
 
 ## See also
 
-- [Using
-  XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
+- [Using XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
 - {{domxref("XMLHttpRequest.responseType")}}

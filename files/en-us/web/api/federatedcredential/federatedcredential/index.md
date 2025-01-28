@@ -1,37 +1,35 @@
 ---
-title: FederatedCredential()
+title: "FederatedCredential: FederatedCredential() constructor"
+short-title: FederatedCredential()
 slug: Web/API/FederatedCredential/FederatedCredential
-tags:
-  - API
-  - Constructor
-  - Credential Management API
-  - FederatedCredential
-  - NeedsExample
-  - Reference
-  - credential management
+page-type: web-api-constructor
+status:
+  - experimental
 browser-compat: api.FederatedCredential.FederatedCredential
 ---
-{{APIRef("Credential Management API")}}{{Non-standard_header}}
+
+{{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 The **`FederatedCredential()`**
 constructor creates a new {{domxref("FederatedCredential")}} object. In
 supporting browsers, an instance of this class may be passed the `credential`
-received from the `init` object for global {{domxref('fetch()')}}.
+received from the `init` object for global {{domxref("Window/fetch", "fetch()")}}.
 
 ## Syntax
 
-```js
-var myCredential = new FederatedCredential(init)
+```js-nolint
+new FederatedCredential(init)
 ```
 
 ### Parameters
 
-- _init_
+- `init`
 
   - : Options are:
 
-    - `provider`: A {{domxref("USVString")}}; identifying the credential
-      provider.
+    - `provider`
+      - : A string; identifying the credential
+        provider.
 
 ## Specifications
 

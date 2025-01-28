@@ -1,8 +1,11 @@
 ---
-title: HTMLImageElement.y
+title: "HTMLImageElement: y property"
+short-title: "y"
 slug: Web/API/HTMLImageElement/y
+page-type: web-api-instance-property
 browser-compat: api.HTMLImageElement.y
 ---
+
 {{APIRef("HTML DOM")}}
 
 The read-only {{domxref("HTMLImageElement")}} property
@@ -17,13 +20,7 @@ either of those values set explicitly on it, or it has inherited it from a conta
 element, or by being located within a column described by either
 {{HTMLElement("col")}} or {{HTMLElement("colgroup")}}.
 
-## Syntax
-
-```js
-let imageY = htmlImageElement.y;
-```
-
-### Value
+## Value
 
 An integer value indicating the distance in pixels from the top edge of the element's
 nearest root element to the top edge of the {{HTMLElement("img")}} element's border
@@ -37,7 +34,8 @@ edge of the content area.
 
 ![Diagram showing the relationships between the various boxes associated with an element](boxmodel-3.png)
 
-> **Note:** The `y` property is only valid if the computed
+> [!NOTE]
+> The `y` property is only valid if the computed
 > value of the image's {{cssxref("display")}} property is either
 > `table-column` or `table-column-group`; in other words,
 > either of those are set directly on the {{HTMLElement("img")}} or they're

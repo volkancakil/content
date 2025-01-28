@@ -1,30 +1,18 @@
 ---
-title: WebSocket.protocol
+title: "WebSocket: protocol property"
+short-title: protocol
 slug: Web/API/WebSocket/protocol
-tags:
-  - API
-  - Property
-  - Reference
-  - Web API
-  - WebSocket
+page-type: web-api-instance-property
 browser-compat: api.WebSocket.protocol
 ---
-{{APIRef("Web Sockets API")}}
 
-The **`WebSocket.protocol`** read-only property returns the
-name of the sub-protocol the server selected; this will be one of the strings specified
-in the `protocols` parameter when creating the {{domxref("WebSocket")}}
-object, or the empty string if no connection is established.
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-## Syntax
-
-```js
-var protocol = aWebSocket.protocol;
-```
+The **`WebSocket.protocol`** read-only property returns the name of the [sub-protocol](/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) the server selected; this will be one of the strings specified in the [`protocols`](/en-US/docs/Web/API/WebSocket/WebSocket#protocols) parameter when creating the {{domxref("WebSocket")}} object, or the empty string if no connection is established.
 
 ## Value
 
-A [`DOMString`](/en-US/docs/Web/API/DOMString "DOMString is a UTF-16 String. As JavaScript already uses such strings, DOMString is mapped directly to a String.").
+A string.
 
 ## Specifications
 
@@ -33,3 +21,7 @@ A [`DOMString`](/en-US/docs/Web/API/DOMString "DOMString is a UTF-16 String. As 
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- {{httpheader("Sec-WebSocket-Protocol")}}

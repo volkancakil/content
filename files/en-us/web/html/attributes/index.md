@@ -1,26 +1,13 @@
 ---
 title: HTML attribute reference
+short-title: Attributes
 slug: Web/HTML/Attributes
-tags:
-  - Attribute
-  - Attributes
-  - Beginner
-  - Configuring
-  - Element Attributes
-  - Elements
-  - HTML
-  - Reference
-  - Settings
-  - Web
+page-type: landing-page
 ---
 
-{{HTMLSidebar}}
+{{HTMLSidebar("Attributes")}}
 
 Elements in HTML have **attributes**; these are additional values that configure the elements or adjust their behavior in various ways to meet the criteria the users want.
-
-## Global event handlers
-
-In addition to the attributes listed in the table below, the [`GlobalEventHandlers`](/en-US/docs/Web/API/GlobalEventHandlers) article lists global event handlers — such as [`onclick`](/en-US/docs/Web/API/GlobalEventHandlers/onclick) — than can also be specified as [content attributes](#content_versus_idl_attributes) on all elements.
 
 ## Attribute list
 
@@ -44,10 +31,10 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/form#attr-accept-charset">accept-charset</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/form#accept-charset">accept-charset</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
-      <td>List of supported charsets.</td>
+      <td>The character set, which if provided must be <code>"UTF-8"</code>.</td>
     </tr>
     <tr>
       <td>
@@ -60,7 +47,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/action">action</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/form#action">action</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
@@ -70,23 +57,22 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/align">align</a></code>
+        <code>align</code> {{deprecated_inline}}
       </td>
       <td>
-        {{ HTMLElement("applet") }},
         {{ HTMLElement("caption") }}, {{ HTMLElement("col") }},
         {{ HTMLElement("colgroup") }},
         {{ HTMLElement("hr") }}, {{ HTMLElement("iframe") }},
         {{ HTMLElement("img") }}, {{ HTMLElement("table") }},
         {{ HTMLElement("tbody") }}, {{ HTMLElement("td") }},
-        {{ HTMLElement("tfoot") }} , {{ HTMLElement("th") }},
+        {{ HTMLElement("tfoot") }}, {{ HTMLElement("th") }},
         {{ HTMLElement("thead") }}, {{ HTMLElement("tr") }}
       </td>
       <td>Specifies the horizontal alignment of the element.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/iframe#attr-allow">allow</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/iframe#allow">allow</a></code>
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
       <td>Specifies a feature-policy for the iframe.</td>
@@ -96,14 +82,23 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         <code><a href="/en-US/docs/Web/HTML/Attributes/alt">alt</a></code>
       </td>
       <td>
-        {{ HTMLElement("applet") }}, {{ HTMLElement("area") }},
+        {{ HTMLElement("area") }},
         {{ HTMLElement("img") }}, {{ HTMLElement("input") }}
       </td>
       <td>Alternative text in case an image can't be displayed.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/script#attr-async">async</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/link#as">as</a></code>
+      </td>
+      <td>
+        {{ HTMLElement("link") }}
+      </td>
+      <td>Specifies the type of content being loaded by the link.</td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="/en-US/docs/Web/HTML/Element/script#async">async</a></code>
       </td>
       <td>{{ HTMLElement("script") }}</td>
       <td>Executes the script asynchronously.</td>
@@ -135,21 +130,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/autofocus">autofocus</a></code>
-      </td>
-      <td>
-        {{ HTMLElement("button") }},
-        {{ HTMLElement("input") }},
-        {{ HTMLElement("keygen") }},
-        {{ HTMLElement("select") }},
-        {{ HTMLElement("textarea") }}
-      </td>
-      <td>
-        The element should be automatically focused after the page loaded.
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code><a href="/en-US/docs/Web/HTML/Attributes/autoplay">autoplay</a></code>
       </td>
       <td>
@@ -166,7 +146,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       </td>
       <td>
         Specifies the URL of an image file.
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> Although browsers and email clients may still
             support this attribute, it is obsolete. Use CSS
@@ -188,7 +168,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       </td>
       <td>
         <p>Background color of the element.</p>
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> This is a legacy attribute. Please use the
             CSS {{ Cssxref("background-color") }} property instead.
@@ -204,23 +184,13 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       </td>
       <td>
         <p>The border width.</p>
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> This is a legacy attribute. Please use the
             CSS {{ Cssxref("border") }} property instead.
           </p>
         </div>
       </td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/buffered">buffered</a></code>
-      </td>
-      <td>
-        {{ HTMLElement("audio") }},
-        {{ HTMLElement("video") }}
-      </td>
-      <td>Contains the time range of already buffered media.</td>
     </tr>
     <tr>
       <td>
@@ -234,26 +204,18 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/keygen#attr-challenge">challenge</a></code>
-      </td>
-      <td>{{ HTMLElement("keygen") }}</td>
-      <td>A challenge string that is submitted along with the public key.</td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/charset">charset</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meta#charset">charset</a></code>
       </td>
       <td>
-        {{ HTMLElement("meta") }}, {{ HTMLElement("script") }}
+        {{ HTMLElement("meta") }}
       </td>
       <td>Declares the character encoding of the page or script.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/checked">checked</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/input#checked">checked</a></code>
       </td>
       <td>
-        {{ HTMLElement("command") }},
         {{ HTMLElement("input") }}
       </td>
       <td>Indicates whether the element should be checked on page load.</td>
@@ -279,28 +241,8 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       <td>Often used with CSS to style elements with common properties.</td>
     </tr>
     <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/applet#attr-code">code</a></code>
-      </td>
-      <td>{{ HTMLElement("applet") }}</td>
-      <td>
-        Specifies the URL of the applet's class file to be loaded and executed.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/applet#attr-codebase">codebase</a></code>
-      </td>
-      <td>{{ HTMLElement("applet") }}</td>
-      <td>
-        This attribute gives the absolute or relative URL of the directory where
-        applets' .class files referenced by the code attribute are stored.
-      </td>
-    </tr>
-    <tr>
       <td><code>color</code></td>
       <td>
-        {{ HTMLElement("basefont") }},
         {{ HTMLElement("font") }}, {{ HTMLElement("hr") }}
       </td>
       <td>
@@ -308,7 +250,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
           This attribute sets the text color using either a named color or a
           color specified in the hexadecimal #RRGGBB format.
         </p>
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> This is a legacy attribute. Please use the
             CSS {{ Cssxref("color") }} property instead.
@@ -318,7 +260,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/textarea#attr-cols">cols</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/textarea#cols">cols</a></code>
       </td>
       <td>{{ HTMLElement("textarea") }}</td>
       <td>Defines the number of columns in a textarea.</td>
@@ -336,7 +278,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/meta#attr-content">content</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meta#content">content</a></code>
       </td>
       <td>{{ HTMLElement("meta") }}</td>
       <td>
@@ -355,18 +297,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/contextmenu">contextmenu</a></code>
-      </td>
-      <td>
-        <a href="/en-US/docs/Web/HTML/Global_attributes">Global attribute</a>
-      </td>
-      <td>
-        Defines the ID of a {{ HTMLElement("menu") }} element which will
-        serve as the element's context menu.
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code><a href="/en-US/docs/Web/HTML/Attributes/controls">controls</a></code>
       </td>
       <td>
@@ -379,7 +309,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/area#attr-coords">coords</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/area#coords">coords</a></code>
       </td>
       <td>{{ HTMLElement("area") }}</td>
       <td>
@@ -410,7 +340,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/object#attr-data">data</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/object#data">data</a></code>
       </td>
       <td>{{ HTMLElement("object") }}</td>
       <td>Specifies the URL of the resource.</td>
@@ -436,14 +366,14 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/img#attr-decoding">decoding</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/img#decoding">decoding</a></code>
       </td>
       <td>{{ HTMLElement("img") }}</td>
       <td>Indicates the preferred method to decode the image.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/track#attr-default">default</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/track#default">default</a></code>
       </td>
       <td>{{ HTMLElement("track") }}</td>
       <td>
@@ -453,7 +383,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/script#attr-defer">defer</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/script#defer">defer</a></code>
       </td>
       <td>{{ HTMLElement("script") }}</td>
       <td>
@@ -489,10 +419,8 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       </td>
       <td>
         {{ HTMLElement("button") }},
-        {{ HTMLElement("command") }},
         {{ HTMLElement("fieldset") }},
         {{ HTMLElement("input") }},
-        {{ HTMLElement("keygen") }},
         {{ HTMLElement("optgroup") }},
         {{ HTMLElement("option") }},
         {{ HTMLElement("select") }},
@@ -520,7 +448,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/form#attr-enctype">enctype</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/form#enctype">enctype</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
@@ -530,15 +458,14 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/enterkeyhint">enterkeyhint</a></code>
-        {{experimental_inline}}
+        <code><a href="/en-US/docs/Web/HTML/Global_attributes/enterkeyhint">enterkeyhint</a></code>
       </td>
       <td>
         {{ HTMLElement("textarea") }},
         <a href="/en-US/docs/Web/HTML/Global_attributes/contenteditable"><code>contenteditable</code></a>
       </td>
       <td>
-        The <a href="https://html.spec.whatwg.org/dev/interaction.html#input-modalities:-the-enterkeyhint-attribute"><code>enterkeyhint</code></a>
+        The <a href="https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute"><code>enterkeyhint</code></a>
         specifies what action label (or icon) to present for the enter key on
         virtual keyboards. The attribute can be used with form controls (such as
         the value of <code>textarea</code> elements), or in elements in an
@@ -563,7 +490,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("button") }},
         {{ HTMLElement("fieldset") }},
         {{ HTMLElement("input") }},
-        {{ HTMLElement("keygen") }},
         {{ HTMLElement("label") }},
         {{ HTMLElement("meter") }},
         {{ HTMLElement("object") }},
@@ -596,7 +522,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("input") }}
       </td>
       <td>
-        If the button/input is a submit button (<code>type="submit"</code>),
+        If the button/input is a {{Glossary("submit button")}} (e.g. <code>type="submit"</code>),
         this attribute sets the encoding type to use during form submission. If
         this attribute is specified, it overrides the
         <code>enctype</code> attribute of the button's
@@ -612,7 +538,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("input") }}
       </td>
       <td>
-        If the button/input is a submit button (<code>type="submit"</code>),
+        If the button/input is a {{Glossary("submit button")}} (e.g. <code>type="submit"</code>),
         this attribute sets the submission method to use during form submission
         (<code>GET</code>, <code>POST</code>, etc.). If this attribute is
         specified, it overrides the <code>method</code> attribute of the
@@ -628,7 +554,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("input") }}
       </td>
       <td>
-        If the button/input is a submit button (<code>type="submit"</code>),
+        If the button/input is a {{Glossary("submit button")}} (e.g. <code>type="submit"</code>),
         this boolean attribute specifies that the form is not to be validated
         when it is submitted. If this attribute is specified, it overrides the
         <code>novalidate</code> attribute of the button's
@@ -644,7 +570,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("input") }}
       </td>
       <td>
-        If the button/input is a submit button (<code>type="submit"</code>),
+        If the button/input is a {{Glossary("submit button")}} (e.g. <code>type="submit"</code>),
         this attribute specifies the browsing context (for example, tab, window,
         or inline frame) in which to display the response that is received after
         submitting the form. If this attribute is specified, it overrides the
@@ -679,7 +605,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
           Specifies the height of elements listed here. For all other elements,
           use the CSS {{cssxref("height")}} property.
         </p>
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> In some instances, such as
             {{ HTMLElement("div") }}, this is a legacy attribute, in
@@ -703,7 +629,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/meter#attr-high">high</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meter#high">high</a></code>
       </td>
       <td>{{ HTMLElement("meter") }}</td>
       <td>Indicates the lower bound of the upper range.</td>
@@ -723,24 +649,16 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         <code><a href="/en-US/docs/Web/HTML/Attributes/hreflang">hreflang</a></code>
       </td>
       <td>
-        {{ HTMLElement("a") }}, {{ HTMLElement("area") }},
-        {{ HTMLElement("link") }}
+        {{ HTMLElement("a") }}, {{ HTMLElement("link") }}
       </td>
       <td>Specifies the language of the linked resource.</td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/meta#attr-http-equiv">http-equiv</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meta#http-equiv">http-equiv</a></code>
       </td>
       <td>{{ HTMLElement("meta") }}</td>
       <td>Defines a pragma directive.</td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/command#attr-icon">icon</a></code>
-      </td>
-      <td>{{ HTMLElement("command") }}</td>
-      <td>Specifies a picture which represents the command.</td>
     </tr>
     <tr>
       <td>
@@ -753,17 +671,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         Often used with CSS to style a specific element. The value of this
         attribute must be unique.
       </td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Attributes/importance">importance</a></code>
-        {{experimental_inline}}
-      </td>
-      <td>
-        {{ HTMLElement("iframe") }}, {{ HTMLElement("img") }},
-        {{ HTMLElement("link") }}, {{ HTMLElement("script") }}
-      </td>
-      <td>Indicates the relative fetch priority for the resource.</td>
     </tr>
     <tr>
       <td>
@@ -782,7 +689,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <a href="/en-US/docs/Web/HTML/Element/img#attr-intrinsicsize"><code>intrinsicsize</code></a>
+        <a href="/en-US/docs/Web/HTML/Element/img#intrinsicsize"><code>intrinsicsize</code></a>
         {{deprecated_inline}}
       </td>
       <td>{{ HTMLElement("img") }}</td>
@@ -809,7 +716,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/img#attr-ismap">ismap</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/img#ismap">ismap</a></code>
       </td>
       <td>{{ HTMLElement("img") }}</td>
       <td>Indicates that the image is part of a server-side image map.</td>
@@ -825,14 +732,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/keygen#attr-keytype">keytype</a></code>
-      </td>
-      <td>{{ HTMLElement("keygen") }}</td>
-      <td>Specifies the type of key generated.</td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/track#attr-kind">kind</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/track#kind">kind</a></code>
       </td>
       <td>{{ HTMLElement("track") }}</td>
       <td>Specifies the kind of text track.</td>
@@ -859,14 +759,14 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/script#attr-language">language</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/script#language">language</a></code>
         {{deprecated_inline}}
       </td>
       <td>{{ HTMLElement("script") }}</td>
       <td>Defines the script language used in the element.</td>
     </tr>
     <tr>
-      <td><code>loading</code> {{experimental_inline}}</td>
+      <td><code>loading</code></td>
       <td>
         {{ HTMLElement("img") }}, {{ HTMLElement("iframe") }}
       </td>
@@ -878,7 +778,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/input#attr-list">list</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/input#list">list</a></code>
       </td>
       <td>{{ HTMLElement("input") }}</td>
       <td>Identifies a list of pre-defined options to suggest to the user.</td>
@@ -889,7 +789,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       </td>
       <td>
         {{ HTMLElement("audio") }},
-        {{ HTMLElement("bgsound") }},
         {{ HTMLElement("marquee") }},
         {{ HTMLElement("video") }}
       </td>
@@ -900,27 +799,10 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/meter#attr-low">low</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meter#low">low</a></code>
       </td>
       <td>{{ HTMLElement("meter") }}</td>
       <td>Indicates the upper bound of the lower range.</td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/html#attr-manifest">manifest</a></code>
-        {{deprecated_inline}}
-      </td>
-      <td>{{ HTMLElement("html") }}</td>
-      <td>
-        Specifies the URL of the document's cache manifest.
-        <div class="note">
-          <p>
-            <strong>Note:</strong> This attribute is obsolete, use
-            <a href="/en-US/docs/Web/Manifest"><code>&#x3C;link rel="manifest"></code></a>
-            instead.
-          </p>
-        </div>
-      </td>
     </tr>
     <tr>
       <td>
@@ -969,7 +851,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <a href="/en-US/docs/Web/HTML/Element/form#attr-method">method</a>
+        <code><a href="/en-US/docs/Web/HTML/Element/form#method">method</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
@@ -1022,7 +904,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("fieldset") }},
         {{ HTMLElement("iframe") }},
         {{ HTMLElement("input") }},
-        {{ HTMLElement("keygen") }},
         {{ HTMLElement("object") }},
         {{ HTMLElement("output") }},
         {{ HTMLElement("select") }},
@@ -1037,7 +918,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/form#attr-novalidate">novalidate</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/form#novalidate">novalidate</a></code>
       </td>
       <td>{{ HTMLElement("form") }}</td>
       <td>
@@ -1054,7 +935,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         {{ HTMLElement("dialog") }}
       </td>
       <td>
-        Indicates whether the the contents are currently visible (in the case of
+        Indicates whether the contents are currently visible (in the case of
         a <code>&#x3C;details></code> element) or whether the dialog is active
         and can be interacted with (in the case of a
         <code>&#x3C;dialog></code> element).
@@ -1062,7 +943,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/meter#attr-optimum">optimum</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/meter#optimum">optimum</a></code>
       </td>
       <td>{{ HTMLElement("meter") }}</td>
       <td>Indicates the optimal numeric value.</td>
@@ -1079,7 +960,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/a#attr-ping">ping</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/a#ping">ping</a></code>
       </td>
       <td>{{ HTMLElement("a") }}, {{ HTMLElement("area") }}</td>
       <td>
@@ -1099,7 +980,16 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/video#attr-poster">poster</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/video#playsinline">playsinline</a></code>
+      </td>
+      <td>
+        {{ HTMLElement("video") }}
+      </td>
+      <td>A Boolean attribute indicating that the video is to be played "inline"; that is, within the element's playback area. Note that the absence of this attribute does not imply that the video will always be played in fullscreen.</td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="/en-US/docs/Web/HTML/Element/video#poster">poster</a></code>
       </td>
       <td>{{ HTMLElement("video") }}</td>
       <td>
@@ -1118,13 +1008,6 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         Indicates whether the whole resource, parts of it or nothing should be
         preloaded.
       </td>
-    </tr>
-    <tr>
-      <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/command#attr-radiogroup">radiogroup</a></code>
-      </td>
-      <td>{{ HTMLElement("command") }}</td>
-      <td></td>
     </tr>
     <tr>
       <td>
@@ -1172,17 +1055,24 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/ol#attr-reversed">reversed</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/ol#reversed">reversed</a></code>
       </td>
       <td>{{ HTMLElement("ol") }}</td>
       <td>
         Indicates whether the list should be displayed in a descending order
-        instead of a ascending.
+        instead of an ascending order.
       </td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/textarea#attr-rows">rows</a></code>
+        <code><a href="/en-US/docs/Web/Accessibility/ARIA/Roles">role</a></code>
+      </td>
+      <td><a href="/en-US/docs/Web/HTML/Global_attributes">Global attribute</a></td>
+      <td>Defines an explicit role for an element for use by assistive technologies.</td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="/en-US/docs/Web/HTML/Element/textarea#rows">rows</a></code>
       </td>
       <td>{{ HTMLElement("textarea") }}</td>
       <td>Defines the number of rows in a text area.</td>
@@ -1198,7 +1088,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/iframe#attr-sandbox">sandbox</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/iframe#sandbox">sandbox</a></code>
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
       <td>
@@ -1208,7 +1098,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/th#attr-scope">scope</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/th#scope">scope</a></code>
       </td>
       <td>{{ HTMLElement("th") }}</td>
       <td>
@@ -1218,7 +1108,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/style#attr-scoped">scoped</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/style#scoped">scoped</a></code>
         {{non-standard_inline}} {{deprecated_inline}}
       </td>
       <td>{{ HTMLElement("style") }}</td>
@@ -1226,7 +1116,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/option#attr-selected">selected</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/option#selected">selected</a></code>
       </td>
       <td>{{ HTMLElement("option") }}</td>
       <td>Defines a value which will be selected on page load.</td>
@@ -1308,14 +1198,14 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/iframe#attr-srcdoc">srcdoc</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/iframe#srcdoc">srcdoc</a></code>
       </td>
       <td>{{ HTMLElement("iframe") }}</td>
       <td></td>
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/track#attr-srclang">srclang</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/track#srclang">srclang</a></code>
       </td>
       <td>{{ HTMLElement("track") }}</td>
       <td></td>
@@ -1331,7 +1221,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/ol#attr-start">start</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/ol#start">start</a></code>
       </td>
       <td>{{ HTMLElement("ol") }}</td>
       <td>Defines the first number if other than 1.</td>
@@ -1354,7 +1244,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/table#attr-summary">summary</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/table#summary">summary</a></code>
         {{deprecated_inline}}
       </td>
       <td>{{ HTMLElement("table") }}</td>
@@ -1403,7 +1293,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         <a href="/en-US/docs/Web/HTML/Global_attributes">Global attribute</a>
       </td>
       <td>
-        Specify whether an element’s attribute values and the values of its
+        Specify whether an element's attribute values and the values of its
         <code><a href="https://dom.spec.whatwg.org/#text">Text</a></code> node
         children are to be translated when the page is localized, or whether to
         leave them unchanged.
@@ -1416,9 +1306,9 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
       <td>
         {{ HTMLElement("button") }},
         {{ HTMLElement("input") }},
-        {{ HTMLElement("command") }},
         {{ HTMLElement("embed") }},
         {{ HTMLElement("object") }},
+        {{ HTMLElement("ol") }},
         {{ HTMLElement("script") }},
         {{ HTMLElement("source") }},
         {{ HTMLElement("style") }}, {{ HTMLElement("menu") }},
@@ -1469,7 +1359,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
         <p>
           For the elements listed here, this establishes the element's width.
         </p>
-        <div class="note">
+        <div class="note notecard">
           <p>
             <strong>Note:</strong> For all other instances, such as
             {{ HTMLElement("div") }}, this is a legacy attribute, in
@@ -1481,7 +1371,7 @@ In addition to the attributes listed in the table below, the [`GlobalEventHandle
     </tr>
     <tr>
       <td>
-        <code><a href="/en-US/docs/Web/HTML/Element/textarea#attr-wrap">wrap</a></code>
+        <code><a href="/en-US/docs/Web/HTML/Element/textarea#wrap">wrap</a></code>
       </td>
       <td>{{ HTMLElement("textarea") }}</td>
       <td>Indicates whether the text should be wrapped.</td>
@@ -1501,20 +1391,39 @@ Most of the time, IDL attributes will return their values as they are really use
 
 IDL attributes are not always strings; for example, `input.maxlength` is a number (a signed long). When using IDL attributes, you read or set values of the desired type, so `input.maxlength` is always going to return a number and when you set `input.maxlength`, it wants a number. If you pass another type, it is automatically converted to a number as specified by the standard JavaScript rules for type conversion.
 
-IDL attributes can [reflect other types](https://www.whatwg.org/specs/web-apps/current-work/multipage/urls.html#reflecting-content-attributes-in-idl-attributes) such as unsigned long, URLs, booleans, etc. Unfortunately, there are no clear rules and the way IDL attributes behave in conjunction with their corresponding content attributes depends on the attribute. Most of the time, it will follow [the rules laid out in the specification](https://www.whatwg.org/specs/web-apps/current-work/multipage/urls.html#reflecting-content-attributes-in-idl-attributes), but sometimes it doesn't. HTML specifications try to make this as developer-friendly as possible, but for various reasons (mostly historical), some attributes behave oddly (`select.size`, for example) and you should read the specifications to understand how exactly they behave.
+IDL attributes can [reflect other types](https://html.spec.whatwg.org/multipage/urls-and-fetching.html) such as unsigned long, URLs, booleans, etc. Unfortunately, there are no clear rules and the way IDL attributes behave in conjunction with their corresponding content attributes depends on the attribute. Most of the time, it will follow [the rules laid out in the specification](https://html.spec.whatwg.org/multipage/urls-and-fetching.html), but sometimes it doesn't. HTML specifications try to make this as developer-friendly as possible, but for various reasons (mostly historical), some attributes behave oddly (`select.size`, for example) and you should read the specifications to understand how exactly they behave.
 
 ## Boolean Attributes
 
-Some content attributes (e.g. `required`, `readonly`, `disabled`) are called [boolean attributes](https://www.w3.org/TR/html52/infrastructure.html#sec-boolean-attributes). If a boolean attribute is present, its value is **true**, and if it's absent, its value is **false**.
+Some content attributes (e.g. `required`, `readonly`, `disabled`) are called [boolean attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes). If a boolean attribute is present, its value is **true**, and if it's absent, its value is **false**.
 
-HTML5 defines restrictions on the allowed values of boolean attributes: If the attribute is present, its value must either be the empty string (equivalently, the attribute may have an unassigned value), or a value that is an ASCII case-insensitive match for the attribute's canonical name, with no leading or trailing whitespace. The following examples are valid ways to mark up a boolean attribute:
+HTML defines restrictions on the allowed values of boolean attributes: If the attribute is present, its value must either be the empty string (equivalently, the attribute may have an unassigned value), or a value that is an ASCII case-insensitive match for the attribute's canonical name, with no leading or trailing whitespace. The following examples are valid ways to mark up a boolean attribute:
 
-    <div itemscope> This is valid HTML but invalid XML. </div>
-    <div itemscope=itemscope> This is also valid HTML but invalid XML. </div>
-    <div itemscope=""> This is valid HTML and also valid XML. </div>
-    <div itemscope="itemscope"> This is also valid HTML and XML, but perhaps a bit verbose. </div>
+```html-nolint
+<div itemscope>This is valid HTML but invalid XML.</div>
+<div itemscope=itemscope>This is also valid HTML but invalid XML.</div>
+<div itemscope="">This is valid HTML and also valid XML.</div>
+<div itemscope="itemscope">
+  This is also valid HTML and XML, but perhaps a bit verbose.
+</div>
+```
 
-To be clear, the values "`true`" and "`false`" are not allowed on boolean attributes. To represent a false value, the attribute has to be omitted altogether. This restriction clears up some common misunderstandings: With `checked="false"` for example, the element's `checked` attribute would be interpreted as **true** because the attribute is present.
+To be clear, the values `"true"` and `"false"` are not allowed on boolean attributes. To represent a false value, the attribute has to be omitted altogether. This restriction clears up some common misunderstandings: With `checked="false"` for example, the element's `checked` attribute would be interpreted as **true** because the attribute is present.
+
+## Event handler attributes
+
+> [!WARNING]
+> The use of event handler content attributes is discouraged. The mix of HTML and JavaScript often produces unmaintainable code, and the execution of event handler attributes may also be blocked by content security policies.
+
+In addition to the attributes listed in the table above, global [event handlers](/en-US/docs/Web/Events/Event_handlers#using_onevent_properties) — such as [`onclick`](/en-US/docs/Web/API/Element/click_event) — can also be specified as [content attributes](#content_versus_idl_attributes) on all elements.
+
+All event handler attributes accept a string. The string will be used to synthesize a [JavaScript function](/en-US/docs/Web/JavaScript/Reference/Functions) like `function name(/*args*/) {body}`, where `name` is the attribute's name, and `body` is the attribute's value. The handler receives the same parameters as its JavaScript event handler counterpart — most handlers receive only one `event` parameter, while `onerror` receives five: `event`, `source`, `lineno`, `colno`, `error`. This means you can, in general, use the `event` variable within the attribute.
+
+```html
+<div onclick="console.log(event)">Click me!</div>
+<!-- The synthesized handler has a name; you can reference itself -->
+<div onclick="console.log(onclick)">Click me!</div>
+```
 
 ## See also
 

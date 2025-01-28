@@ -1,18 +1,17 @@
 ---
 title: mask-repeat
 slug: Web/CSS/mask-repeat
-tags:
-  - CSS
-  - CSS Masking
-  - CSS Property
-  - Experimental
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.mask-repeat
 ---
+
 {{CSSRef}}
 
 The **`mask-repeat`** [CSS](/en-US/docs/Web/CSS) property sets how mask images are repeated. A mask image can be repeated along the horizontal axis, the vertical axis, both axes, or not repeated at all.
+
+By default, the repeated images are clipped to the size of the element, but they can be scaled to fit (using `round`) or evenly distributed from end to end (using `space`).
+
+## Syntax
 
 ```css
 /* One-value syntax */
@@ -30,19 +29,21 @@ mask-repeat: round space;
 mask-repeat: no-repeat round;
 
 /* Multiple values */
-mask-repeat: space round, no-repeat;
-mask-repeat: round repeat, space, repeat-x;
+mask-repeat:
+  space round,
+  no-repeat;
+mask-repeat:
+  round repeat,
+  space,
+  repeat-x;
 
 /* Global values */
 mask-repeat: inherit;
 mask-repeat: initial;
 mask-repeat: revert;
+mask-repeat: revert-layer;
 mask-repeat: unset;
 ```
-
-By default, the repeated images are clipped to the size of the element, but they can be scaled to fit (using `round`) or evenly distributed from end to end (using `space`).
-
-## Syntax
 
 One or more `<repeat-style>` values, separated by commas.
 
@@ -53,11 +54,13 @@ One or more `<repeat-style>` values, separated by commas.
   - : The one-value syntax is a shorthand for the full two-value syntax:
 
     <table class="standard-table">
-      <tbody>
+      <thead>
         <tr>
-          <td><strong>Single value</strong></td>
-          <td><strong>Two-value equivalent</strong></td>
+          <th>Single value</th>
+          <th>Two-value equivalent</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td><code>repeat-x</code></td>
           <td><code>repeat no-repeat</code></td>
@@ -143,15 +146,31 @@ One or more `<repeat-style>` values, separated by commas.
 
 ### Setting repeat for a single mask
 
-{{EmbedGHLiveSample("css-examples/masking/mask-repeat.html", '100%', 700)}}
+```html live-sample___mask-repeat-example
+<div class="masked"></div>
+```
+
+```css live-sample___mask-repeat-example
+.masked {
+  width: 250px;
+  height: 250px;
+  background: blue linear-gradient(red, blue);
+  margin-bottom: 10px;
+
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mask-star.svg);
+  mask-repeat: repeat;
+}
+```
+
+{{EmbedLiveSample("mask-repeat-example", "", "300px")}}
 
 ### Multiple mask image support
 
 You can specify a different `<repeat-style>` for each mask image, separated by commas:
 
 ```css
-.examplethree {
-  mask-image: url('mask1.png'), url('mask2.png');
+.example-three {
+  mask-image: url("mask1.png"), url("mask2.png");
   mask-repeat: repeat-x, repeat-y;
 }
 ```

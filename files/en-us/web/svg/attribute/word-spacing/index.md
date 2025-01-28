@@ -1,11 +1,10 @@
 ---
 title: word-spacing
 slug: Web/SVG/Attribute/word-spacing
-tags:
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.presentation.word-spacing
+page-type: svg-attribute
+browser-compat: svg.global_attributes.word-spacing
 ---
+
 {{SVGRef}}
 
 The **`word-spacing`** attribute specifies spacing behavior between words.
@@ -14,32 +13,17 @@ If a {{cssxref("length")}} is provided without a unit identifier (e.g. an unqual
 
 If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), then the browser converts the \<length> into a corresponding value in the current user coordinate system.
 
-> **Note:** As a presentation attribute, `word-spacing` can be used as a CSS property. See the {{cssxref("word-spacing", "CSS word-spacing")}} property for more information.
+> [!NOTE]
+> As a presentation attribute, `word-spacing` can be used as a CSS property. See the CSS {{cssxref("word-spacing")}} property for more information.
+
+## Elements
 
 You can use this attribute with the following SVG elements:
 
-*   {{SVGElement("altGlyph")}}
-*   {{SVGElement("text")}}
-*   {{SVGElement("textPath")}}
-*   {{SVGElement("tref")}}
-*   {{SVGElement("tspan")}}
-
-## Example
-
-```css hidden
-html, body, svg {
-  height: 100%;
-}
-```
-
-```html
-<svg viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg">
-  <text y="20" word-spacing="2">Bigger spacing between words</text>
-  <text x="0" y="40" word-spacing="-0.5">Smaller spacing between words</text>
-</svg>
-```
-
-{{EmbedLiveSample("Example", "250", "100")}}
+- {{SVGElement("text")}}
+- {{SVGElement("textPath")}}
+- {{SVGElement("tref")}}
+- {{SVGElement("tspan")}}
 
 ## Usage notes
 
@@ -62,33 +46,30 @@ html, body, svg {
 
 For a description of the values, please refer to the [CSS `letter-spacing`](/en-US/docs/Web/CSS/letter-spacing#values) property.
 
+## Examples
+
+This example includes two {{SVGElement("text")}} elements with different `word-spacing` values.
+
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+}
+```
+
+```html
+<svg viewBox="0 0 250 50" xmlns="http://www.w3.org/2000/svg">
+  <text y="20" word-spacing="4">Bigger spacing between words</text>
+  <text x="0" y="40" word-spacing="-0.5">Smaller spacing between words</text>
+</svg>
+```
+
+{{EmbedLiveSample("Examples", "250", "100")}}
+
 ## Specifications
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Specification</th>
-      <th scope="col">Status</th>
-      <th scope="col">Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{SpecName("CSS3 Text", "#word-spacing-property", "word-spacing")}}
-      </td>
-      <td>{{Spec2("CSS3 Text")}}</td>
-      <td>SVG 2 just refers to the definition in CSS Text 3.</td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "text.html#WordSpacingProperty", "word-spacing")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition</td>
-    </tr>
-  </tbody>
-</table>
+{{Specifications}}
 
 ## Browser compatibility
 
@@ -96,4 +77,4 @@ For a description of the values, please refer to the [CSS `letter-spacing`](/en-
 
 ## See also
 
-*   {{cssxref("word-spacing", "CSS word-spacing")}}
+- CSS {{cssxref("word-spacing")}} property

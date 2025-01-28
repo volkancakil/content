@@ -1,15 +1,11 @@
 ---
-title: RTCDataChannel.bufferedAmount
+title: "RTCDataChannel: bufferedAmount property"
+short-title: bufferedAmount
 slug: Web/API/RTCDataChannel/bufferedAmount
-tags:
-  - Property
-  - RTCDataChannel
-  - Read-only
-  - Reference
-  - WebRTC
-  - bufferedAmount
+page-type: web-api-instance-property
 browser-compat: api.RTCDataChannel.bufferedAmount
 ---
+
 {{APIRef("WebRTC")}}
 
 The read-only `RTCDataChannel` property
@@ -23,7 +19,8 @@ The user agent may implement the process of actually sending data in any way it
 chooses; this may be done periodically during the event loop or truly asynchronously. As
 messages are actually sent, this value is reduced accordingly.
 
-> **Note:** Closing the data channel doesn't reset this count, even though the user agent purges
+> [!NOTE]
+> Closing the data channel doesn't reset this count, even though the user agent purges
 > the queued messages. However, even after closing the channel, attempts to send
 > messages continue to add to the `bufferedAmount` value, even though the
 > messages are neither sent nor buffered.
@@ -34,13 +31,7 @@ property, the user agent fires the {{DOMxRef("RTCDataChannel.bufferedamountlow_e
 be used, for example, to implement code which queues more messages to be sent whenever
 there's room to buffer them.
 
-## Syntax
-
-```js
-var amount = aDataChannel.bufferedAmount;
-```
-
-### Value
+## Value
 
 The number of bytes of data currently queued to be sent over the data channel but have
 not yet been sent.
@@ -51,15 +42,17 @@ The snippet below includes a function which changes the contents of a block with
 "bufferSize" to a string indicating the number of bytes currently buffered on an
 {{domxref("RTCDataChannel")}}.
 
-    var dc = peerConnection.createDataChannel("File Transfer");
+```js
+const dc = peerConnection.createDataChannel("File Transfer");
 
-    /* ... */
+// …
 
-    function showBufferedAmount(channel) {
-      let el = document.getElementById("bufferSize");
+function showBufferedAmount(channel) {
+  const el = document.getElementById("bufferSize");
 
-      el.innerHTML = channel.bufferedAmount + " bytes";
-    }
+  el.innerText = `${channel.bufferedAmount} bytes`;
+}
+```
 
 ## Specifications
 
@@ -72,9 +65,7 @@ The snippet below includes a function which changes the contents of a block with
 ## See also
 
 - [WebRTC](/en-US/docs/Web/API/WebRTC_API)
-- [Using WebRTC data
-  channels](/en-US/docs/Web/API/WebRTC_API/Using_data_channels)
+- [Using WebRTC data channels](/en-US/docs/Web/API/WebRTC_API/Using_data_channels)
 - {{domxref("RTCDataChannel")}}
 - {{domxref("RTCDataChannel.bufferedAmountLowThreshold")}}
 - {{DOMxRef("RTCDataChannel.bufferedamountlow_event", "bufferedamountlow")}} event
-- {{domxref("RTCDataChannel.onbufferedamountlow")}}

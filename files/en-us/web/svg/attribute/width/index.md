@@ -1,60 +1,24 @@
 ---
 title: width
 slug: Web/SVG/Attribute/width
-tags:
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
+spec-urls:
+  - https://drafts.fxtf.org/filter-effects/#element-attrdef-filter-width
+  - https://drafts.fxtf.org/filter-effects/#element-attrdef-filter-primitive-width
+  - https://drafts.fxtf.org/css-masking-1/#element-attrdef-mask-width
+  - https://svgwg.org/svg2-draft/geometry.html#Sizing
+  - https://svgwg.org/svg2-draft/pservers.html#PatternElementWidthAttribute
 ---
+
 {{SVGRef}}
 
 The **`width`** attribute defines the horizontal length of an element in the user coordinate system.
 
-You can use this attribute with the following SVG elements:
+## Elements
 
-*   {{SVGElement('feBlend')}}
-*   {{SVGElement('feColorMatrix')}}
-*   {{SVGElement('feComponentTransfer')}}
-*   {{SVGElement('feComposite')}}
-*   {{SVGElement('feConvolveMatrix')}}
-*   {{SVGElement('feDiffuseLighting')}}
-*   {{SVGElement('feDisplacementMap')}}
-*   {{SVGElement('feDropShadow')}}
-*   {{SVGElement('feFlood')}}
-*   {{SVGElement('feGaussianBlur')}}
-*   {{SVGElement('feImage')}}
-*   {{SVGElement('feMerge')}}
-*   {{SVGElement('feMorphology')}}
-*   {{SVGElement('feOffset')}}
-*   {{SVGElement('feSpecularLighting')}}
-*   {{SVGElement('feTile')}}
-*   {{SVGElement('feTurbulence')}}
-*   {{SVGElement('filter')}}
-*   {{SVGElement('foreignObject')}}
-*   {{SVGElement('image')}}
-*   {{SVGElement('mask')}}
-*   {{SVGElement('pattern')}}
-*   {{SVGElement('rect')}}
-*   {{SVGElement('svg')}}
-*   {{SVGElement('use')}}
+You can use this attribute with the SVG elements described in the sections below.
 
-## Example
-
-```css hidden
-html,body,svg { height:100% }
-```
-
-```html
-<svg viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- With a width of 0 or less, nothing will be rendered -->
-  <rect x="0" y="0" width="0" height="90"/>
-  <rect x="0" y="100" width="60" height="90"/>
-  <rect x="0" y="200" width="100%" height="90"/>
-</svg>
-```
-
-{{EmbedLiveSample("Example", '100%', 200)}}
-
-## feBlend
+### `<feBlend>`
 
 For {{SVGElement('feBlend')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -87,7 +51,7 @@ For {{SVGElement('feBlend')}}, `width` defines the horizontal length for the ren
   </tbody>
 </table>
 
-## feColorMatrix
+### `<feColorMatrix>`
 
 For {{SVGElement('feColorMatrix')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -120,7 +84,7 @@ For {{SVGElement('feColorMatrix')}}, `width` defines the horizontal length for t
   </tbody>
 </table>
 
-## feComponentTransfer
+### `<feComponentTransfer>`
 
 For {{SVGElement('feComponentTransfer')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -153,7 +117,7 @@ For {{SVGElement('feComponentTransfer')}}, `width` defines the horizontal length
   </tbody>
 </table>
 
-## feComposite
+### `<feComposite>`
 
 For {{SVGElement('feComposite')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -186,7 +150,7 @@ For {{SVGElement('feComposite')}}, `width` defines the horizontal length for the
   </tbody>
 </table>
 
-## feConvolveMatrix
+### `<feConvolveMatrix>`
 
 For {{SVGElement('feConvolveMatrix')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -219,7 +183,7 @@ For {{SVGElement('feConvolveMatrix')}}, `width` defines the horizontal length fo
   </tbody>
 </table>
 
-## feDiffuseLighting
+### `<feDiffuseLighting>`
 
 For {{SVGElement('feDiffuseLighting')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -252,7 +216,7 @@ For {{SVGElement('feDiffuseLighting')}}, `width` defines the horizontal length f
   </tbody>
 </table>
 
-## feDisplacementMap
+### `<feDisplacementMap>`
 
 For {{SVGElement('feDisplacementMap')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -285,7 +249,7 @@ For {{SVGElement('feDisplacementMap')}}, `width` defines the horizontal length f
   </tbody>
 </table>
 
-## feDropShadow
+### `<feDropShadow>`
 
 For {{SVGElement('feDropShadow')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -318,7 +282,7 @@ For {{SVGElement('feDropShadow')}}, `width` defines the horizontal length for th
   </tbody>
 </table>
 
-## feFlood
+### `<feFlood>`
 
 For {{SVGElement('feFlood')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -351,7 +315,7 @@ For {{SVGElement('feFlood')}}, `width` defines the horizontal length for the ren
   </tbody>
 </table>
 
-## feGaussianBlur
+### `<feGaussianBlur>`
 
 For {{SVGElement('feGaussianBlur')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -384,7 +348,7 @@ For {{SVGElement('feGaussianBlur')}}, `width` defines the horizontal length for 
   </tbody>
 </table>
 
-## feImage
+### `<feImage>`
 
 For {{SVGElement('feImage')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -417,7 +381,7 @@ For {{SVGElement('feImage')}}, `width` defines the horizontal length for the ren
   </tbody>
 </table>
 
-## feMerge
+### `<feMerge>`
 
 For {{SVGElement('feMerge')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -450,7 +414,7 @@ For {{SVGElement('feMerge')}}, `width` defines the horizontal length for the ren
   </tbody>
 </table>
 
-## feMorphology
+### `<feMorphology>`
 
 For {{SVGElement('feMorphology')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -483,7 +447,7 @@ For {{SVGElement('feMorphology')}}, `width` defines the horizontal length for th
   </tbody>
 </table>
 
-## feOffset
+### `<feOffset>`
 
 For {{SVGElement('feOffset')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -516,7 +480,7 @@ For {{SVGElement('feOffset')}}, `width` defines the horizontal length for the re
   </tbody>
 </table>
 
-## feSpecularLighting
+### `<feSpecularLighting>`
 
 For {{SVGElement('feSpecularLighting')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -549,7 +513,7 @@ For {{SVGElement('feSpecularLighting')}}, `width` defines the horizontal length 
   </tbody>
 </table>
 
-## feTile
+### `<feTile>`
 
 For {{SVGElement('feTile')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -582,7 +546,7 @@ For {{SVGElement('feTile')}}, `width` defines the horizontal length for the rend
   </tbody>
 </table>
 
-## feTurbulence
+### `<feTurbulence>`
 
 For {{SVGElement('feTurbulence')}}, `width` defines the horizontal length for the rendering area of the primitive.
 
@@ -615,7 +579,7 @@ For {{SVGElement('feTurbulence')}}, `width` defines the horizontal length for th
   </tbody>
 </table>
 
-## filter
+### `<filter>`
 
 For {{SVGElement('filter')}}, `width` defines the horizontal length for the rendering area of the filter.
 
@@ -648,7 +612,7 @@ For {{SVGElement('filter')}}, `width` defines the horizontal length for the rend
   </tbody>
 </table>
 
-## foreignObject
+### `<foreignObject>`
 
 For {{SVGElement('foreignObject')}}, `width` defines the horizontal length for the rendering area for the referenced document.
 
@@ -682,9 +646,10 @@ For {{SVGElement('foreignObject')}}, `width` defines the horizontal length for t
   </tbody>
 </table>
 
-> **Note:** Starting with SVG2, `width` is a *Geometry Property* meaning this attribute can also be used as a CSS property for `<foreignObject>`.
+> [!NOTE]
+> Starting with SVG2, `width` is a _Geometry Property_ meaning this attribute can also be used as a CSS property for `<foreignObject>`.
 
-## image
+### `<image>`
 
 For {{SVGElement('image')}}, `width` defines the horizontal length for the image.
 
@@ -718,9 +683,10 @@ For {{SVGElement('image')}}, `width` defines the horizontal length for the image
   </tbody>
 </table>
 
-> **Note:** Starting with SVG2, `width` is a *Geometry Property* meaning this attribute can also be used as a CSS property for images.
+> [!NOTE]
+> Starting with SVG2, `width` is a _Geometry Property_ meaning this attribute can also be used as a CSS property for images.
 
-## mask
+### `<mask>`
 
 For {{SVGElement('mask')}}, `width` defines the horizontal length of its area of effect. The exact effect of this attribute is influenced by the {{SVGAttr('maskUnits')}} attribute.
 
@@ -753,7 +719,7 @@ For {{SVGElement('mask')}}, `width` defines the horizontal length of its area of
   </tbody>
 </table>
 
-## pattern
+### `<pattern>`
 
 For {{SVGElement('pattern')}}, `width` defines the horizontal length of the tile pattern. The exact effect of this attribute is influenced by the {{SVGAttr('patternUnits')}} and {{SVGAttr('patternTransform')}} attributes.
 
@@ -780,7 +746,7 @@ For {{SVGElement('pattern')}}, `width` defines the horizontal length of the tile
   </tbody>
 </table>
 
-## rect
+### `<rect>`
 
 For {{SVGElement('rect')}}, `width` defines the horizontal length for the rectangle.
 
@@ -814,13 +780,15 @@ For {{SVGElement('rect')}}, `width` defines the horizontal length for the rectan
   </tbody>
 </table>
 
-> **Note:** Starting with SVG2, `width` is a *Geometry Property* meaning this attribute can also be used as a CSS property for rectangles.
+> [!NOTE]
+> Starting with SVG2, `width` is a _Geometry Property_ meaning this attribute can also be used as a CSS property for rectangles.
 
-## svg
+### `<svg>`
 
 For {{SVGElement('svg')}}, `width` defines the horizontal length for the rendering area of the SVG viewport.
 
-> **Note:** In an HTML document if both the {{SVGAttr('viewBox')}} and `width` attributes are omitted, [the svg element will be rendered with a width of `300px`](https://svgwg.org/specs/integration/#svg-css-sizing)
+> [!NOTE]
+> In an HTML document if both the {{SVGAttr('viewBox')}} and `width` attributes are omitted, [the svg element will be rendered with a width of `300px`](https://svgwg.org/specs/integration/#svg-css-sizing)
 
 <table class="properties">
   <tbody>
@@ -852,9 +820,10 @@ For {{SVGElement('svg')}}, `width` defines the horizontal length for the renderi
   </tbody>
 </table>
 
-> **Note:** Starting with SVG2, `width` is a *Geometry Property* meaning this attribute can also be used as a CSS property for `<svg>`.
+> [!NOTE]
+> Starting with SVG2, `width` is a _Geometry Property_ meaning this attribute can also be used as a CSS property for `<svg>`.
 
-## use
+### `<use>`
 
 For {{SVGElement('use')}}, `width` defines the horizontal length for the referenced element.
 
@@ -888,118 +857,55 @@ For {{SVGElement('use')}}, `width` defines the horizontal length for the referen
   </tbody>
 </table>
 
-> **Note:**  `width`has no effect on `use` elements, unless the element referenced has a [viewbox](/en-US/docs/Web/SVG/Attribute/viewBox) - i.e. they only have an effect when `use` refers to a `svg` or `symbol` element.
+> **Note:** `width` has no effect on `use` elements, unless the element referenced has a [viewBox](/en-US/docs/Web/SVG/Attribute/viewBox) - i.e. they only have an effect when `use` refers to a `svg` or `symbol` element.
 
-> **Note:** Starting with SVG2, `width` is a *Geometry Property* meaning this attribute can also be used as a CSS property for used elements.
+> [!NOTE]
+> Starting with SVG2, `width` is a _Geometry Property_ meaning this attribute can also be used as a CSS property for used elements.
+
+## Examples
+
+```css hidden
+html,
+body,
+svg {
+  height: 100%;
+}
+```
+
+This example includes three {{SVGElement("rect")}} elements with varied `width` attribute values. The first `<rect>` has a `width="0"` set. SVG elements with a width of `0` or less are not rendered.
+
+```html
+<svg viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- With a width of 0 or less, nothing will be rendered -->
+  <rect
+    x="0"
+    y="0"
+    width="0"
+    height="90"
+    fill="red"
+    stroke-width="5"
+    stroke="black" />
+  <rect
+    x="0"
+    y="100"
+    width="60"
+    height="90"
+    fill="red"
+    stroke-width="5"
+    stroke="black" />
+  <rect
+    x="0"
+    y="200"
+    width="100%"
+    height="90"
+    fill="red"
+    stroke-width="5"
+    stroke="black" />
+</svg>
+```
+
+{{EmbedLiveSample("Examples", '100%', 200)}}
 
 ## Specifications
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Specification</th>
-      <th scope="col">Status</th>
-      <th scope="col">Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{ SpecName('Filters 1.0', '#element-attrdef-filter-width', 'width') }}
-      </td>
-      <td>{{Spec2('Filters 1.0')}}</td>
-      <td>Definition for <code>&#x3C;filter></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{ SpecName('Filters 1.0', '#element-attrdef-filter-primitive-width', 'width') }}
-      </td>
-      <td>{{Spec2('Filters 1.0')}}</td>
-      <td>Definition for filter primitives</td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("CSS Masks", "#element-attrdef-mask-width", 'width')}}
-      </td>
-      <td>{{Spec2("CSS Masks")}}</td>
-      <td>Definition for <code>&#x3C;mask></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG2", "geometry.html#Sizing", "width")}}
-      </td>
-      <td>{{Spec2("SVG2")}}</td>
-      <td>Definition as a geometry property</td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG2", "pservers.html#PatternElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG2")}}</td>
-      <td>Definition for <code>&#x3C;pattern></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "extend.html#ForeignObjectElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;foreignObject></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "pservers.html#PatternElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;pattern></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "struct.html#ImageElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;image></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "struct.html#SVGElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;svg></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "struct.html#UseElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;use></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "filters.html#FilterElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;filter></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "filters.html#FilterPrimitiveWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for filter primitives</td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "masking.html#MaskElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;mask></code></td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "shapes.html#RectElementWidthAttribute", "width")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition for <code>&#x3C;rect></code></td>
-    </tr>
-  </tbody>
-</table>
+{{Specifications}}

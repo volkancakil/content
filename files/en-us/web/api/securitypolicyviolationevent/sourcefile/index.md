@@ -1,36 +1,22 @@
 ---
-title: SecurityPolicyViolationEvent.sourceFile
+title: "SecurityPolicyViolationEvent: sourceFile property"
+short-title: sourceFile
 slug: Web/API/SecurityPolicyViolationEvent/sourceFile
-tags:
-  - API
-  - CSP
-  - Experimental
-  - HTTP
-  - Property
-  - Reference
-  - Security
-  - SecurityPolicyViolationEvent
-  - sourceFile
+page-type: web-api-instance-property
 browser-compat: api.SecurityPolicyViolationEvent.sourceFile
 ---
-{{APIRef("{{HTTPSidebar}}")}}{{ SeeCompatTable() }}
 
-The **`sourceFile`** read-only property of the
-{{domxref("SecurityPolicyViolationEvent")}} interface is a {{domxref("USVString")}}
-representing the URI of the document or worker in which the violation was found.
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-## Syntax
+The **`sourceFile`** read-only property of the {{domxref("SecurityPolicyViolationEvent")}} interface is a string representing the URL of the script in which the [Content Security Policy (CSP)](/en-US/docs/Web/HTTP/CSP) violation occurred.
 
-```js
-let source = violationEventInstance.sourceFile;
-```
+## Value
 
-### Value
+A string representing the URL of the script in which the violation occurred, or `null` if the violation is not in a script.
 
-A {{domxref("USVString")}} representing the URI of the document or worker in which the
-violation was found.
+Note that both `columnNumber` and `lineNumber` should have non-null values if this property is not `null`.
 
-## Example
+## Examples
 
 ```js
 document.addEventListener("securitypolicyviolation", (e) => {
@@ -48,4 +34,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## See also
 
-- [Content Security Policy (CSP)](/en-US/docs/Web/HTTP/CSP)
+- {{domxref("CSPViolationReportBody.sourceFile")}}

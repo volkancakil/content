@@ -1,35 +1,25 @@
 ---
-title: HTMLLabelElement.htmlFor
+title: "HTMLLabelElement: htmlFor property"
+short-title: htmlFor
 slug: Web/API/HTMLLabelElement/htmlFor
-tags:
-  - Forms
-  - HTML DOM
-  - HTMLLabelElement
-  - Reference
-  - htmlFor
+page-type: web-api-instance-property
 browser-compat: api.HTMLLabelElement.htmlFor
 ---
+
 {{APIRef("HTML DOM")}}
 
 The **`HTMLLabelElement.htmlFor`** property reflects the value
-of the {{htmlattrxref("for", "label")}} content property. That means that this
+of the [`for`](/en-US/docs/Web/HTML/Element/label#for) content property. That means that this
 script-accessible property is used to set and read the value of the content property
 `for`, which is the ID of the label's associated control element.
 
-## Syntax
+## Value
 
-```js
-controlId = HTMLLabelElement.htmlFor
-
-HTMLLabelElement.htmlFor = newId
-```
-
-### Value
-
-A {{domxref("DOMString")}} which contains the ID string of the element which is
+A string which contains the ID string of the element which is
 associated with the control.
 
-> **Note:** If this property has a value, the {{domxref("HTMLLabelElement.control")}} property
+> [!NOTE]
+> If this property has a value, the {{domxref("HTMLLabelElement.control")}} property
 > must refer to the same control.
 
 ## Specifications
@@ -46,4 +36,4 @@ associated with the control.
 - {{domxref("HTMLLabelElement.control")}}
 - {{domxref("HTMLElement")}}
 - {{HTMLElement("label")}}
-- [HTML forms guide](/en-US/docs/Learn/Forms)
+- [HTML forms guide](/en-US/docs/Learn_web_development/Extensions/Forms)

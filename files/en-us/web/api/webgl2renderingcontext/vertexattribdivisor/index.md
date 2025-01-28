@@ -1,32 +1,26 @@
 ---
-title: WebGL2RenderingContext.vertexAttribDivisor()
+title: "WebGL2RenderingContext: vertexAttribDivisor() method"
+short-title: vertexAttribDivisor()
 slug: Web/API/WebGL2RenderingContext/vertexAttribDivisor
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGL2
+page-type: web-api-instance-method
 browser-compat: api.WebGL2RenderingContext.vertexAttribDivisor
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGL2RenderingContext.vertexAttribDivisor()`** method
 of the [WebGL 2 API](/en-US/docs/Web/API/WebGL_API) modifies the rate at
 which generic vertex attributes advance when rendering multiple instances of primitives
-with {{domxref("WebGL2RenderingContext.drawArraysInstanced()",
-  "gl.drawArraysInstanced()")}} and
-{{domxref("WebGL2RenderingContext.drawElementsInstanced()",
-  "gl.drawElementsInstanced()")}}.
+with {{domxref("WebGL2RenderingContext.drawArraysInstanced()", "gl.drawArraysInstanced()")}} and {{domxref("WebGL2RenderingContext.drawElementsInstanced()", "gl.drawElementsInstanced()")}}.
 
-> **Note:** When using {{domxref("WebGLRenderingContext", "WebGL 1", "",
-    1)}}, the {{domxref("ANGLE_instanced_arrays")}} extension can provide this method,
+> [!NOTE]
+> When using {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}}, the {{domxref("ANGLE_instanced_arrays")}} extension can provide this method,
 > too.
 
 ## Syntax
 
-```js
-void gl.vertexAttribDivisor(index, divisor);
+```js-nolint
+vertexAttribDivisor(index, divisor)
 ```
 
 ### Parameters
@@ -39,7 +33,7 @@ void gl.vertexAttribDivisor(index, divisor);
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ## Examples
 

@@ -1,27 +1,22 @@
 ---
-title: Animation.cancel()
+title: "Animation: cancel() method"
+short-title: cancel()
 slug: Web/API/Animation/cancel
-tags:
-  - API
-  - Animation
-  - Method
-  - Reference
-  - Web Animations
-  - cancel
-  - waapi
-  - web animations api
+page-type: web-api-instance-method
 browser-compat: api.Animation.cancel
 ---
-{{ SeeCompatTable() }}{{ APIRef("Web Animations") }}
+
+{{ APIRef("Web Animations") }}
 
 The Web Animations API's **`cancel()`** method of the {{domxref("Animation")}} interface clears all {{domxref("KeyframeEffect")}}s caused by this animation and aborts its playback.
 
-> **Note:** When an animation is cancelled, its {{domxref("Animation.startTime", "startTime")}} and {{domxref("Animation.currentTime", "currentTime")}} are set to `null`.
+> [!NOTE]
+> When an animation is cancelled, its {{domxref("Animation.startTime", "startTime")}} and {{domxref("Animation.currentTime", "currentTime")}} are set to `null`.
 
 ## Syntax
 
-```js
-Animation.cancel();
+```js-nolint
+cancel()
 ```
 
 ### Parameters
@@ -30,7 +25,7 @@ None.
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 

@@ -1,34 +1,22 @@
 ---
-title: RTCIceTransport.gatheringState
+title: "RTCIceTransport: gatheringState property"
+short-title: gatheringState
 slug: Web/API/RTCIceTransport/gatheringState
-tags:
-  - API
-  - Gatherer
-  - Property
-  - RTCIceTransport
-  - Read-only
-  - Reference
-  - WebRTC
-  - WebRTC API
-  - gatheringState
-  - state
+page-type: web-api-instance-property
 browser-compat: api.RTCIceTransport.gatheringState
 ---
+
 {{APIRef("WebRTC")}}
 
-The read-only **{{domxref("RTCIceTransport")}}** property **`gatheringState`** returns a {{domxref("DOMString")}} that indicates the current gathering state of the ICE agent: `"new"`, `"gathering"`, or `"complete"`.
+The **`gatheringState`** read-only property of the {{domxref("RTCIceTransport")}} interface returns a string that indicates the current gathering state of the ICE agent for this transport: `"new"`, `"gathering"`, or `"complete"`.
 
-## Syntax
+You can detect when the value of this property changes by watching for an event of type {{domxref("RTCIceTransport/gatheringstatechange_event", "gatheringstatechange")}}.
 
-```js
-gatherState = RTCIceTransport.gatheringState;
-```
+Note that **`gatheringState`** represents the gathering state of just this transport, while {{domxref("RTCPeerConnection.iceGatheringState")}} represents the overall gathering state of the whole connection, including every {{domxref("RTCIceTransport")}} used by every {{domxref("RTCRtpSender")}} and every {{domxref("RTCRtpReceiver")}} on the entire connection.
 
-### Value
+## Value
 
-A {{domxref("DOMString")}} that indicates the current state of the ICE agent's candidate gathering process:
-
-<!-- RTCIceGathererState enum-->
+A string that indicates the current state of the ICE agent's candidate gathering process:
 
 - `"new"`
   - : The {{domxref("RTCIceTransport")}} is newly created and has not yet started to gather ICE candidates.

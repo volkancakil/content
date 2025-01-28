@@ -1,14 +1,12 @@
 ---
 title: Grid template areas
-slug: Web/CSS/CSS_Grid_Layout/Grid_Template_Areas
-tags:
-  - CSS
-  - CSS Grids
-  - Guide
+slug: Web/CSS/CSS_grid_layout/Grid_template_areas
+page-type: guide
 ---
+
 {{CSSRef}}
 
-In the [previous guide](/en-US/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid) we looked at grid lines, and how to position items against those lines. When you use CSS Grid Layout you always have lines, and this can be a straightforward way to place items on your grid. However, there is an alternate method to use for positioning items on the grid which you can use alone or in combination with line-based placement. This method involves placing our items using named template areas, and we will find out exactly how this method works. You will see very quickly why we sometimes call this the ascii-art method of grid layout!
+In the [previous guide](/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement), we looked at grid lines and how to position items against those lines. When you use CSS grid layout, you always have lines, and this can be a straightforward way to place items on your grid. However, there is an alternate method to use for positioning items on the grid which you can use alone or in combination with line-based placement. This method involves placing our items using named template areas, and we will find out exactly how this method works. You will see very quickly why we sometimes call this the ascii-art method of grid layout!
 
 ## Naming a grid area
 
@@ -16,13 +14,13 @@ You have already encountered the {{cssxref("grid-area")}} property. This is the 
 
 ```css
 .box1 {
-   grid-area: 1 / 1 / 4 / 2;
+  grid-area: 1 / 1 / 4 / 2;
 }
 ```
 
 What we are doing here when defining all four lines, is defining the area by specifying the lines that enclose that area.
 
-![The Grid Area defined by lines](4_area.png)
+![The grid area defined by lines](4_area.png)
 
 We can also define an area by giving it a name and then specify the location of that area in the value of the {{cssxref("grid-template-areas")}} property. You can choose what you would like to name your area. For example, if I wish to create the layout shown below I can identify four main areas.
 
@@ -37,16 +35,16 @@ With the {{cssxref("grid-area")}} property I can assign each of these areas a na
 
 ```css
 .header {
-    grid-area: hd;
+  grid-area: hd;
 }
 .footer {
-    grid-area: ft;
+  grid-area: ft;
 }
 .content {
-    grid-area: main;
+  grid-area: main;
 }
 .sidebar {
-    grid-area: sd;
+  grid-area: sd;
 }
 ```
 
@@ -54,42 +52,44 @@ Having defined these names I then create my layout. This time, instead of placin
 
 ```css
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-areas:
-      "hd hd hd hd   hd   hd   hd   hd   hd"
-      "sd sd sd main main main main main main"
-      "ft ft ft ft   ft   ft   ft   ft   ft";
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "hd hd hd hd   hd   hd   hd   hd   hd"
+    "sd sd sd main main main main main main"
+    "ft ft ft ft   ft   ft   ft   ft   ft";
 }
 ```
 
 ```css hidden
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .wrapper {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 940px;
-    margin: 0 auto;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
 .wrapper > div {
-    border: 2px solid #ffa94d;
-    border-radius: 5px;
-    background-color: #ffd8a8;
-    padding: 1em;
-    color: #d9480f;
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  background-color: #ffd8a8;
+  padding: 1em;
+  color: #d9480f;
 }
 ```
 
 ```html
 <div class="wrapper">
-    <div class="header">Header</div>
-    <div class="sidebar">Sidebar</div>
-    <div class="content">Content</div>
-    <div class="footer">Footer</div>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Content</div>
+  <div class="footer">Footer</div>
 </div>
 ```
 
@@ -99,67 +99,69 @@ Using this method we do not need to specify anything at all on the individual gr
 
 ## Leaving a grid cell empty
 
-We have completely filled our grid with areas in this example, leaving no white space. However you can leave grid cells empty with this method of layout. To leave a cell empty use the full stop character, '`.`'. If I want to only display the footer directly under the main content I would need to leave the three cells underneath the sidebar empty.
+We have completely filled our grid with areas in this example, leaving no white space. However you can leave grid cells empty with this method of layout. To leave a cell empty use the full stop character, `.`. If I want to only display the footer directly under the main content I would need to leave the three cells underneath the sidebar empty.
 
 ```css
 .header {
-    grid-area: hd;
+  grid-area: hd;
 }
 .footer {
-    grid-area: ft;
+  grid-area: ft;
 }
 .content {
-    grid-area: main;
+  grid-area: main;
 }
 .sidebar {
-    grid-area: sd;
+  grid-area: sd;
 }
 ```
 
 ```css hidden
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .wrapper {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 940px;
-    margin: 0 auto;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
 .wrapper > div {
-    border: 2px solid #ffa94d;
-    border-radius: 5px;
-    background-color: #ffd8a8;
-    padding: 1em;
-    color: #d9480f;
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  background-color: #ffd8a8;
+  padding: 1em;
+  color: #d9480f;
 }
 ```
 
 ```css
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-areas:
-      "hd hd hd hd   hd   hd   hd   hd   hd"
-      "sd sd sd main main main main main main"
-      ".  .  .  ft   ft   ft   ft   ft   ft";
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "hd hd hd hd   hd   hd   hd   hd   hd"
+    "sd sd sd main main main main main main"
+    ".  .  .  ft   ft   ft   ft   ft   ft";
 }
 ```
 
 ```html
 <div class="wrapper">
-    <div class="header">Header</div>
-    <div class="sidebar">Sidebar</div>
-    <div class="content">Content</div>
-    <div class="footer">Footer</div>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Content</div>
+  <div class="footer">Footer</div>
 </div>
 ```
 
 {{ EmbedLiveSample('Leaving_a_grid_cell_empty', '300', '330') }}
 
-In order to make the layout neater I can use multiple `.` characters. As long as there is no white space between the full stops it will be counted as one cell. For a complex layout there is a benefit to having the rows and columns neatly aligned. It means that you can actually see, right there in the CSS, what this layout looks like.
+In order to make the layout neater I can use multiple `.` characters. As long as there is at least one white space between the full stops it will be counted as one cell. For a complex layout there is a benefit to having the rows and columns neatly aligned. It means that you can actually see, right there in the CSS, what this layout looks like.
 
 ## Spanning multiple cells
 
@@ -169,57 +171,59 @@ The area that you create by chaining the area names must be rectangular, at this
 
 ```css
 .header {
-    grid-area: hd;
+  grid-area: hd;
 }
 .footer {
-    grid-area: ft;
+  grid-area: ft;
 }
 .content {
-    grid-area: main;
+  grid-area: main;
 }
 .sidebar {
-    grid-area: sd;
+  grid-area: sd;
 }
 ```
 
 ```css hidden
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .wrapper {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 940px;
-    margin: 0 auto;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
 .wrapper > div {
-    border: 2px solid #ffa94d;
-    border-radius: 5px;
-    background-color: #ffd8a8;
-    padding: 1em;
-    color: #d9480f;
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  background-color: #ffd8a8;
+  padding: 1em;
+  color: #d9480f;
 }
 ```
 
 ```css
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-areas:
-      "hd hd hd hd   hd   hd   hd   hd   hd"
-      "sd sd sd main main main main main main"
-      "sd sd sd  ft  ft   ft   ft   ft   ft";
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "hd hd hd hd   hd   hd   hd   hd   hd"
+    "sd sd sd main main main main main main"
+    "sd sd sd  ft  ft   ft   ft   ft   ft";
 }
 ```
 
 ```html hidden
 <div class="wrapper">
-    <div class="header">Header</div>
-    <div class="sidebar">Sidebar</div>
-    <div class="content">Content</div>
-    <div class="footer">Footer</div>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Content</div>
+  <div class="footer">Footer</div>
 </div>
 ```
 
@@ -236,48 +240,50 @@ When doing this, define the names for your areas outside of any media queries. T
 For our layout above, we might like to have a very simple layout at narrow widths, defining a single column grid and stacking up our items.
 
 ```css hidden
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .wrapper {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 940px;
-    margin: 0 auto;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
 .wrapper > div {
-    border: 2px solid #ffa94d;
-    border-radius: 5px;
-    background-color: #ffd8a8;
-    padding: 1em;
-    color: #d9480f;
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  background-color: #ffd8a8;
+  padding: 1em;
+  color: #d9480f;
 }
 ```
 
 ```css
 .header {
-    grid-area: hd;
+  grid-area: hd;
 }
 .footer {
-    grid-area: ft;
+  grid-area: ft;
 }
 .content {
-    grid-area: main;
+  grid-area: main;
 }
 .sidebar {
-    grid-area: sd;
+  grid-area: sd;
 }
 
 .wrapper {
-    display: grid;
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "hd"
-      "main"
-      "sd"
-      "ft";
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "hd"
+    "main"
+    "sd"
+    "ft";
 }
 ```
 
@@ -285,29 +291,29 @@ We can then redefine that layout inside media queries to go to our two columns l
 
 ```css
 @media (min-width: 500px) {
-    .wrapper {
-        grid-template-columns: repeat(9, 1fr);
-        grid-template-areas:
-          "hd hd hd hd   hd   hd   hd   hd   hd"
-          "sd sd sd main main main main main main"
-          "sd sd sd  ft  ft   ft   ft   ft   ft";
-    }
+  .wrapper {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+      "hd hd hd hd   hd   hd   hd   hd   hd"
+      "sd sd sd main main main main main main"
+      "sd sd sd  ft  ft   ft   ft   ft   ft";
+  }
 }
 @media (min-width: 700px) {
-    .wrapper {
-        grid-template-areas:
-          "hd hd hd   hd   hd   hd   hd   hd hd"
-          "sd sd main main main main main ft ft";
-    }
+  .wrapper {
+    grid-template-areas:
+      "hd hd hd   hd   hd   hd   hd   hd hd"
+      "sd sd main main main main main ft ft";
+  }
 }
 ```
 
 ```html hidden
 <div class="wrapper">
-    <div class="header">Header</div>
-    <div class="sidebar">Sidebar</div>
-    <div class="content">Content</div>
-    <div class="footer">Footer</div>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Content</div>
+  <div class="footer">Footer</div>
 </div>
 ```
 
@@ -319,48 +325,48 @@ Many of the grid examples you will find online make the assumption that you will
 
 ### Media object example
 
-As a very simple example we can create a “media object”. This is a component with space for an image or other media on one side and content on the other. The image might be displayed on the right or left of the box.
+As a very simple example we can create a "media object". This is a component with space for an image or other media on one side and content on the other. The image might be displayed on the right or left of the box.
 
 ![Images showing an example media object design](4_media_objects.png)
 
-Our grid is a two-column track grid, with the column for the image sized at `1fr` and the text `3fr`. If you wanted a fixed width image area, then you could set the image column as a pixel width, and assign the text area `1fr`. A single column track of `1fr` would then take up the rest of the space.
+Our grid is a two-column track grid, with the column for the image sized at `1fr` and the text `3fr`. If you wanted a fixed width image area, then you could set the image column as a pixel width, and assign the text area `1fr`. A single column track of `1fr` would then take up the rest of the space.
 
 We give the image area a grid area name of `img` and the text area `content`, then we can lay those out using the `grid-template-areas` property.
 
 ```css
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .media {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 400px;
-}
-.media {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: "img content";
-    margin-bottom: 1em;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "img content";
+  margin-bottom: 1em;
 }
 
 .media .image {
-    grid-area: img;
-    background-color: #ffd8a8;
+  grid-area: img;
+  background-color: #ffd8a8;
 }
 
 .media .text {
-    grid-area: content;
-    padding: 10px;
-
+  grid-area: content;
+  padding: 10px;
 }
 ```
 
 ```html
 <div class="media">
-    <div class="image"></div>
-    <div class="text">This is a media object example.
-      We can use grid-template-areas to switch around the image and text part of the media object.
-    </div>
+  <div class="image"></div>
+  <div class="text">
+    This is a media object example. We can use grid-template-areas to switch
+    around the image and text part of the media object.
+  </div>
 </div>
 ```
 
@@ -368,47 +374,47 @@ We give the image area a grid area name of `img` and the text area `content`, th
 
 ### Displaying the image on the other side of the box
 
-We might want to be able to display our box with the image the other way around. To do this, we redefine the grid to put the `1fr` track last, and flip the values in {{cssxref("grid-template-areas")}}.
+We might want to be able to display our box with the image the other way around. To do this, we redefine the grid to put the `1fr` track last, and flip the values in {{cssxref("grid-template-areas")}}.
 
 ```css
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .media {
-    border: 2px solid #f76707;
-    border-radius: 5px;
-    background-color: #fff4e6;
-    max-width: 400px;
-}
-.media {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: "img content";
-    margin-bottom: 1em;
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "img content";
+  margin-bottom: 1em;
 }
 
 .media.flipped {
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "content img";
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "content img";
 }
 
 .media .image {
-    grid-area: img;
-    background-color: #ffd8a8;
+  grid-area: img;
+  background-color: #ffd8a8;
 }
 
 .media .text {
-    grid-area: content;
-    padding: 10px;
-
+  grid-area: content;
+  padding: 10px;
 }
 ```
 
 ```html
 <div class="media flipped">
-    <div class="image"></div>
-    <div class="text">This is a media object example.
-      We can use grid-template-areas to switch around the image and text part of the media object.
-    </div>
+  <div class="image"></div>
+  <div class="text">
+    This is a media object example. We can use grid-template-areas to switch
+    around the image and text part of the media object.
+  </div>
 </div>
 ```
 
@@ -422,7 +428,7 @@ These can quickly become difficult to read for other developers, or even your fu
 
 Before using any shorthand it is worth remembering that shorthands not only enable the setting of many properties in one go, they also act to **reset things** to their initial values that you do not, or cannot set in the shorthand. Therefore if you use a shorthand, be aware that it may reset things you have applied elsewhere.
 
-The two shorthands for the grid container are the Explicit Grid Shorthand `grid-template` and the Grid Definition Shorthand `grid`.
+The two shorthands for the grid container are the Explicit grid shorthand `grid-template` and the grid definition shorthand `grid`.
 
 ### `grid-template`
 
@@ -432,18 +438,18 @@ The {{cssxref("grid-template")}} property sets the following properties:
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
 
-The property is referred to as the Explicit Grid Shorthand because it is setting those things that you control when you define an explicit grid, and not those which impact any implicit row or column tracks that might be created.
+The property is referred to as the Explicit grid shorthand because it is setting those things that you control when you define an explicit grid, and not those which impact any implicit row or column tracks that might be created.
 
-The following code creates a layout using {{cssxref("grid-template")}} that is the same as the layout created earlier in this guide.
+The following code creates a layout using {{cssxref("grid-template")}} that is the same as the layout created earlier in this guide.
 
 ```css
 .wrapper {
-    display: grid;
-    grid-template:
-      "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
-      "sd sd sd main main main main main main" minmax(100px, auto)
-      "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
-             / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  display: grid;
+  grid-template:
+    "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+    "sd sd sd main main main main main main" minmax(100px, auto)
+    "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 ```
 
@@ -466,14 +472,15 @@ You can use this syntax in the exact same way as the {{cssxref("grid-template")}
 
 ```css
 .wrapper {
-    display: grid;
-    grid: "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+  display: grid;
+  grid:
+    "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
     "sd sd sd main main main main main main" minmax(100px, auto)
     "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
-    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 ```
 
-We will revisit the other functionality offered by this shorthand later in these guides when we take a look at auto placement and the grid-auto-flow property.
+We will revisit the other functionality offered by this shorthand later in these guides when we take a look at auto placement and the `grid-auto-flow` property.
 
 If you have worked through these initial guides you now should be in a position to create grid layouts using line-based placement or named areas. Take some time to build some common layout patterns using grid, while there are lots of new terms to learn, the syntax is relatively straightforward. As you develop examples, you are likely to come up with some questions and use cases for things we haven't covered yet. In the rest of these guides we will be looking at some more of the detail included in the specification – in order that you can begin to create advanced layouts with it.

@@ -1,34 +1,30 @@
 ---
-title: Request()
+title: "Request: Request() constructor"
+short-title: Request()
 slug: Web/API/Request/Request
-tags:
-  - API
-  - Constructor
-  - Experimental
-  - Fetch
-  - Reference
-  - request
+page-type: web-api-constructor
 browser-compat: api.Request.Request
 ---
-{{APIRef("Fetch API")}}
+
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
 The **`Request()`** constructor creates a new
 {{domxref("Request")}} object.
 
 ## Syntax
 
-```js
-var myRequest = new Request(input[, init]);
+```js-nolint
+new Request(input)
+new Request(input, options)
 ```
 
 ### Parameters
 
-- _input_
+- `input`
 
   - : Defines the resource that you wish to fetch. This can either be:
 
-    - A {{domxref("USVString")}} containing the direct URL of the resource you want to
-      fetch.
+    - A string containing the URL of the resource you want to fetch. The URL may be relative to the base URL, which is the document's {{domxref("Node.baseURI", "baseURI")}} in a window context, or {{domxref("WorkerGlobalScope.location")}} in a worker context.
     - A {{domxref("Request")}} object, effectively creating a copy. Note the following
       behavioral updates to retain security while making the constructor less likely to
       throw exceptions:
@@ -38,125 +34,86 @@ var myRequest = new Request(input[, init]);
       - If this object has a {{domxref("Request.mode")}} of `navigate`,
         the `mode` value is converted to `same-origin`.
 
-- _init_ {{optional_inline}}
+- `options` {{optional_inline}}
 
-  - : An options object containing any custom settings that you want to apply to the
-    request. The possible options are:
+  - : A {{domxref("RequestInit")}} object containing any custom settings that you want to apply to the request.
 
-    - `method`: The request method, e.g., `GET`,
-      `POST`. The default is `GET`.
-    - `headers`: Any headers you want to add to your request, contained
-      within a {{domxref("Headers")}} object or an object literal with
-      {{jsxref("String")}} values.
-    - `body`: Any body that you want to add to your request: this can be a
-      {{domxref("Blob")}}, {{domxref("BufferSource")}}, {{domxref("FormData")}},
-      {{domxref("URLSearchParams")}}, {{domxref("USVString")}}, or
-      {{domxref("ReadableStream")}} object. Note that a request using the
-      `GET` or `HEAD` method cannot have a body.
-    - `mode`: The mode you want to use for the request, e.g.,
-      `cors`, `no-cors`, `same-origin`, or
-      `navigate`. The default is `cors`.
-    - `credentials`: The request credentials you want to use for the
-      request: `omit`, `same-origin`, or `include`. The
-      default is `same-origin`.
-    - `cache`: The [cache
-      mode](/en-US/docs/Web/API/Request/cache) you want to use for the request.
-    - `redirect`: The redirect mode to use: `follow`,
-      `error`, or `manual`. The default is `follow`.
-    - `referrer`: A {{domxref("USVString")}} specifying
-      `no-referrer`, `client`, or a URL. The default is
-      `about:client`.
-    - `integrity`: Contains the [subresource integrity](/en-US/docs/Web/Security/Subresource_Integrity)
-      value of the request (e.g.,
-      `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
+    If you construct a new `Request` from an existing `Request`, any options you set in an _options_ argument for the new request replace any corresponding options set in the original `Request`. For example:
 
-## Errors
+    ```js
+    const oldRequest = new Request(
+      "https://github.com/mdn/content/issues/12959",
+      { headers: { From: "webmaster@example.org" } },
+    );
+    oldRequest.headers.get("From"); // "webmaster@example.org"
+    const newRequest = new Request(oldRequest, {
+      headers: { From: "developer@example.org" },
+    });
+    newRequest.headers.get("From"); // "developer@example.org"
+    ```
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>TypeError</code></td>
-      <td>
-        Since <a href="/en-US/docs/Mozilla/Firefox/Releases/43">Firefox 43</a>,
-        <code>Request()</code> will throw a TypeError if the URL has
-        credentials, such as http://user:password@example.com.
-      </td>
-    </tr>
-  </tbody>
-</table>
+### Exceptions
 
-## Example
+- `TypeError`
+  - : The URL has credentials, such as `http://user:password@example.com`, or cannot be parsed.
 
-In our [Fetch
-Request example](https://github.com/mdn/fetch-examples/tree/master/fetch-request) (see [Fetch Request live](https://mdn.github.io/fetch-examples/fetch-request/)) we
-create a new `Request` object using the constructor, then fetch it using a
-{{domxref("fetch()")}} call. Since we are fetching an image, we run
-{{domxref("Response.blob")}} on the response to give it the proper MIME type so it will be
-handled properly, then create an Object URL of it and display it in an
-{{htmlelement("img")}} element.
+## Examples
+
+In our [Fetch Request example](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (see [Fetch Request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)) we create a new `Request` object using the constructor, then fetch it using a {{domxref("Window/fetch", "fetch()")}} call.
+Since we are fetching an image, we run {{domxref("Response.blob")}} on the response to give it the proper MIME type so it will be handled properly, then create an Object URL of it and display it in an {{htmlelement("img")}} element.
 
 ```js
-var myImage = document.querySelector('img');
+const myImage = document.querySelector("img");
+const myRequest = new Request("flowers.jpg");
 
-var myRequest = new Request('flowers.jpg');
+fetch(myRequest)
+  .then((response) => response.blob())
+  .then((response) => {
+    const objectURL = URL.createObjectURL(response);
+    myImage.src = objectURL;
+  });
+```
 
-fetch(myRequest).then(function(response) {
-  return response.blob();
-}).then(function(response) {
-  var objectURL = URL.createObjectURL(response);
-  myImage.src = objectURL;
+In our [Fetch Request with init example](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request-with-init) (see [Fetch Request init live](https://mdn.github.io/dom-examples/fetch/fetch-request-with-init/)) we do the same thing except that we pass in an _options_ object when we invoke `fetch()`.
+In this case, we can set a {{httpheader("Cache-Control")}} value to indicate what kind of cached responses we're okay with:
+
+```js
+const myImage = document.querySelector("img");
+const reqHeaders = new Headers();
+
+// A cached response is okay unless it's more than a week old.
+reqHeaders.set("Cache-Control", "max-age=604800");
+
+const options = {
+  headers: reqHeaders,
+};
+
+// pass init as an "options" object with our headers
+const req = new Request("flowers.jpg", options);
+
+fetch(req).then((response) => {
+  // ...
 });
 ```
 
-In our [Fetch
-Request with init example](https://github.com/mdn/fetch-examples/tree/master/fetch-request-with-init) (see [Fetch Request
-init live](https://mdn.github.io/fetch-examples/fetch-request-with-init/)) we do the same thing except that we pass in an init object when we
-invoke `fetch()`:
+Note that you could also pass `options` into the `fetch` call to get the same effect, e.g.:
 
 ```js
-var myImage = document.querySelector('img');
-
-var myHeaders = new Headers();
-myHeaders.append('Content-Type', 'image/jpeg');
-
-var myInit = { method: 'GET',
-               headers: myHeaders,
-               mode: 'cors',
-               cache: 'default' };
-
-var myRequest = new Request('flowers.jpg',myInit);
-
-fetch(myRequest).then(function(response) {
-  ...
+fetch(req, options).then((response) => {
+  // ...
 });
 ```
 
-Note that you could also pass the init object into the `fetch` call to get
-the same effect, e.g.:
+You can also use an object literal as `headers` in `options`.
 
 ```js
-fetch(myRequest,myInit).then(function(response) {
-  ...
-});
-```
+const options = {
+  headers: {
+    "Cache-Control": "max-age=60480",
+  },
+};
 
-You can also use an object literal as `headers` in `init`.
-
-```js
-var myInit = { method: 'GET',
-               headers: {
-                   'Content-Type': 'image/jpeg'
-               },
-               mode: 'cors',
-               cache: 'default' };
-
-var myRequest = new Request('flowers.jpg', myInit);
+const req = new Request("flowers.jpg", options);
 ```
 
 You may also pass a {{domxref("Request")}} object to the `Request()`
@@ -164,10 +121,11 @@ constructor to create a copy of the Request (This is similar to calling the
 {{domxref("Request.clone","clone()")}} method.)
 
 ```js
-var copy = new Request(myRequest);
+const copy = new Request(req);
 ```
 
-> **Note:** This last usage is probably only useful in [ServiceWorkers](/en-US/docs/Web/API/Service_Worker_API).
+> [!NOTE]
+> This last usage is probably only useful in [ServiceWorkers](/en-US/docs/Web/API/Service_Worker_API).
 
 ## Specifications
 

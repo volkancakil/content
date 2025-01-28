@@ -1,25 +1,22 @@
 ---
-title: TextDecoderStream.encoding
+title: "TextDecoderStream: encoding property"
+short-title: encoding
 slug: Web/API/TextDecoderStream/encoding
-tags:
-  - API
-  - Property
-  - Reference
-  - encoding
-  - TextDecoderStream
+page-type: web-api-instance-property
 browser-compat: api.TextDecoderStream.encoding
 ---
-{{APIRef("Encoding API")}}
 
-The **`encoding`** read-only property of the {{domxref("TextDecoderStream")}} interface returns a {{DOMxRef("DOMString")}} containing the name of the encoding algorithm used by the specific encoder.
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-## Syntax
+The **`encoding`** read-only property of the {{domxref("TextDecoderStream")}} interface returns a string containing the name of the encoding algorithm used by the specific decoder.
 
-    var encoding = TextDecoderStream.encoding;
+The encoding is set by the [constructor](/en-US/docs/Web/API/TextDecoderStream/TextDecoderStream) `label` parameter, and defaults to `utf-8`.
 
-### Value
+## Value
 
-A {{DOMxRef("DOMString")}}, ASCII lowercased.
+A string containing the lower-cased ASCII name of the encoding format.
+
+The allowed values are the same as those listed in [`TextDecoder.encoding`](/en-US/docs/Web/API/TextDecoder/encoding) (the labels in [Encoding API Encodings](/en-US/docs/Web/API/Encoding_API/Encodings)).
 
 ## Examples
 

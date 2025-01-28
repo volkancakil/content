@@ -1,42 +1,30 @@
 ---
-title: 'Document: visibilitychange event'
+title: "Document: visibilitychange event"
+short-title: visibilitychange
 slug: Web/API/Document/visibilitychange_event
-tags:
-  - API
-  - Document
-  - Event
-  - Reference
-  - Visibility
-  - Web
-  - visibilitychange
+page-type: web-api-event
 browser-compat: api.Document.visibilitychange_event
 ---
+
 {{APIRef}}
 
 The `visibilitychange` event is fired at the document when the contents of its tab have become visible or have been hidden.
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Bubbles</th>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th scope="row">Cancelable</th>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th scope="row">Interface</th>
-      <td>{{domxref("Event")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Event handler property</th>
-      <td>
-        {{domxref("Document.onvisibilitychange", "onvisibilitychange")}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+The event is not cancelable.
+
+## Syntax
+
+Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
+
+```js
+addEventListener("visibilitychange", (event) => {});
+
+onvisibilitychange = (event) => {};
+```
+
+## Event type
+
+A generic {{domxref("Event")}}.
 
 ## Usage notes
 
@@ -50,14 +38,19 @@ The transition to `hidden` is also a good point at which pages can stop making U
 
 ### Pausing music on transitioning to hidden
 
-This example begins playing a music track when the document becomes visible, and pauses the music when the document is no longer visible.
+This example pauses playing audio when the page is hidden and resumes playing when the page becomes visible again.
+For a full example, see the [Page Visibility API: Pausing audio on page hide](/en-US/docs/Web/API/Page_Visibility_API#pausing_audio_on_page_hide) documentation.
 
 ```js
-document.addEventListener("visibilitychange", function() {
-  if (document.visibilityState === 'visible') {
-    backgroundMusic.play();
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    playingOnHide = !audio.paused;
+    audio.pause();
   } else {
-    backgroundMusic.pause();
+    // Resume playing if audio was "playing on hide"
+    if (playingOnHide) {
+      audio.play();
+    }
   }
 });
 ```
@@ -68,11 +61,11 @@ This example treats the transition to `hidden` as the end of the user's session,
 API:
 
 ```js
-document.addEventListener('visibilitychange', function logData() {
-  if (document.visibilityState === 'hidden') {
-    navigator.sendBeacon('/log', analyticsData);
+document.onvisibilitychange = () => {
+  if (document.visibilityState === "hidden") {
+    navigator.sendBeacon("/log", analyticsData);
   }
-});
+};
 ```
 
 ## Specifications
@@ -87,5 +80,6 @@ document.addEventListener('visibilitychange', function logData() {
 
 - [Page Visibility API](/en-US/docs/Web/API/Page_Visibility_API)
 - {{domxref("Document.visibilityState")}}
+- {{domxref("Document.hidden")}}
 - [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) explains in detail why you should use `visibilitychange`, not `beforeunload`/`unload`.
-- [Page Lifecycle API](https://developers.google.com/web/updates/2018/07/page-lifecycle-api#developer-recommendations-for-each-state) gives best-practices guidance on handling page lifecyle behavior in your web applications.
+- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) gives best-practices guidance on handling page lifecycle behavior in your web applications.

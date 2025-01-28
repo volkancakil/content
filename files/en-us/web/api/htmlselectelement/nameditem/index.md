@@ -1,14 +1,11 @@
 ---
-title: HTMLSelectElement.namedItem()
+title: "HTMLSelectElement: namedItem() method"
+short-title: namedItem()
 slug: Web/API/HTMLSelectElement/namedItem
-tags:
-  - API
-  - HTML DOM
-  - HTMLSelectElement
-  - Method
-  - Reference
+page-type: web-api-instance-method
 browser-compat: api.HTMLSelectElement.namedItem
 ---
+
 {{ APIRef("HTML DOM") }}
 
 The **`HTMLSelectElement.namedItem()`** method returns the
@@ -16,26 +13,24 @@ The **`HTMLSelectElement.namedItem()`** method returns the
 whose `name` or `id` match the specified name, or
 `null` if no option matches.
 
-In JavaScript, using the array bracket syntax with a {{jsxref("String")}}, like
-`selectElt["value"]` is equivalent to
-` selectElt``.namedItem("value") `.
+In JavaScript, using `selectElt.namedItem('value')` is equivalent to `selectElt.options.namedItem('value')`.
 
 ## Syntax
 
-```js
-var item = collection.namedItem(str);
-var item = collection[str];
+```js-nolint
+namedItem(str)
 ```
 
 ### Parameters
 
-- `str` is a {{domxref("DOMString")}}.
+- `str`
+  - : A string representing the `name` or `id` of the option.
 
 ### Return value
 
-- `item` is a {{domxref("HTMLOptionElement")}}.
+An {{domxref("HTMLOptionElement")}} or `null`.
 
-## Example
+## Examples
 
 ### HTML
 
@@ -51,7 +46,16 @@ var item = collection[str];
 ### JavaScript
 
 ```js
-elem1 = document.forms[0]['myFormControl']['o1']; // Returns the HTMLOptionElement representing #o1
+let selectElt = document.getElementById("myFormControl");
+elem1 = selectElt.namedItem("o1"); // Returns the HTMLOptionElement representing #o1
+```
+
+But, you cannot write:
+
+```js
+let selectElt = document.getElementById("myFormControl");
+elem1 = selectElt.o1; // Returns undefined
+elem1 = selectElt["o1"]; // Returns undefined
 ```
 
 ## Specifications

@@ -1,20 +1,18 @@
 ---
 title: Broadcast Channel API
 slug: Web/API/Broadcast_Channel_API
-tags:
-  - API
-  - Broadcast Channel API
-  - HTML API
-  - Overview
-  - Reference
+page-type: web-api-overview
+browser-compat: api.BroadcastChannel
 ---
-{{DefaultAPISidebar("Broadcast Channel API")}}
+
+{{DefaultAPISidebar("Broadcast Channel API")}} {{AvailableInWorkers}}
 
 The **Broadcast Channel API** allows basic communication between {{glossary("browsing context", "browsing contexts")}} (that is, _windows_, _tabs_, _frames_, or _iframes_) and workers on the same {{glossary("origin")}}.
 
-{{AvailableInWorkers}}
+> [!NOTE]
+> To be exact, communication is allowed between browsing contexts using the same [storage partition](/en-US/docs/Web/Privacy/State_Partitioning). Storage is first partitioned according to top-level sites—so for example, if you have one opened page at `a.com` that embeds an iframe from `b.com`, and another page opened to `b.com`, then the iframe cannot communicate with the second page despite them being technically same-origin. However, if the first page is also on `b.com`, then the iframe can communicate with the second page.
 
-By creating a {{domxref("BroadcastChannel")}} object, you can receive any messages that are posted to it. You don't have to maintain a reference to the frames or workers you wish to communicate with: they can “subscribe” to a particular channel by constructing their own {{domxref("BroadcastChannel")}} with the same name, and have bi-directional communication between all of them.
+By creating a {{domxref("BroadcastChannel")}} object, you can receive any messages that are posted to it. You don't have to maintain a reference to the frames or workers you wish to communicate with: they can "subscribe" to a particular channel by constructing their own {{domxref("BroadcastChannel")}} with the same name, and have bi-directional communication between all of them.
 
 ![The principle of the Broadcast Channel API](broadcastchannel.png)
 
@@ -26,7 +24,7 @@ A client joins a broadcast channel by creating a {{domxref("BroadcastChannel")}}
 
 ```js
 // Connection to a broadcast channel
-const bc = new BroadcastChannel('test_channel');
+const bc = new BroadcastChannel("test_channel");
 ```
 
 ### Sending a message
@@ -35,20 +33,22 @@ It is enough to call the {{domxref("BroadcastChannel.postMessage", "postMessage(
 
 ```js
 // Example of sending of a very simple message
-bc.postMessage('This is a test message.');
+bc.postMessage("This is a test message.");
 ```
 
-Any kind of object can be sent, not just a {{domxref("DOMString")}}.
+Data sent to the channel is serialized using the [structured clone algorithm](/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). That means you can send a broad variety of data objects safely without having to serialize them yourself.
 
-The API doesn't associate any semantics to messages, so it is up to the code to know what kind of messages to expect and what to do with them.
+The API doesn't associate any semantics to messages, so it is up to the code to know what kind of messages to expect and what to do with them.
 
 ### Receiving a message
 
-When a message is posted, a {{event("message")}} event is dispatched to each {{domxref("BroadcastChannel")}} object connected to this channel. A function can be run for this event with the {{domxref("BroadcastChannel.onmessage", "onmessage")}} event handler:
+When a message is posted, a [`message`](/en-US/docs/Web/API/BroadcastChannel/message_event) event is dispatched to each {{domxref("BroadcastChannel")}} object connected to this channel. A function can be run for this event using the {{domxref("BroadcastChannel/message_event", "onmessage")}} event handler:
 
 ```js
 // A handler that only logs the event to the console:
-bc.onmessage = function (ev) { console.log(ev); }
+bc.onmessage = (event) => {
+  console.log(event);
+};
 ```
 
 ### Disconnecting a channel
@@ -66,13 +66,18 @@ The Broadcast Channel API's self-contained interface allows cross-context commun
 
 The messaging protocol is not defined and the different browsing contexts need to implement it themselves; there is no negotiation nor requirement from the specification.
 
+## Interfaces
+
+- {{domxref("BroadcastChannel")}}
+  - : Represents a named channel that any {{glossary("browsing context")}} of a given {{glossary("origin")}} can subscribe to.
+
 ## Specifications
 
-{{Specifications("api.BroadcastChannel")}}
+{{Specifications}}
 
 ## Browser compatibility
 
-{{Compat("api.BroadcastChannel")}}
+{{Compat}}
 
 ## See also
 

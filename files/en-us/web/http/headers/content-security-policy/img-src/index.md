@@ -1,23 +1,13 @@
 ---
-title: 'CSP: img-src'
+title: "CSP: img-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/img-src
-tags:
-  - CSP
-  - Content-Security-Policy
-  - Directive
-  - HTTP
-  - Image
-  - Reference
-  - Security
-  - img-src
-  - source
-browser-compat: http.headers.csp.Content-Security-Policy.img-src
+page-type: http-csp-directive
+browser-compat: http.headers.Content-Security-Policy.img-src
 ---
+
 {{HTTPSidebar}}
 
-The HTTP {{HTTPHeader("Content-Security-Policy")}}
-**`img-src`** directive specifies valid sources of images and
-favicons.
+The HTTP {{HTTPHeader("Content-Security-Policy")}} **`img-src`** directive specifies valid sources of images and favicons.
 
 <table class="properties">
   <tbody>
@@ -41,16 +31,22 @@ favicons.
 
 ## Syntax
 
-One or more sources can be allowed for the `img-src` policy:
-
-```
-Content-Security-Policy: img-src <source>;
-Content-Security-Policy: img-src <source> <source>;
+```http
+Content-Security-Policy: img-src 'none';
+Content-Security-Policy: img-src <source-expression-list>;
 ```
 
-### Sources
+This directive may have one of the following values:
 
-{{page("Web/HTTP/Headers/Content-Security-Policy/default-src", "Sources")}}
+- `'none'`
+  - : No resources of this type may be loaded. The single quotes are mandatory.
+- `<source-expression-list>`
+
+  - : A space-separated list of _source expression_ values. Resources of this type may be loaded if they match any of the given source expressions. For this directive, the following source expression values are applicable:
+
+    - [`<host-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Examples
 
@@ -58,14 +54,14 @@ Content-Security-Policy: img-src <source> <source>;
 
 Given this CSP header:
 
-```
+```http
 Content-Security-Policy: img-src https://example.com/
 ```
 
 The following {{HTMLElement("img")}} is blocked and won't load:
 
 ```html
-<img src="https://not-example.com/foo.jpg" alt="example picture">
+<img src="https://not-example.com/foo.jpg" alt="example picture" />
 ```
 
 ## Specifications

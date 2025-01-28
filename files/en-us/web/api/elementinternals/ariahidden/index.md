@@ -1,38 +1,27 @@
 ---
-title: ElementInternals.ariaHidden
+title: "ElementInternals: ariaHidden property"
+short-title: ariaHidden
 slug: Web/API/ElementInternals/ariaHidden
-tags:
-  - API
-  - Property
-  - Reference
-  - ariaHidden
-  - AriaAttributes
-  - AriaMixin
-  - ElementInternals
+page-type: web-api-instance-property
 browser-compat: api.ElementInternals.ariaHidden
 ---
-{{DefaultAPISidebar("DOM")}}
 
-The **`ariaHidden`** property of the {{domxref("ElementInternals")}} interface reflects the value of the [`aria-hidden`](/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-hidden_attribute) attribute, which indicates whether the element is exposed to an accessibility API.
+{{APIRef("Web Components")}}
 
-> **Note:** Setting aria attributes on `ElementInternals` allows default semantics to be defined on a custom element. These may be overwritten by author-defined attributes, but ensure that default semantics are retained should the author delete those attributes, or fail to add them at all. For more information see the [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+The **`ariaHidden`** property of the {{domxref("ElementInternals")}} interface reflects the value of the [`aria-hidden`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden) attribute, which indicates whether the element is exposed to an accessibility API.
 
-## Syntax
+> [!NOTE]
+> Setting aria attributes on `ElementInternals` allows default semantics to be defined on a custom element. These may be overwritten by author-defined attributes, but ensure that default semantics are retained should the author delete those attributes, or fail to add them at all. For more information see the [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
-```js
-let ariaHidden = ElementInternals.ariaHidden;
-ElementInternals.ariaHidden = ariaHidden;
-```
+## Value
 
-### Value
-
-A {{domxref("DOMString")}} with one of the following values:
+A string with one of the following values:
 
 - `"true"`
   - : The element is hidden from the accessibility API.
 - `"false"`
   - : The element is exposed to the accessibility API as if it were rendered.
-- `undefined`
+- `"undefined"`
   - : The element's hidden state is determined by the user agent based on whether it is rendered.
 
 ## Examples

@@ -1,17 +1,10 @@
 ---
-title: 'CSP: font-src'
+title: "CSP: font-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/font-src
-tags:
-  - CSP
-  - Content-Security-Policy
-  - Directive
-  - HTTP
-  - Reference
-  - Security
-  - font
-  - source
-browser-compat: http.headers.csp.Content-Security-Policy.font-src
+page-type: http-csp-directive
+browser-compat: http.headers.Content-Security-Policy.font-src
 ---
+
 {{HTTPSidebar}}
 
 The HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
@@ -40,16 +33,22 @@ valid sources for fonts loaded using {{cssxref("@font-face")}}.
 
 ## Syntax
 
-One or more sources can be allowed for the `font-src` policy:
-
-```
-Content-Security-Policy: font-src <source>;
-Content-Security-Policy: font-src <source> <source>;
+```http
+Content-Security-Policy: font-src 'none';
+Content-Security-Policy: font-src <source-expression-list>;
 ```
 
-### Sources
+This directive may have one of the following values:
 
-{{page("Web/HTTP/Headers/Content-Security-Policy/connect-src", "Sources")}}
+- `'none'`
+  - : No resources of this type may be loaded. The single quotes are mandatory.
+- `<source-expression-list>`
+
+  - : A space-separated list of _source expression_ values. Resources of this type may be loaded if they match any of the given source expressions. For this directive, the following source expression values are applicable:
+
+    - [`<host-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Examples
 
@@ -57,7 +56,7 @@ Content-Security-Policy: font-src <source> <source>;
 
 Given this CSP header:
 
-```
+```http
 Content-Security-Policy: font-src https://example.com/
 ```
 

@@ -1,15 +1,12 @@
 ---
-title: AudioWorkletNode()
+title: "AudioWorkletNode: AudioWorkletNode() constructor"
+short-title: AudioWorkletNode()
 slug: Web/API/AudioWorkletNode/AudioWorkletNode
-tags:
-  - API
-  - AudioWorkletNode
-  - Constructor
-  - Reference
-  - Web Audio API
+page-type: web-api-constructor
 browser-compat: api.AudioWorkletNode.AudioWorkletNode
 ---
-{{APIRef("Web Audio API")}}
+
+{{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
 The **`AudioWorkletNode()`**
 constructor creates a new {{domxref("AudioWorkletNode")}} object, which represents an
@@ -18,9 +15,9 @@ processing.
 
 ## Syntax
 
-```js
-var node = new AudioWorkletNode(context, name);
-var node = new AudioWorkletNode(context, name, options);
+```js-nolint
+new AudioWorkletNode(context, name)
+new AudioWorkletNode(context, name, options)
 ```
 
 ### Parameters
@@ -37,7 +34,8 @@ var node = new AudioWorkletNode(context, name, options);
 
     <!-- The specification refers to this object as: AudioWorkletNodeOptions -->
 
-    > **Note:** The result of [the structured clone algorithm](/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+    > [!NOTE]
+    > The result of [the structured clone algorithm](/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
     > applied to the object is also internally passed into the associated {{domxref("AudioWorkletProcessor.AudioWorkletProcessor", "AudioWorkletProcessor()")}} constructor
     > — this allows custom initialization of an underlying user-defined {{domxref("AudioWorkletProcessor")}}.
 
@@ -52,17 +50,15 @@ var node = new AudioWorkletNode(context, name, options);
     - `processorOptions` {{optional_inline}}
       - : Any additional data that can be used for custom initialization of the underlying {{domxref("AudioWorkletProcessor")}}.
 
-### Return value
-
-The newly constructed {{domxref("AudioWorkletNode")}} instance.
-
 ### Exceptions
 
 - `NotSupportedError` {{domxref("DOMException")}}
+
   - : The specified `options.outputChannelCount` is `0` or larger
     than the current implementation supports.
 
     Both `options.numberOfInputs` and `options.numberOfOutputs` are 0.
+
 - `IndexSizeError` {{domxref("DOMException")}}
   - : The length of `options.outputChannelCount` array does not match
     `options.numberOfOutputs`.
@@ -71,13 +67,13 @@ The newly constructed {{domxref("AudioWorkletNode")}} instance.
 
 Different `options` parameter values can have the following effects.
 
-If the number of inputs and number of outputs are both set to 0, a `NotSupportedError` will be thrown and the node construction process aborted. If the length of the `outputChannelCount` array doesn't match `numberOfOutputs`, an `IndexSizeError`  {{domxref("DOMException")}} will be thrown.
+If the number of inputs and number of outputs are both set to 0, a `NotSupportedError` will be thrown and the node construction process aborted. If the length of the `outputChannelCount` array doesn't match `numberOfOutputs`, an `IndexSizeError` {{domxref("DOMException")}} will be thrown.
 
 If `outputChannelCount` isn't specified, and `numberOfInputs` and `numberOfOutputs` are both 1, the `AudioWorkletNode`'s initial channel count is set to 1. This has the effect of changing the output channel count to dynamically change to the computed number of channels, based on the input's channel count and the current setting of the {{domxref("AudioNode")}} property {{domxref("AudioNode.channelCountMode", "channelCountMode")}}.
 
-Otherwise, if `outputChannelCount` is provided *and* if the values of `numberOfInputs` and `numberOfOutputs` are both 1, the audio worklet node's channel count is set to the value of `outputChannelCount`. Otherwise, the channel count of each channel in the set of output channels is set to match the corresponding value in the `outputChannelCount` array.
+Otherwise, if `outputChannelCount` is provided _and_ if the values of `numberOfInputs` and `numberOfOutputs` are both 1, the audio worklet node's channel count is set to the value of `outputChannelCount`. Otherwise, the channel count of each channel in the set of output channels is set to match the corresponding value in the `outputChannelCount` array.
 
-## Example
+## Examples
 
 _For a complete example demonstrating user-defined audio processing, see the
 {{domxref("AudioWorkletNode")}} page._

@@ -1,20 +1,21 @@
 ---
 title: RemotePlayback
 slug: Web/API/RemotePlayback
-tags:
-  - API
-  - Interface
-  - Reference
-  - RemotePlayback
+page-type: web-api-interface
 browser-compat: api.RemotePlayback
 ---
-{{DefaultAPISidebar("Remote Playback API")}}
+
+{{APIRef("Remote Playback API")}}
 
 The **`RemotePlayback`** interface of the {{domxref('Remote Playback API','','',' ')}} allows the page to detect availability of remote playback devices, then connect to and control playing on these devices.
 
-## Properties
+{{InheritanceDiagram}}
 
-- {{domxref("RemotePlayback.state")}}{{ReadOnlyInline}}
+## Instance properties
+
+_Also inherits properties from its parent interface, {{DOMxRef("EventTarget")}}._
+
+- {{domxref("RemotePlayback.state")}} {{ReadOnlyInline}}
 
   - : Represents the `RemotePlayback` connection's state. One of:
 
@@ -25,23 +26,27 @@ The **`RemotePlayback`** interface of the {{domxref('Remote Playback API','','',
     - `"disconnected"`
       - : The remote playback has not been initiated, has failed to initiate, or has been stopped.
 
-### Event handlers
+## Instance methods
 
-- {{domxref("RemotePlayback.onconnecting")}}
-  - : Fired when the user agent initiates remote playback.
-- {{domxref("RemotePlayback.onconnect")}}
-  - : Fired when the user agent successfully connects to the remote device.
-- {{domxref("RemotePlayback.ondisconnect")}}
-  - : Fired when the user agent disconnects from the remote device.
-
-## Methods
+_Also inherits methods from its parent interface, {{DOMxRef("EventTarget")}}._
 
 - {{domxref("RemotePlayback.watchAvailability()")}}
-  - : A {{jsxref("Promise")}} that resolves with a `callbackId` of an available remote playback device.
+  - : Watches the list of available remote playback devices and returns a {{jsxref("Promise")}} that resolves with a `callbackId` of an available remote playback device.
 - {{domxref("RemotePlayback.cancelWatchAvailability()")}}
   - : Cancels the request to monitor the availability of remote playback devices.
 - {{domxref("RemotePlayback.prompt()")}}
-  - : Prompts the user to select and give permission to connect to a remote playbabk device.
+  - : Prompts the user to select and give permission to connect to a remote playback device.
+
+## Events
+
+_Also inherits events from its parent interface, {{DOMxRef("EventTarget")}}._
+
+- {{domxref("RemotePlayback.connecting_event", "connecting")}}
+  - : Fired when the user agent initiates remote playback.
+- {{domxref("RemotePlayback.connect_event", "connect")}}
+  - : Fired when the user agent successfully connects to the remote device.
+- {{domxref("RemotePlayback.disconnect_event", "disconnect")}}
+  - : Fired when the user agent disconnects from the remote device.
 
 ## Examples
 
@@ -49,7 +54,8 @@ The following example demonstrates a player with custom controls that support re
 
 ```html
 <video id="videoElement" src="https://example.org/media.ext">
-<button id="deviceBtn" style="display: none;">Pick device</button>
+  <button id="deviceBtn" style="display: none;">Pick device</button>
+</video>
 ```
 
 The {{domxref("RemotePlayback.watchAvailability()")}} method is used to watch for available remote playback devices. If a device is available, use the callback to show the button.

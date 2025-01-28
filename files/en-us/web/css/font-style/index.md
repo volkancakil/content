@@ -1,16 +1,10 @@
 ---
 title: font-style
 slug: Web/CSS/font-style
-tags:
-  - CSS
-  - CSS Fonts
-  - CSS Property
-  - Reference
-  - Web
-  - font
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.font-style
 ---
+
 {{CSSRef}}
 
 The **`font-style`** [CSS](/en-US/docs/Web/CSS) property sets whether a font should be styled with a normal, italic, or oblique face from its {{cssxref("font-family")}}.
@@ -31,6 +25,7 @@ font-style: oblique 10deg;
 font-style: inherit;
 font-style: initial;
 font-style: revert;
+font-style: revert-layer;
 font-style: unset;
 ```
 
@@ -56,15 +51,38 @@ Variable fonts can offer a fine control over the degree to which an oblique face
 
 For TrueType or OpenType variable fonts, the `"slnt"` variation is used to implement varying slant angles for oblique, and the `"ital"` variation with a value of 1 is used to implement italic values. See {{cssxref("font-variation-settings")}}.
 
-> **Note:** For the example below to work, you'll need a browser that supports the CSS Fonts Level 4 syntax in which `font-style: oblique` can accept an `<angle>`. The demo loads with `font-style: oblique 23deg;`. Change the value to see the slant of the text change.
+Click "Play" in the code blocks below to edit the example in the MDN Playground. Change the angle value to see the slant of the text change.
 
-{{EmbedGHLiveSample("css-examples/variable-fonts/oblique.html", '100%', 860)}}
+```html live-sample___oblique-example
+<p class="sample">
+  ...it would not be wonderful to meet a Megalosaurus, forty feet long or so,
+  waddling like an elephantine lizard up Holborn Hill.
+</p>
+```
 
-## Accessibility concerns
+```css live-sample___oblique-example
+@font-face {
+  src: url("https://mdn.github.io/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
+  font-family: "AmstelvarAlpha";
+  font-style: normal;
+}
+
+.sample {
+  font:
+    2rem "AmstelvarAlpha",
+    sans-serif;
+  /*font-variation-settings: "slnt" 12;*/
+  font-style: oblique 23deg;
+}
+```
+
+{{EmbedLiveSample("oblique-example", "", "200px")}}
+
+## Accessibility
 
 Large sections of text set with a `font-style` value of `italic` may be difficult for people with cognitive concerns such as Dyslexia to read.
 
-- [MDN Understanding WCAG, Guideline 1.4 explanations](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.4_Make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN Understanding WCAG, Guideline 1.4 explanations](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [W3C Understanding WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
 
 ## Formal definition
@@ -111,6 +129,6 @@ Large sections of text set with a `font-style` value of `italic` may be difficul
 
 ## See also
 
-- {{cssxref("font-style")}}
+- {{cssxref("font-family")}}
 - {{cssxref("font-weight")}}
-- [Fundamental text and font styling](/en-US/docs/Learn/CSS/Styling_text/Fundamentals)
+- [Learn: Fundamental text and font styling](/en-US/docs/Learn_web_development/Core/Text_styling/Fundamentals)

@@ -1,12 +1,12 @@
 ---
 title: glyph-orientation-horizontal
 slug: Web/SVG/Attribute/glyph-orientation-horizontal
-tags:
-  - Deprecated
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.presentation.glyph-orientation-horizontal
+page-type: svg-attribute
+status:
+  - deprecated
+browser-compat: svg.global_attributes.glyph-orientation-horizontal
 ---
+
 {{SVGRef}}{{Deprecated_Header}}
 
 The **`glyph-orientation-horizontal`** attribute affects the amount that the current text position advances as each {{Glossary("glyph")}} is rendered.
@@ -15,15 +15,15 @@ When the reference orientation direction is horizontal and the `glyph-orientatio
 
 This attribute is applied only to text written in a horizontal {{SVGAttr("writing-mode")}}.
 
-> **Note:** As a presentation attribute, `glyph-orientation-horizontal` can be used as a CSS property.
+> [!NOTE]
+> As a presentation attribute, `glyph-orientation-horizontal` can be used as a CSS property.
 
 You can use this attribute with the following SVG elements:
 
-*   {{SVGElement("altGlyph")}}
-*   {{SVGElement("textPath")}}
-*   {{SVGElement("text")}}
-*   {{SVGElement("tref")}}
-*   {{SVGElement("tspan")}}
+- {{SVGElement("textPath")}}
+- {{SVGElement("text")}}
+- {{SVGElement("tref")}}
+- {{SVGElement("tspan")}}
 
 ## Context notes
 
@@ -33,7 +33,7 @@ You can use this attribute with the following SVG elements:
       <th scope="row">Value</th>
       <td>
         <code
-          ><a href="/en-US/docs/Web/SVG/Content_type#Angle"
+          ><a href="/en-US/docs/Web/SVG/Content_type#angle"
             >&#x3C;angle></a
           ></code
         >
@@ -50,30 +50,13 @@ You can use this attribute with the following SVG elements:
   </tbody>
 </table>
 
-*   `<angle>`
-    *   : The value of the angle is restricted to 0, 90, 180, and 270 degrees. If another angle is specified, it is rounded to the closest of the permitted values.
-        A value of `0deg` indicates that all glyphs are set with the top of the glyphs oriented towards the reference orientation. A value of `90deg` indicates an orientation of 90 degrees clockwise from the reference orientation.
+- `<angle>`
+  - : The value of the angle is restricted to 0, 90, 180, and 270 degrees. If another angle is specified, it is rounded to the closest of the permitted values.
+    A value of `0deg` indicates that all glyphs are set with the top of the glyphs oriented towards the reference orientation. A value of `90deg` indicates an orientation of 90 degrees clockwise from the reference orientation.
 
 ## Specifications
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Specification</th>
-      <th scope="col">Status</th>
-      <th scope="col">Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "text.html#GlyphOrientationHorizontalProperty", "glyph-orientation-horizontal")}}
-      </td>
-      <td>{{Spec2("SVG1.1")}}</td>
-      <td>Initial definition</td>
-    </tr>
-  </tbody>
-</table>
+{{Specifications}}
 
 ## Browser compatibility
 

@@ -1,26 +1,28 @@
 ---
-title: Document.queryCommandState()
+title: "Document: queryCommandState() method"
+short-title: queryCommandState()
 slug: Web/API/Document/queryCommandState
-tags:
-  - API
-  - DOM
-  - Reference
-  - Deprecated
+page-type: web-api-instance-method
+status:
+  - deprecated
+  - non-standard
 browser-compat: api.Document.queryCommandState
 ---
-{{ApiRef("DOM")}}{{deprecated_header}}
+
+{{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
 The **`queryCommandState()`** method will tell you if the current selection has a certain {{domxref("Document.execCommand()")}} command applied.
 
 ## Syntax
 
-```js
-queryCommandState(String command)
+```js-nolint
+queryCommandState(command)
 ```
 
 ### Parameters
 
-`command` is a command from {{domxref("Document.execCommand()")}}
+- `command`
+  - : A command from {{domxref("Document.execCommand()")}}
 
 ### Return value
 
@@ -34,13 +36,14 @@ queryCommandState(String command)
 <div contenteditable="true">Select a part of this text!</div>
 <button onclick="makeBold();">Test the state of the 'bold' command</button>
 
-<hr>
+<hr />
 
 <div id="output"></div>
 ```
 
 ```css hidden
-hr, button {
+hr,
+button {
   margin: 1rem 0;
 }
 ```
@@ -63,7 +66,7 @@ function makeBold() {
       break;
   }
   document.querySelector("#output").textContent = `Output: ${message}`;
-  document.execCommand('bold');
+  document.execCommand("bold");
 }
 ```
 
@@ -83,5 +86,4 @@ This feature is not part of any current specification. It is no longer on track 
 
 - {{domxref("HTMLElement.contentEditable")}}
 - {{domxref("document.designMode")}}
-- [Rich-Text Editing in Mozilla](/en-US/docs/Web/Guide/HTML/Editable_content/Rich-Text_Editing_in_Mozilla)
 - Browser bugs related to `queryCommandState()`: [Scribe's "Browser Inconsistencies" documentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)

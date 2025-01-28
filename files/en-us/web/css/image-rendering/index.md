@@ -1,15 +1,10 @@
 ---
 title: image-rendering
 slug: Web/CSS/image-rendering
-tags:
-  - CSS
-  - CSS Images
-  - CSS Property
-  - Reference
-  - image-rendering
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.image-rendering
 ---
+
 {{CSSRef}}
 
 The **`image-rendering`** [CSS](/en-US/docs/Web/CSS) property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.
@@ -23,6 +18,7 @@ The {{Glossary("user agent")}} will scale an image when the page author specifie
 ```css
 /* Keyword values */
 image-rendering: auto;
+image-rendering: smooth;
 image-rendering: crisp-edges;
 image-rendering: pixelated;
 
@@ -30,6 +26,7 @@ image-rendering: pixelated;
 image-rendering: inherit;
 image-rendering: initial;
 image-rendering: revert;
+image-rendering: revert-layer;
 image-rendering: unset;
 ```
 
@@ -37,16 +34,18 @@ image-rendering: unset;
 
 - `auto`
   - : The scaling algorithm is UA dependent. Since version 1.9 (Firefox 3.0), Gecko uses _bilinear_ resampling (high quality).
-- `smooth` {{Experimental_Inline}}
+- `smooth`
   - : The image should be scaled with an algorithm that maximizes the appearance of the image. In particular, scaling algorithms that "smooth" colors are acceptable, such as bilinear interpolation. This is intended for images such as photos.
-- `high-quality` {{Experimental_Inline}}
-  - : Identical to `smooth`, but with a preference for higher-quality scaling. If system resources are constrained, images with `high-quality` should be prioritized over those with any other value, when considering which images to degrade the quality of and to what degree.
 - `crisp-edges`
-  - : The image must be scaled with an algorithm that preserves contrast and edges in the image, and which does not smooth colors or introduce blur to the image in the process. Suitable algorithms include nearest-neighbor and [other non-smoothing scaling algorithms](https://en.wikipedia.org/wiki/Pixel-art_scaling_algorithms) such as 2×SaI and [hqx-family](https://en.wikipedia.org/wiki/Hqx) algorithms. This value is intended for pixel-art images, such as in browser games.
+  - : The image is scaled with an algorithm such as "nearest neighbor" that preserves contrast and edges in the image. Generally intended for images such as pixel art or line drawings, no blurring or color smoothing occurs.
 - `pixelated`
-  - : When scaling the image up, the nearest-neighbor algorithm must be used, so that the image appears to be composed of large pixels. When scaling down, this is the same as `auto`.
+  - : The image is scaled with the "nearest neighbor" or similar algorithm to the nearest integer multiple of the original image size, then uses smooth interpolation to bring the image to the final desired size. This is intended to preserve a "pixelated" look without introducing scaling artifacts when the upscaled resolution isn't an integer multiple of the original.
 
-> **Note:** The values `optimizeQuality` and `optimizeSpeed` present in an early draft (and coming from its SVG counterpart {{SVGAttr("image-rendering")}}) are defined as synonyms for the `smooth` and `pixelated` values respectively.
+> [!NOTE]
+> The values `optimizeQuality` and `optimizeSpeed` present in an early draft (and coming from its SVG counterpart {{SVGAttr("image-rendering")}}) are defined as synonyms for the `smooth` and `pixelated` values respectively.
+
+> [!NOTE]
+> The [CSS images](/en-US/docs/Web/CSS/CSS_images) module defines a `high-quality` value for the `image-rendering` property to provide a preference for higher-quality scaling, however, this is not supported in any browsers.
 
 ## Formal definition
 
@@ -60,13 +59,26 @@ image-rendering: unset;
 
 ### Setting image scaling algorithms
 
-In practical use, the `pixelated` and `crisp-edges` rules can be combined to provide some fallback for each other. (Just prepend the actual rules with the fallback.) The [Canvas API](/en-US/docs/Web/API/Canvas_API) can provide a [fallback solution for `pixelated`](http://phrogz.net/tmp/canvas_image_zoom.html) through manual image data manipulation or with [`imageSmoothingEnabled`](/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled).
+In this example, an image is repeated three times, with each having a different `image-rendering` value applied.
 
 ```html hidden
 <div>
-  <img class="auto" alt="auto" src="blumen.jpg" />
-  <img class="pixelated" alt="pixelated" src="blumen.jpg" />
-  <img class="crisp-edges" alt="crisp-edges" src="blumen.jpg" />
+  <img
+    class="auto"
+    alt="A small photo of some white and yellow flower against a leafy green background. The image is about 33% smaller than the size it is being displayed at. This upscaling causes the image to appear blurry, with notable soft edges between objects."
+    src="blumen.jpg" />
+  <img
+    class="smooth"
+    alt="The same photo as the previous image, which is also being upscaled the same amount. Browsers that support the smooth value for the image-rendering property display the image with the maximize appearance."
+    src="blumen.jpg" />
+  <img
+    class="pixelated"
+    alt="The same photo as the previous image, which is also being upscaled the same amount. Browsers that support the pixelated value for the image-rendering property display the image as very pixelated. Individual pixels are clearly visible and edges appear much sharper."
+    src="blumen.jpg" />
+  <img
+    class="crisp-edges"
+    alt="The same photo as the previous images, which is also being upscaled the same amount. Browsers that support the crisp-edges value for the image-rendering property display the image as very pixelated. In these examples, there is virtually no perceivable difference between the pixelated and crisp-edges versions."
+    src="blumen.jpg" />
 </div>
 ```
 
@@ -83,20 +95,22 @@ img {
   image-rendering: auto;
 }
 
+.smooth {
+  image-rendering: smooth;
+}
+
 .pixelated {
-  -ms-interpolation-mode: nearest-neighbor;
   image-rendering: pixelated;
 }
 
 .crisp-edges {
-  image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
 ```
 
 #### Result
 
-{{EmbedLiveSample('Setting_image_scaling_algorithms')}}
+{{EmbedLiveSample('Setting_image_scaling_algorithms', 260, 260)}}
 
 ## Specifications
 
@@ -106,10 +120,11 @@ img {
 
 {{Compat}}
 
-> **Note:** Although `crisp-edges` is supposed to use a pixel-art scaler like in the specification example, in practice no browsers (as of January 2020) does so. [In Firefox](https://dxr.mozilla.org/mozilla-central/rev/5fd4cfacc90ddd975c82ba27fdc56f4187b3f180/gfx/wr/webrender/src/resource_cache.rs#1727), `crisp-edges` is interpreted as nearest-neighbor, `pixelated` is not supported, and `auto` is interpolated as trilinear or linear.
->
-> For behavior on Chromium and Safari (WebKit), see the [`GetInterpolationQuality`](https://cs.chromium.org/chromium/src/third_party/blink/renderer/core/style/computed_style.cc?type=cs&q=GetInterpolationQuality&g=0&l=1160) function and [`CSSPrimitiveValue::operator ImageRendering()`](https://github.com/WebKit/webkit/blob/9b169b6c85394d94f172e5d75ca2f6c74830e99c/Source/WebCore/css/CSSPrimitiveValueMappings.h#L4324) respectively.
-
 ## See also
 
-- Other image-related CSS properties: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.
+- {{cssxref("object-fit")}}
+- {{cssxref("object-position")}}
+- {{cssxref("image-orientation")}}
+- {{cssxref("image-resolution")}}
+- [CSS images](/en-US/docs/Web/CSS/CSS_images) module
+- SVG {{SVGAttr("image-rendering")}} attribute

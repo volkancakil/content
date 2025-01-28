@@ -1,27 +1,30 @@
 ---
-title: DedicatedWorkerGlobalScope.close()
+title: "DedicatedWorkerGlobalScope: close() method"
+short-title: close()
 slug: Web/API/DedicatedWorkerGlobalScope/close
-tags:
-  - API
-  - DOM
-  - DedicatedWorkerGlobalScope
-  - Method
-  - Reference
-  - Web Workers
-  - close
+page-type: web-api-instance-method
 browser-compat: api.DedicatedWorkerGlobalScope.close
 ---
-{{APIRef("Web Workers API")}}
+
+{{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
 The **`close()`** method of the {{domxref("DedicatedWorkerGlobalScope")}} interface discards any tasks queued in the `DedicatedWorkerGlobalScope`'s event loop, effectively closing this particular scope.
 
 ## Syntax
 
-```js
-self.close();
+```js-nolint
+close()
 ```
 
-## Example
+### Parameters
+
+None.
+
+### Return value
+
+None ({{jsxref("undefined")}}).
+
+## Examples
 
 If you want to close your worker instance from inside the worker itself, you can call the following:
 
@@ -31,7 +34,8 @@ close();
 
 `close()` and `self.close()` are effectively equivalent — both represent `close()` being called from inside the worker's inner scope.
 
-> **Note:** There is also a way to stop the worker from the main thread: the {{domxref("Worker.terminate")}} method.
+> [!NOTE]
+> There is also a way to stop the worker from the main thread: the {{domxref("Worker.terminate")}} method.
 
 ## Specifications
 

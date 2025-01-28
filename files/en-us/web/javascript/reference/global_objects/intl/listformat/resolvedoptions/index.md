@@ -1,51 +1,36 @@
 ---
 title: Intl.ListFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/resolvedOptions
-tags:
-  - Internationalization
-  - Intl
-  - JavaScript
-  - ListFormat
-  - Method
-  - Prototype
-  - Reference
+page-type: javascript-instance-method
 browser-compat: javascript.builtins.Intl.ListFormat.resolvedOptions
 ---
+
 {{JSRef}}
 
-The **`Intl.ListFormat.prototype.resolvedOptions()`** method
-returns a new object with properties reflecting the locale and style formatting
-options computed during the construction of the current {{jsxref("Intl.ListFormat")}}
-object.
+The **`resolvedOptions()`** method of {{jsxref("Intl.ListFormat")}} instances returns a new object with properties reflecting the options computed during initialization of this `ListFormat` object.
+
+{{EmbedInteractiveExample("pages/js/intl-listformat-prototype-resolvedoptions.html")}}
 
 ## Syntax
 
-```js
-listFormat.resolvedOptions()
+```js-nolint
+resolvedOptions()
 ```
+
+### Parameters
+
+None.
 
 ### Return value
 
-An object with properties reflecting the locale and formatting options computed during
-the construction of the given {{jsxref("Intl.ListFormat")}} object.
-
-## Description
-
-The object returned by `resolvedOptions()` has the following properties:
+A new object with properties reflecting the options computed during the initialization of this `ListFormat` object. The object has the following properties, in the order they are listed:
 
 - `locale`
-  - : The BCP 47 language tag for the locale actually used. If any Unicode extension
-    values were requested in the input BCP 47 language tag that led to this locale,
-    the key-value pairs that were requested and are supported for this locale are
-    included in `locale`.
-- `style`
-  - : The value provided for this property in the `options` argument of the
-    constructor or the default value ("`long`"). Its value is either
-    "`long`", "`short`", or "`narrow`".
+  - : The BCP 47 language tag for the locale actually used, determined by the [locale negotiation](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) process. No Unicode extension key will be included in the output.
 - `type`
-  - : The value provided for this property in the `options` argument of the
-    constructor or the default value ("`conjunction`"). Its value is either
-    "`conjunction`", "`disjunction`", or "`unit`".
+  - : The value provided for this property in the `options` argument, with default filled in as needed. It is either `"conjunction"`, `"disjunction"`, or `"unit"`. The default is `"conjunction"`.
+- `style`
+  - : The value provided for this property in the `options` argument, with default filled in as needed. It is either `"long"`, `"short"`, or `"narrow"`. The default is `"long"`.
 
 ## Examples
 
@@ -56,8 +41,8 @@ const deListFormatter = new Intl.ListFormat("de-DE", { style: "short" });
 
 const usedOptions = de.resolvedOptions();
 console.log(usedOptions.locale); // "de-DE"
-console.log(usedOptions.style);  // "short"
-console.log(usedOptions.type);   // "conjunction" (the default value)
+console.log(usedOptions.style); // "short"
+console.log(usedOptions.type); // "conjunction" (the default value)
 ```
 
 ## Specifications
@@ -71,11 +56,7 @@ console.log(usedOptions.type);   // "conjunction" (the default value)
 ## See also
 
 - {{jsxref("Intl.ListFormat")}}
-- {{jsxref("Intl/NumberFormat/resolvedOptions",
-		"Intl.NumberFormat.prototype.resolvedOptions()")}}
-- {{jsxref("Intl/Collator/resolvedOptions",
-		"Intl.Collator.prototype.resolvedOptions()")}}
-- {{jsxref("Intl/DateTimeFormat/resolvedOptions",
-		"Intl.DateTimeFormat.prototype.resolvedOptions()")}}
-- {{jsxref("Intl/PluralRules/resolvedOptions",
-		"Intl.PluralRules.prototype.resolvedOptions()")}}
+- {{jsxref("Intl/NumberFormat/resolvedOptions", "Intl.NumberFormat.prototype.resolvedOptions()")}}
+- {{jsxref("Intl/Collator/resolvedOptions", "Intl.Collator.prototype.resolvedOptions()")}}
+- {{jsxref("Intl/DateTimeFormat/resolvedOptions", "Intl.DateTimeFormat.prototype.resolvedOptions()")}}
+- {{jsxref("Intl/PluralRules/resolvedOptions", "Intl.PluralRules.prototype.resolvedOptions()")}}

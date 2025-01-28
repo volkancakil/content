@@ -1,24 +1,18 @@
 ---
 title: From
 slug: Web/HTTP/Headers/From
-tags:
-  - HTTP
-  - Reference
-  - header
+page-type: http-header
 browser-compat: http.headers.From
 ---
+
 {{HTTPSidebar}}
 
+The HTTP **`From`** {{Glossary("request header")}} contains an Internet email address for an administrator who controls an automated user agent.
 
-The **`From`** request header contains an Internet email
-address for a human user who controls the requesting user agent.
+If you are running a robotic user agent (a web crawler, for example), the `From` header must be sent in requests so you can be contacted if problems occur, such as a bot sending excessive, unwanted, or invalid requests.
 
-If you are running a robotic user agent (e.g. a crawler), the `From` header
-must be sent, so you can be contacted if problems occur on servers, such as if the
-robot is sending excessive, unwanted, or invalid requests.
-
-> **Warning:** You must not use the `From` header for access control or authentication.
-
+> [!WARNING]
+> You must not use the `From` header for access control or authentication.
 
 <table class="properties">
   <tbody>
@@ -28,25 +22,25 @@ robot is sending excessive, unwanted, or invalid requests.
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>no</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-```
+```http
 From: <email>
 ```
 
 ## Directives
 
-- \<email>
-  - : A machine-usable email address.
+- `<email>`
+  - : A machine-usable email address.
 
 ## Examples
 
-```
+```http
 From: webmaster@example.org
 ```
 

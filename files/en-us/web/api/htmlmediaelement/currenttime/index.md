@@ -1,39 +1,21 @@
 ---
-title: HTMLMediaElement.currentTime
+title: "HTMLMediaElement: currentTime property"
+short-title: currentTime
 slug: Web/API/HTMLMediaElement/currentTime
-tags:
-  - API
-  - Audio
-  - HTML DOM
-  - HTMLMediaElement
-  - Media
-  - Property
-  - Time
-  - Video
-  - Web
-  - currentTime
-  - offset
-  - seconds
-  - seek
+page-type: web-api-instance-property
 browser-compat: api.HTMLMediaElement.currentTime
 ---
+
 {{APIRef("HTML DOM")}}
 
 The {{domxref("HTMLMediaElement")}} interface's
 **`currentTime`** property specifies the current playback time
 in seconds.
 
-Changing the value of `currentTime` seeks the media to
+Changing the value of `currentTime` seeks the media to
 the new time.
 
-## Syntax
-
-```js
-var currentTime = htmlMediaElement.currentTime;
-htmlMediaElement.currentTime = 35;
-```
-
-### Value
+## Value
 
 A double-precision floating-point value indicating the current playback time in
 seconds.
@@ -53,10 +35,10 @@ a time before its timeline's earliest time.
 The length of the media in seconds can be determined using the
 {{domxref("HTMLMediaElement.duration", "duration")}} property.
 
-## Example
+## Examples
 
 ```js
-var video = document.createElement('video');
+const video = document.createElement("video");
 console.log(video.currentTime);
 ```
 
@@ -64,8 +46,27 @@ console.log(video.currentTime);
 
 ### Reduced time precision
 
-To offer protection against timing attacks and fingerprinting, browsers may round or
-otherwise adjust the value returned by `currentTime`.
+To offer protection against timing attacks and [fingerprinting](/en-US/docs/Glossary/Fingerprinting), the precision of `video.currentTime` might get rounded depending on browser settings. In Firefox, the `privacy.reduceTimerPrecision` preference is enabled by default and defaults to 2ms. You can also enable `privacy.resistFingerprinting`, in which case the precision will be 100ms or the value of `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, whichever is larger.
+
+For example, with reduced time precision, the result of `video.currentTime` will always be a multiple of 0.002, or a multiple of 0.1 (or `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) with `privacy.resistFingerprinting` enabled.
+
+```js
+// reduced time precision (2ms) in Firefox 60
+video.currentTime;
+// Might be:
+// 23.404
+// 24.192
+// 25.514
+// …
+
+// reduced time precision with `privacy.resistFingerprinting` enabled
+video.currentTime;
+// Might be:
+// 49.8
+// 50.6
+// 51.7
+// …
+```
 
 ## Specifications
 
@@ -77,6 +78,6 @@ otherwise adjust the value returned by `currentTime`.
 
 ## See also
 
-- The interface defining it, {{domxref("HTMLMediaElement")}}.
+- {{domxref("HTMLMediaElement")}}: Interface used to define the `HTMLMediaElement.currentTime` property
 - {{domxref("HTMLMediaElement.fastSeek()")}}: Another way to set the time
 - {{domxref("HTMLMediaElement.duration")}}: The duration of the media in seconds

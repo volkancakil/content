@@ -1,15 +1,12 @@
 ---
-title: WebGLRenderingContext.blendEquationSeparate()
+title: "WebGLRenderingContext: blendEquationSeparate() method"
+short-title: blendEquationSeparate()
 slug: Web/API/WebGLRenderingContext/blendEquationSeparate
-tags:
-  - API
-  - Method
-  - Reference
-  - WebGL
-  - WebGLRenderingContext
+page-type: web-api-instance-method
 browser-compat: api.WebGLRenderingContext.blendEquationSeparate
 ---
-{{APIRef("WebGL")}}
+
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGLRenderingContext.blendEquationSeparate()`** method
 of the [WebGL API](/en-US/docs/Web/API/WebGL_API) is used to set the RGB
@@ -20,8 +17,8 @@ The blend equation determines how a new pixel is combined with a pixel already i
 
 ## Syntax
 
-```js
-void gl.blendEquationSeparate(modeRGB, modeAlpha);
+```js-nolint
+blendEquationSeparate(modeRGB, modeAlpha)
 ```
 
 ### Parameters
@@ -66,7 +63,7 @@ void gl.blendEquationSeparate(modeRGB, modeAlpha);
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 

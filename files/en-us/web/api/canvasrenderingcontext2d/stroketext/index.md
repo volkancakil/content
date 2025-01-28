@@ -1,21 +1,11 @@
 ---
-title: CanvasRenderingContext2D.strokeText()
+title: "CanvasRenderingContext2D: strokeText() method"
+short-title: strokeText()
 slug: Web/API/CanvasRenderingContext2D/strokeText
-tags:
-  - API
-  - Canvas
-  - CanvasRenderingContext2D
-  - Draw String
-  - Draw Text
-  - Drawing Strings
-  - Drawing Text
-  - Method
-  - Reference
-  - Stroke String
-  - Stroking Text
-  - strokeText
+page-type: web-api-instance-method
 browser-compat: api.CanvasRenderingContext2D.strokeText
 ---
+
 {{APIRef}}
 
 The {{domxref("CanvasRenderingContext2D")}} method
@@ -30,19 +20,21 @@ subsequent {{domxref("CanvasRenderingContext2D.fill()", "fill()")}} or
 {{domxref("CanvasRenderingContext2D.stroke()", "stroke()")}} calls will have no effect
 on it.
 
-> **Note:** Use the {{domxref('CanvasRenderingContext2D.fillText()', 'fillText()')}} method to
+> [!NOTE]
+> Use the {{domxref('CanvasRenderingContext2D.fillText()', 'fillText()')}} method to
 > fill the text characters rather than having just their outlines drawn.
 
 ## Syntax
 
-```js
-CanvasRenderingContext2D.strokeText(text, x, y [, maxWidth]);
+```js-nolint
+strokeText(text, x, y)
+strokeText(text, x, y, maxWidth)
 ```
 
 ### Parameters
 
 - `text`
-  - : A {{domxref("DOMString")}} specifying the text string to render into the context.
+  - : A string specifying the text string to render into the context.
     The text is rendered using the settings specified by
     {{domxref("CanvasRenderingContext2D.font","font")}},
     {{domxref("CanvasRenderingContext2D.textAlign","textAlign")}},
@@ -61,7 +53,7 @@ CanvasRenderingContext2D.strokeText(text, x, y [, maxWidth]);
 
 ### Return value
 
-{{jsxref("undefined")}}.
+None ({{jsxref("undefined")}}).
 
 ## Examples
 
@@ -83,18 +75,18 @@ First, we need a canvas to draw into. This code creates a context 400 pixels wid
 The JavaScript code for this example follows.
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-ctx.font = '50px serif';
-ctx.strokeText('Hello world', 50, 90);
+ctx.font = "50px serif";
+ctx.strokeText("Hello world", 50, 90);
 ```
 
 This code obtains a reference to the {{HTMLElement("canvas")}}, then gets a reference
 to its 2D graphics context.
 
 With that in hand, we set the {{domxref("CanvasRenderingContext2D.font", "font")}} to
-50-pixel-tall "serif" (the user's default {{interwiki("wikipedia", "serif")}} font),
+50-pixel-tall "serif" (the user's default [serif](https://en.wikipedia.org/wiki/Serif) font),
 then call `strokeText()` to draw the text "Hello world," starting at the
 coordinates (50, 90).
 
@@ -115,11 +107,11 @@ This example writes the words "Hello world," restricting its width to 140 pixels
 #### JavaScript
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-ctx.font = '50px serif';
-ctx.strokeText('Hello world', 50, 90, 140);
+ctx.font = "50px serif";
+ctx.strokeText("Hello world", 50, 90, 140);
 ```
 
 #### Result

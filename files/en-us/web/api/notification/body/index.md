@@ -1,42 +1,31 @@
 ---
-title: Notification.body
+title: "Notification: body property"
+short-title: body
 slug: Web/API/Notification/body
-tags:
-  - API
-  - BODY
-  - Notification
-  - Notifications
-  - Notifications API
-  - Property
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.Notification.body
 ---
-{{APIRef("Web Notifications")}}{{AvailableInWorkers}}{{securecontext_header}}
+
+{{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
 The **`body`** read-only property of the
 {{domxref("Notification")}} interface indicates the body string of the notification, as
 specified in the `body` option of the
 {{domxref("Notification.Notification","Notification()")}} constructor.
 
-## Syntax
+## Value
 
-```js
-var body = Notification.body;
-```
-
-### Value
-
-A {{domxref("DOMString")}}.
+A string.
 
 ## Examples
 
 ```js
 function spawnNotification(theBody, theIcon, theTitle) {
-  var options = {
-      body: theBody,
-      icon: theIcon
-  }
-  var n = new Notification(theTitle, options);
+  const options = {
+    body: theBody,
+    icon: theIcon,
+  };
+  const n = new Notification(theTitle, options);
 
   console.log(n.body);
 }
@@ -52,5 +41,4 @@ function spawnNotification(theBody, theIcon, theTitle) {
 
 ## See also
 
-- [Using
-  the Notifications API](/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Using the Notifications API](/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API)

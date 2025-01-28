@@ -1,36 +1,24 @@
 ---
-title: BroadcastChannel.name
+title: "BroadcastChannel: name property"
+short-title: name
 slug: Web/API/BroadcastChannel/name
-tags:
-  - Broadcast Channel API
-  - BroadcastChannel
-  - Experimental
-  - HTML API
-  - Property
-  - Read-only
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.BroadcastChannel.name
 ---
-{{APIRef("BroadCastChannel API")}}
 
-The read-only **`BroadcastChannel.name`** property returns a
-{{domxref("DOMString")}}, which uniquely identifies the given channel with its name.
-This name is passed to the {{domxref("BroadcastChannel.BroadCastChannel",
-  "BroadcastChannel()")}} constructor at creation time and is therefore read-only.
+{{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-{{AvailableInWorkers}}
+The **`name`** read-only property of the {{domxref("BroadcastChannel")}} interface returns a string, which uniquely identifies the given channel with its name. This name is passed to the {{domxref("BroadcastChannel.BroadCastChannel", "BroadcastChannel()")}} constructor at creation time and is therefore read-only.
 
-## Syntax
+## Values
 
-```js
-var str = channel.name;
-```
+A string.
 
 ## Examples
 
 ```js
 // Connect to a channel
-var bc = new BroadcastChannel('test_channel');
+const bc = new BroadcastChannel("test_channel");
 
 // More operations (like postMessage, …)
 

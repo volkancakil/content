@@ -1,46 +1,28 @@
 ---
-title: WakeLockSentinel.type
+title: "WakeLockSentinel: type property"
+short-title: type
 slug: Web/API/WakeLockSentinel/type
-tags:
-  - Property
-  - Read-only
-  - Screen Wake Lock API
-  - Wake Lock
-  - WakeLockSentinel
-  - screen
+page-type: web-api-instance-property
 browser-compat: api.WakeLockSentinel.type
 ---
-{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Screen Wake Lock API")}}
 
-The read-only **`type`** property of the
-{{domxref("WakeLockSentinel")}} interface returns a {{jsxref("String")}}
-representation of the currently acquired {{domxref("WakeLockSentinel")}} type.
+{{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-## Syntax
+The **`type`** read-only property of the {{domxref("WakeLockSentinel")}} interface returns a string representation of the currently acquired {{domxref("WakeLockSentinel")}} type.
 
-```js
-var type = sentinel.type;
-```
+## Value
 
-### Value
-
-A {{jsxref("String")}} representation of the currently acquired wake lock type.
-
-- _type_ {{ReadOnlyInline}}
-
-  - : Return values are:
-
-    - `'screen'`: A screen wake lock. Prevents devices from dimming
-      or locking the screen.
+A string representation of the currently acquired wake lock type.
+Currently, the value is always `screen`, which represents a screen wake lock.
+It prevents devices from dimming or locking the screen.
 
 ## Examples
 
-This example shows an asynchronous function that acquires a
-{{domxref("WakeLockSentinel")}}, then logs the type to the console.
+This example shows an asynchronous function that acquires a {{domxref("WakeLockSentinel")}}, then logs the type to the console.
 
 ```js
 const requestWakeLock = async () => {
-  wakeLock = await navigator.wakeLock.request('screen');
+  wakeLock = await navigator.wakeLock.request("screen");
   console.log(wakeLock.type); // logs 'screen'
 };
 
@@ -54,3 +36,7 @@ requestWakeLock();
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- [Stay awake with the Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

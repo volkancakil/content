@@ -1,13 +1,12 @@
 ---
 title: <tref>
 slug: Web/SVG/Element/tref
-tags:
-  - Element
-  - Reference
-  - SVG
-  - SVG Text Content
+page-type: svg-element
+status:
+  - deprecated
 browser-compat: svg.elements.tref
 ---
+
 {{SVGRef}}{{deprecated_header}}
 
 The textual content for a {{SVGElement("text")}} [SVG](/en-US/docs/Web/SVG) element can be either character data directly embedded within the {{SVGElement("text")}} element or the character data content of a referenced element, where the referencing is specified with a **`<tref>`** element.
@@ -18,21 +17,9 @@ The textual content for a {{SVGElement("text")}} [SVG](/en-US/docs/Web/SVG) elem
 
 ## Attributes
 
-### Global attributes
+- {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
-*   [Conditional processing attributes](/en-US/docs/Web/SVG/Attribute#conditional_processing_attributes)
-*   [Core attributes](/en-US/docs/Web/SVG/Attribute#core_attributes)
-*   [Graphical event attributes](/en-US/docs/Web/SVG/Attribute#graphical_event_attributes)
-*   [Presentation attributes](/en-US/docs/Web/SVG/Attribute#presentation_attributes)
-*   [Xlink attributes](/en-US/docs/Web/SVG/Attribute#xlink_attributes)
-*   {{SVGAttr("class")}}
-*   {{SVGAttr("style")}}
-
-### Specific attributes
-
-*   {{SVGAttr("xlink:href")}}
-
-## DOM Interface
+## DOM Interface
 
 This element implements the {{domxref("SVGTRefElement")}} interface.
 
@@ -52,7 +39,7 @@ This element implements the {{domxref("SVGTRefElement")}} interface.
     Inline character data
   </text>
 
-  <text x="100" y="200" font-size="45" fill="red" >
+  <text x="100" y="200" font-size="45" fill="red" >
     <tref xlink:href="#ReferencedText"/>
   </text>
 
@@ -72,4 +59,4 @@ This element implements the {{domxref("SVGTRefElement")}} interface.
 
 ## See also
 
-*   {{SVGElement("text")}}
+- {{SVGElement("text")}}

@@ -1,19 +1,16 @@
 ---
-title: ImageTrackList.selectedIndex
+title: "ImageTrackList: selectedIndex property"
+short-title: selectedIndex
 slug: Web/API/ImageTrackList/selectedIndex
-tags:
-  - API
-  - Property
-  - Reference
-  - selectedIndex
-  - ImageTrackList
+page-type: web-api-instance-property
 browser-compat: api.ImageTrackList.selectedIndex
 ---
-{{DefaultAPISidebar("WebCodecs API")}}
+
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
 The **`selectedIndex`** property of the {{domxref("ImageTrackList")}} interface returns the `index` of the selected track.
 
-### Value
+## Value
 
 An integer.
 
@@ -33,5 +30,3 @@ console.log(tracks.selectedIndex);
 ## Browser compatibility
 
 {{Compat}}
-
-

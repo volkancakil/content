@@ -1,17 +1,13 @@
 ---
 title: text-underline-position
 slug: Web/CSS/text-underline-position
-tags:
-  - CSS
-  - CSS Property
-  - CSS Text Decoration
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.text-underline-position
 ---
+
 {{CSSRef}}
 
-The **`text-underline-position`** [CSS ](/en-US/docs/Web/CSS)property specifies the position of the underline which is set using the {{cssxref("text-decoration")}} property's `underline` value.
+The **`text-underline-position`** [CSS](/en-US/docs/Web/CSS) property specifies the position of the underline which is set using the {{cssxref("text-decoration")}} property's `underline` value.
 
 {{EmbedInteractiveExample("pages/css/text-underline-position.html")}}
 
@@ -32,10 +28,9 @@ text-underline-position: right under;
 text-underline-position: inherit;
 text-underline-position: initial;
 text-underline-position: revert;
+text-underline-position: revert-layer;
 text-underline-position: unset;
 ```
-
-## Syntax
 
 ### Values
 
@@ -46,15 +41,9 @@ text-underline-position: unset;
 - `under`
   - : Forces the line to be set below the alphabetic baseline, at a position where it won't cross any descenders. This is useful for ensuring legibility with chemical and mathematical formulas, which make a large use of subscripts.
 - `left`
-  - : In vertical writing-modes, this keyword forces the line to be placed on the _left_ side of the text. In horizontal writing-modes, it is a synonym of `under`.
+  - : In vertical writing-modes, this keyword forces the line to be placed on the _left_ side of the text. In horizontal writing-modes, it is a synonym of `auto`.
 - `right`
-  - : In vertical writing-modes, this keyword forces the line to be placed on the _right_ side of the text. In horizontal writing-modes, it is a synonym of `under`.
-- `auto-pos` {{non-standard_inline}}
-  - : A synonym of `auto`, which should be used instead.
-- `above` {{non-standard_inline}}
-  - : Forces the line to be above the text. When used with East-Asian text, using the `auto` keyword will lead to a similar effect.
-- `below` {{non-standard_inline}}
-  - : Forces the line to be below the text. When used with alphabetic text, using the `auto` keyword will lead to a similar effect.
+  - : In vertical writing-modes, this keyword forces the line to be placed on the _right_ side of the text. In horizontal writing-modes, it is a synonym of `auto`.
 
 ## Formal definition
 
@@ -66,20 +55,22 @@ text-underline-position: unset;
 
 ## Examples
 
-### A simple example
+### A basic example
 
-Let's take a couple of simple example paragraphs:
+We create two example paragraphs:
 
 ```html
-<p class="horizontal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Nullam consectetur ac turpis vel laoreet. Nullam volutpat pharetra lorem, sit
-amet feugiat tortor volutpat quis. Nam eget sodales quam. Aliquam accumsan
-tellus ac erat posuere.</p>
+<p class="horizontal">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur ac
+  turpis vel laoreet. Nullam volutpat pharetra lorem, sit amet feugiat tortor
+  volutpat quis. Nam eget sodales quam. Aliquam accumsan tellus ac erat posuere.
+</p>
 
-<p class="vertical">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Nullam consectetur ac turpis vel laoreet. Nullam volutpat pharetra lorem, sit
-amet feugiat tortor volutpat quis. Nam eget sodales quam. Aliquam accumsan
-tellus ac erat posuere.</p>
+<p class="vertical">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur ac
+  turpis vel laoreet. Nullam volutpat pharetra lorem, sit amet feugiat tortor
+  volutpat quis. Nam eget sodales quam. Aliquam accumsan tellus ac erat posuere.
+</p>
 ```
 
 Our CSS looks like this:
@@ -108,7 +99,7 @@ In the text with a vertical [`writing-mode`](/en-US/docs/Web/CSS/writing-mode) s
 
 The live example looks like this:
 
-{{EmbedLiveSample('A_simple_example', '100%', 600)}}
+{{EmbedLiveSample('A_basic_example', '100%', 600)}}
 
 ### Setting text-underline-position globally
 
@@ -131,4 +122,3 @@ Because the `text-underline-position` property inherits and is not reset by the 
 ## See also
 
 - The {{cssxref("text-decoration")}} property is a shorthand for setting most text-decoration properties, including {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, and {{cssxref("text-decoration-style")}}. However, it does not set `text-underline-position`.
-- Microsoft [non-standard values documentation](https://msdn.microsoft.com/en-us/library/ie/ms531176%28v=vs.85%29.aspx)

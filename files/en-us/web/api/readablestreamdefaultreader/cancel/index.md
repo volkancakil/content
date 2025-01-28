@@ -1,16 +1,12 @@
 ---
-title: ReadableStreamDefaultReader.cancel()
+title: "ReadableStreamDefaultReader: cancel() method"
+short-title: cancel()
 slug: Web/API/ReadableStreamDefaultReader/cancel
-tags:
-  - API
-  - Method
-  - ReadableStreamDefaultReader
-  - Reference
-  - Streams
-  - cancel
+page-type: web-api-instance-method
 browser-compat: api.ReadableStreamDefaultReader.cancel
 ---
-{{APIRef("Streams")}}
+
+{{APIRef("Streams")}}{{AvailableInWorkers}}
 
 The **`cancel()`** method of the
 {{domxref("ReadableStreamDefaultReader")}} interface returns a {{jsxref("Promise")}} that resolves when the stream is canceled. Calling this method signals a loss of interest in the stream by a consumer.
@@ -21,19 +17,21 @@ after cancel is called, and the stream is not readable any more. To read those c
 still and not completely get rid of the stream, you'd use
 {{domxref("ReadableStreamDefaultController.close()")}}.
 
-> **Note:** If the reader is active, the
+> [!NOTE]
+> If the reader is active, the
 > `cancel()` method behaves the same as that for the associated stream
 > ({{domxref("ReadableStream.cancel()")}}).
 
 ## Syntax
 
-```js
-var promise = readableStreamDefaultReader.cancel(reason);
+```js-nolint
+cancel()
+cancel(reason)
 ```
 
 ### Parameters
 
-- reason {{optional_inline}}
+- `reason` {{optional_inline}}
   - : A human-readable reason for the cancellation. This value may or may not be used.
 
 ### Return value
@@ -43,7 +41,7 @@ parameter.
 
 ### Exceptions
 
-- TypeError
+- {{jsxref("TypeError")}}
   - : The source object is not a `ReadableStreamDefaultReader`, or the stream
     has no owner.
 
@@ -51,8 +49,7 @@ parameter.
 
 In the following simple example, a previously-created custom
 `ReadableStream` is read using a {{domxref("ReadableStreamDefaultReader")}}
-created using `getReader()`. (this code is based on our [Simple random
-stream example](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Each chunk is read sequentially and output to the UI, until the
+created using `getReader()`. (this code is based on our [Simple random stream example](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Each chunk is read sequentially and output to the UI, until the
 stream has finished being read, at which point we return out of the recursive function
 and print the entire stream to another part of the UI.
 
@@ -80,8 +77,8 @@ function fetchStream() {
     // value for fetch streams is a Uint8Array
     charsReceived += value.length;
     const chunk = value;
-    let listItem = document.createElement('li');
-    listItem.textContent = 'Received ' + charsReceived + ' characters so far. Current chunk = ' + chunk;
+    let listItem = document.createElement("li");
+    listItem.textContent = `Received ${charsReceived} characters so far. Current chunk = ${chunk}`;
     list2.appendChild(listItem);
 
     result += chunk;
@@ -99,3 +96,8 @@ function fetchStream() {
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- {{domxref("ReadableStreamDefaultReader.ReadableStreamDefaultReader", "ReadableStreamDefaultReader()")}} constructor
+- [Using readable streams](/en-US/docs/Web/API/Streams_API/Using_readable_streams)

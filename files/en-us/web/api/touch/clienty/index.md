@@ -1,70 +1,70 @@
 ---
-title: Touch.clientY
+title: "Touch: clientY property"
+short-title: clientY
 slug: Web/API/Touch/clientY
-tags:
-  - API
-  - DOM
-  - Property
-  - Read-only
-  - Reference
-  - touch
+page-type: web-api-instance-property
 browser-compat: api.Touch.clientY
 ---
+
 {{ APIRef("Touch Events") }}
 
 The **`Touch.clientY`** read-only property returns the Y
 coordinate of the touch point relative to the browser's viewport, not including any
 scroll offset.
 
-## Syntax
+## Value
 
-```js
-touchItem.clientY;
-```
+A `double` floating point value representing the Y coordinate of the touch point
+relative to the viewport, not including any scroll offset.
 
-### Return value
-
-A `long` value representing the Y coordinate of the touch point relative to
-the viewport, not including any scroll offset.
-
-## Example
+## Examples
 
 This example illustrates using the {{domxref("Touch")}} object's
-{{domxref("Touch.clientX")}} and {{domxref("Touch.clientY")}} properties. The
+{{domxref("Touch.clientX")}} and `Touch.clientY` properties. The
 {{domxref("Touch.clientX")}} property is the horizontal coordinate of a touch point
 relative to the browser's viewport excluding any scroll offset. The
-{{domxref("Touch.clientY")}} property is the vertical coordinate of the touch point
-relative to the browser's viewport excluding any scroll offset .
+`Touch.clientY` property is the vertical coordinate of the touch point
+relative to the browser's viewport excluding any scroll offset.
 
 In this example, we assume the user initiates a touch on an element with an id of
 `source`, moves within the element or out of the element and then releases
 contact with the surface. When the {{domxref("Element/touchend_event", "touchend")}}
 event handler is invoked, the changes in the {{domxref("Touch.clientX")}} and
-{{domxref("Touch.clientY")}} coordinates, from the starting touch point to the ending
+`Touch.clientY` coordinates, from the starting touch point to the ending
 touch point, are calculated.
 
 ```js
 // Register touchstart and touchend listeners for element 'source'
-var src = document.getElementById("source");
-var clientX, clientY;
+const src = document.getElementById("source");
+let clientX;
+let clientY;
 
-src.addEventListener('touchstart', function(e) {
-  // Cache the client X/Y coordinates
-  clientX = e.touches[0].clientX;
-  clientY = e.touches[0].clientY;
-}, false);
+src.addEventListener(
+  "touchstart",
+  (e) => {
+    // Cache the client X/Y coordinates
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  },
+  false,
+);
 
-src.addEventListener('touchend', function(e) {
-  var deltaX, deltaY;
+src.addEventListener(
+  "touchend",
+  (e) => {
+    let deltaX;
+    let deltaY;
 
-  // Compute the change in X and Y coordinates.
-  // The first touch point in the changedTouches
-  // list is the touch point that was just removed from the surface.
-  deltaX = e.changedTouches[0].clientX - clientX;
-  deltaY = e.changedTouches[0].clientY - clientY;
+    // Compute the change in X and Y coordinates.
+    // The first touch point in the changedTouches
+    // list is the touch point that was just removed from the surface.
+    deltaX = e.changedTouches[0].clientX - clientX;
+    deltaY = e.changedTouches[0].clientY - clientY;
 
-  // Process the data ...
-}, false);
+    // Process the data…
+  },
+  false,
+);
 ```
 
 ## Specifications

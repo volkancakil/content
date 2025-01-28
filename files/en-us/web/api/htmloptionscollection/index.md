@@ -1,28 +1,31 @@
 ---
 title: HTMLOptionsCollection
 slug: Web/API/HTMLOptionsCollection
-tags:
-  - API
-  - HTML DOM
-  - Interface
-  - NeedsExample
-  - NeedsMarkupWork
-  - NeedsSpecTable
-  - Reference
+page-type: web-api-interface
 browser-compat: api.HTMLOptionsCollection
 ---
-{{ APIRef("HTML DOM") }}The **`HTMLOptionsCollection`** interface represents a collection of [`<option>`](/en-US/docs/Web/HTML/Element/option) HTML elements (in document order) and offers methods and properties for selecting from the list as well as optionally altering its items. This object is returned only by the `options` property of [select](/en-US/docs/Web/API/HTMLSelectElement).
+
+{{ APIRef("HTML DOM") }}
+
+The **`HTMLOptionsCollection`** interface represents a collection of [`<option>`](/en-US/docs/Web/HTML/Element/option) HTML elements (in document order) and offers methods and properties for selecting from the list as well as optionally altering its items. This object is returned only by the `options` property of [select](/en-US/docs/Web/API/HTMLSelectElement).
 
 {{InheritanceDiagram}}
 
-## Properties
+## Instance properties
 
-- `length`
-  - : `unsigned long`. As optionally allowed by the spec, this property isn't read-only. You can either remove options from the end by lowering the value, or add blank options at the end by raising the value. Mozilla allows this, while other implementations could potentially throw a [DOMException](/en-US/docs/Web/API/DOMException).
+- {{domxref("HTMLOptionsCollection.length")}}
+  - : Returns or sets the number of options in the collection.
+- {{domxref("HTMLOptionsCollection.selectedIndex")}}
+  - : The index number of the first selected {{HTMLElement("option")}} element. The value `-1` indicates no element is selected.
 
-## Methods
+## Instance methods
 
-_This interface inherits the methods of its parent, [`HTMLCollection`](/en-US/docs/Web/API/HTMLCollection "The HTMLCollection interface represents a generic collection (array-like object similar to arguments) of elements (in document order) and offers methods and properties for selecting from the list.")._
+_This interface inherits the methods of its parent, [`HTMLCollection`](/en-US/docs/Web/API/HTMLCollection)._
+
+- {{domxref("HTMLOptionsCollection.add()")}}
+  - : Appends an {{domxref("HTMLOptionElement")}} or {{domxref("HTMLOptGroupElement")}} element to the collection of `option` elements or adds it before a specified option.
+- {{domxref("HTMLOptionsCollection.remove()")}}
+  - : Removes the element at the specified index from the options collection.
 
 ## Specifications
 
@@ -34,4 +37,8 @@ _This interface inherits the methods of its parent, [`HTMLCollection`](/en-US/d
 
 ## See also
 
-- [HTMLCollection](/en-US/docs/Web/API/HTMLCollection)
+- {{DOMxRef("HTMLOptionElement")}}
+- {{DOMxRef("HTMLCollection")}}
+- {{DOMxRef("HTMLOptGroupElement")}}
+- {{DOMxRef("HTMLSelectElement")}}
+- [Indexed collections guide](/en-US/docs/Web/JavaScript/Guide/Indexed_collections)

@@ -1,21 +1,19 @@
 ---
-title: AudioData.AudioData()
+title: "AudioData: AudioData() constructor"
+short-title: AudioData()
 slug: Web/API/AudioData/AudioData
-tags:
-  - API
-  - Constructor
-  - Reference
-  - AudioData
+page-type: web-api-constructor
 browser-compat: api.AudioData.AudioData
 ---
-{{DefaultAPISidebar("WebCodecs API")}}
+
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
 The **`AudioData()`** constructor creates a new {{domxref("AudioData")}} object which represents an individual audio sample.
 
 ## Syntax
 
-```js
-new AudioData(init);
+```js-nolint
+new AudioData(init)
 ```
 
 ### Parameters
@@ -31,7 +29,7 @@ new AudioData(init);
         - "u8-planar"
         - "s16-planar"
         - "s32-planar"
-        - "f32-planer"
+        - "f32-planar"
     - `sampleRate`
       - : A decimal containing the sample rate in Hz.
     - `numberOfFrames`
@@ -39,13 +37,15 @@ new AudioData(init);
     - `numberOfChannels`
       - : An integer containing the number of channels in this sample.
     - `timestamp`
-      - : An integer indicating the data's time in microseconds .
+      - : An integer indicating the data's time in microseconds.
     - `data`
       - : A typed array of the audio data for this sample.
+    - `transfer`
+      - : An array of {{jsxref("ArrayBuffer")}}s that `AudioData` will detach and take ownership of. If the array contains the {{jsxref("ArrayBuffer")}} backing `data`, `AudioData` will use that buffer directly instead of copying from it.
 
-## Exceptions
+### Exceptions
 
-- {{domxref("DOMException")}} `TypeError`
+- {{jsxref("TypeError")}}
   - : Thrown if `init` is in an incorrect format.
 
 ## Specifications
@@ -55,4 +55,3 @@ new AudioData(init);
 ## Browser compatibility
 
 {{Compat}}
-

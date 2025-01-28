@@ -1,14 +1,9 @@
 ---
 title: Quantifiers
-slug: Web/JavaScript/Guide/Regular_Expressions/Quantifiers
-tags:
-  - Guide
-  - JavaScript
-  - Reference
-  - Regular Expressions
-  - quantifiers
-  - regex
+slug: Web/JavaScript/Guide/Regular_expressions/Quantifiers
+page-type: guide
 ---
+
 {{jsSidebar("JavaScript Guide")}}
 
 Quantifiers indicate numbers of characters or expressions to match.
@@ -17,7 +12,8 @@ Quantifiers indicate numbers of characters or expressions to match.
 
 ## Types
 
-> **Note:** In the following, *item* refers not only to singular characters, but also includes [character classes](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes), [Unicode property escapes](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Unicode_Property_Escapes), [groups and ranges](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges).
+> [!NOTE]
+> In the following, _item_ refers not only to singular characters, but also includes [character classes](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) and [groups and backreferences](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
 
 <table class="standard-table">
   <thead>
@@ -76,7 +72,7 @@ Quantifiers indicate numbers of characters or expressions to match.
       </td>
       <td>
         <p>
-          Where "n" is a positive integer, matches exactly "n" occurrences of
+          Where "n" is a non-negative integer, matches exactly "n" occurrences of
           the preceding item "x". For example, <code>/a{2}/</code> doesn't match
           the "a" in "candy", but it matches all of the "a"'s in "caandy", and
           the first two "a"'s in "caaandy".
@@ -89,7 +85,7 @@ Quantifiers indicate numbers of characters or expressions to match.
       </td>
       <td>
         <p>
-          Where "n" is a positive integer, matches at least "n" occurrences of
+          Where "n" is a non-negative integer, matches at least "n" occurrences of
           the preceding item "x". For example, <code>/a{2,}/</code> doesn't
           match the "a" in "candy", but matches all of the a's in "caandy" and
           in "caaaaaaandy".
@@ -101,10 +97,10 @@ Quantifiers indicate numbers of characters or expressions to match.
         <code><em>x</em>{<em>n</em>,<em>m</em>}</code>
       </td>
       <td>
+        <!-- cSpell:ignore cndy -->
         <p>
-          Where "n" is 0 or a positive integer, "m" is a positive integer, and
-          <code><em>m</em> > <em>n</em></code
-          >, matches at least "n" and at most "m" occurrences of the preceding
+          Where "n" and "m" are non-negative integers and <code>m >= n</code>,
+          matches at least "n" and at most "m" occurrences of the preceding
           item "x". For example, <code>/a{1,3}/</code> matches nothing in
           "cndy", the "a" in "candy", the two "a"'s in "caandy", and the first
           three "a"'s in "caaaaaaandy". Notice that when matching "caaaaaaandy",
@@ -147,34 +143,40 @@ Quantifiers indicate numbers of characters or expressions to match.
 
 ### Repeated pattern
 
+In this example, we match one or more word characters with `\w+`, then one or more characters "a" with `a+`, and finally end at a word boundary with `\b`.
+
 ```js
-var wordEndingWithAs = /\w+a+\b/;
-var delicateMessage = "This is Spartaaaaaaa";
+const wordEndingWithAs = /\w+a+\b/;
+const delicateMessage = "This is Spartaaaaaaa";
 
 console.table(delicateMessage.match(wordEndingWithAs)); // [ "Spartaaaaaaa" ]
 ```
 
 ### Counting characters
 
-```js
-var singleLetterWord = /\b\w\b/g;
-var notSoLongWord = /\b\w{1,6}\b/g;
-var loooongWord = /\b\w{13,}\b/g;
+In this example, we match words that have a single letter, words that have between 2 and 6 letters, and words that have 13 or more letters.
 
-var sentence = "Why do I have to learn multiplication table?";
+```js
+const singleLetterWord = /\b\w\b/g;
+const notSoLongWord = /\b\w{2,6}\b/g;
+const longWord = /\b\w{13,}\b/g;
+
+const sentence = "Why do I have to learn multiplication table?";
 
 console.table(sentence.match(singleLetterWord)); // ["I"]
-console.table(sentence.match(notSoLongWord));    // [ "Why", "do", "I", "have", "to", "learn", "table" ]
-console.table(sentence.match(loooongWord));      // ["multiplication"]
+console.table(sentence.match(notSoLongWord)); // [ "Why", "do", "have", "to", "learn", "table" ]
+console.table(sentence.match(longWord)); // ["multiplication"]
 ```
 
 ### Optional character
 
-```js
-var britishText = "He asked his neighbour a favour.";
-var americanText = "He asked his neighbor a favor.";
+In this example, we match words that either end with "our" or "or".
 
-var regexpEnding = /\w+ou?r/g;
+```js
+const britishText = "He asked his neighbour a favour.";
+const americanText = "He asked his neighbor a favor.";
+
+const regexpEnding = /\w+ou?r/g;
 // \w+ One or several letters
 // o   followed by an "o",
 // u?  optionally followed by a "u"
@@ -189,17 +191,17 @@ console.table(americanText.match(regexpEnding));
 
 ### Greedy versus non-greedy
 
+In this example, we match one or more word characters or spaces with `[\w ]+` and `[\w ]+?`. The first one is greedy and the second one is non-greedy. Note how the second one stops as soon as it meets the minimal requirement.
+
 ```js
-var text = "I must be getting somewhere near the centre of the earth.";
-var greedyRegexp = /[\w ]+/;
-// [\w ]      a letter of the latin alphabet or a whitespace
-//      +     one or several times
+const text = "I must be getting somewhere near the center of the earth.";
+const greedyRegexp = /[\w ]+/;
 
 console.log(text.match(greedyRegexp)[0]);
-// "I must be getting somewhere near the centre of the earth"
+// "I must be getting somewhere near the center of the earth"
 // almost all of the text matches (leaves out the dot character)
 
-var nonGreedyRegexp = /[\w ]+?/; // Notice the question mark
+const nonGreedyRegexp = /[\w ]+?/; // Notice the question mark
 console.log(text.match(nonGreedyRegexp));
 // "I"
 // The match is the smallest one possible
@@ -207,12 +209,10 @@ console.log(text.match(nonGreedyRegexp));
 
 ## See also
 
-- [Regular expressions guide](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-
-  - [Character classes](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes)
-  - [Assertions](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions)
-  - [Unicode property escapes](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Unicode_Property_Escapes)
-  - [Groups and ranges](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges)
-
-- [The `RegExp()` constructor](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [Quantifiers in the ECMAScript specification](https://tc39.es/ecma262/multipage/text-processing.html#sec-quantifier)
+- [Regular expressions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions) guide
+- [Character classes](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) guide
+- [Assertions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) guide
+- [Groups and backreferences](/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) guide
+- [`RegExp`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [Regular expressions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions) reference
+- [Quantifier: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

@@ -1,23 +1,20 @@
 ---
-title: CustomStateSet.forEach()
+title: "CustomStateSet: forEach() method"
+short-title: forEach()
 slug: Web/API/CustomStateSet/forEach
-tags:
-  - API
-  - Method
-  - Reference
-  - forEach
-  - CustomStateSet
+page-type: web-api-instance-method
 browser-compat: api.CustomStateSet.forEach
 ---
-{{DefaultAPISidebar("DOM")}}
+
+{{APIRef("Web Components")}}
 
 The **`forEach()`** method of the {{domxref("CustomStateSet")}} interface executes a provided function for each value in the `CustomStateSet` object.
 
 ## Syntax
 
-```js
-CustomStateSet.forEach(callbackFn)
-CustomStateSet.forEach(callbackFn, thisArg)
+```js-nolint
+forEach(callbackFn)
+forEach(callbackFn, thisArg)
 ```
 
 ### Parameters
@@ -31,7 +28,7 @@ CustomStateSet.forEach(callbackFn, thisArg)
 - `thisArg`
   - : Value to use as `this` when executing `callbackFn`.
 
-### Return Value
+### Return value
 
 Undefined.
 
@@ -42,4 +39,3 @@ Undefined.
 ## Browser compatibility
 
 {{Compat}}
-

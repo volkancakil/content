@@ -1,42 +1,32 @@
 ---
-title: WebGLRenderingContext.compressedTexImage[23]D()
+title: "WebGLRenderingContext: compressedTexImage2D() method"
+short-title: compressedTexImage2D()
 slug: Web/API/WebGLRenderingContext/compressedTexImage2D
-tags:
-  - API
-  - Method
-  - Reference
-  - Textures
-  - WebGL
-  - WebGL extension
-  - WebGLRenderingContext
+page-type: web-api-instance-method
 browser-compat: api.WebGLRenderingContext.compressedTexImage2D
 ---
-{{APIRef("WebGL")}}
 
-The **`WebGLRenderingContext.compressedTexImage2D()`**
-and **`WebGL2RenderingContext.compressedTexImage3D()`** methods
-of the [WebGL API](/en-US/docs/Web/API/WebGL_API) specify a two- or
-three-dimensional texture image in a compressed format.
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
+
+The **`compressedTexImage2D()`** method of the {{domxref("WebGLRenderingContext")}} interface
+of the [WebGL API](/en-US/docs/Web/API/WebGL_API) specifies a two-dimensional texture image in a compressed format.
 
 Compressed image formats must be enabled by [WebGL extensions](/en-US/docs/Web/API/WebGL_API/Using_Extensions) before
 using these methods.
 
 ## Syntax
 
-```js
+```js-nolint
 // WebGL 1:
-void gl.compressedTexImage2D(target, level, internalformat, width, height, border, ArrayBufferView? pixels);
+compressedTexImage2D(target, level, internalformat, width, height, border)
+compressedTexImage2D(target, level, internalformat, width, height, border, pixels)
 
 // Additionally available in WebGL 2:
 // read from buffer bound to gl.PIXEL_UNPACK_BUFFER
-void gl.compressedTexImage2D(target, level, internalformat, width, height, border, GLsizei imageSize, GLintptr offset);
-void gl.compressedTexImage2D(target, level, internalformat, width, height, border,
-                             ArrayBufferView srcData, optional srcOffset, optional srcLengthOverride);
-
- // read from buffer bound to gl.PIXEL_UNPACK_BUFFER
-void gl.compressedTexImage3D(target, level, internalformat, width, height, depth, border, GLsizei imageSize, GLintptr offset);
-void gl.compressedTexImage3D(target, level, internalformat, width, height, depth, border,
-                             ArrayBufferView srcData, optional srcOffset, optional srcLengthOverride);
+compressedTexImage2D(target, level, internalformat, width, height, border, imageSize, offset)
+compressedTexImage2D(target, level, internalformat, width, height, border, srcData)
+compressedTexImage2D(target, level, internalformat, width, height, border, srcData, srcOffset)
+compressedTexImage2D(target, level, internalformat, width, height, border, srcData, srcOffset, srcLengthOverride)
 ```
 
 ### Parameters
@@ -60,21 +50,14 @@ void gl.compressedTexImage3D(target, level, internalformat, width, height, depth
     - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z face for a cube-mapped
       texture.
 
-    Possible values for `compressedTexImage3D`:
-
-    - `gl.TEXTURE_2D_ARRAY`
-    - `gl.TEXTURE_3D`
-
 - `level`
   - : A {{domxref("WebGL_API/Types", "GLint")}} specifying the level of detail. Level 0 is the base image
-    level and level _n_ is the *n*th mipmap reduction level.
+    level and level _n_ is the n-th mipmap reduction level.
 - `internalformat`
 
   - : A {{domxref("WebGL_API/Types", "GLenum")}} specifying the compressed image format. Compressed image
     formats must be enabled by [WebGL extensions](/en-US/docs/Web/API/WebGL_API/Using_Extensions) before
-    using this method. All values are possible for `compressedTexImage2D`. See
-    [compressed texture
-    formats](/en-US/docs/Web/API/WebGL_API/Compressed_texture_formats) for which are valid for `compressedTexImage3D`. Possible
+    using this method. All values are possible for `compressedTexImage2D`. Possible
     values:
 
     - When using the {{domxref("WEBGL_compressed_texture_s3tc")}} extension:
@@ -161,25 +144,32 @@ void gl.compressedTexImage3D(target, level, internalformat, width, height, depth
   - : A {{domxref("WebGL_API/Types", "GLintptr")}} specifying the offset in bytes from which to read from the
     buffer bound to `gl.PIXEL_UNPACK_BUFFER`.
 - `pixels`
-  - : An {{domxref("ArrayBufferView")}} that will be used as a data store for the
+  - : A {{jsxref("TypedArray")}} or a {{jsxref("DataView")}} that will be used as a data store for the
     compressed image data in memory.
 
 ### Return value
 
-None.
+None ({{jsxref("undefined")}}).
 
 ## Examples
 
 ```js
-var ext = (
-  gl.getExtension('WEBGL_compressed_texture_s3tc') ||
-  gl.getExtension('MOZ_WEBGL_compressed_texture_s3tc') ||
-  gl.getExtension('WEBKIT_WEBGL_compressed_texture_s3tc')
-);
+const ext =
+  gl.getExtension("WEBGL_compressed_texture_s3tc") ||
+  gl.getExtension("MOZ_WEBGL_compressed_texture_s3tc") ||
+  gl.getExtension("WEBKIT_WEBGL_compressed_texture_s3tc");
 
-var texture = gl.createTexture();
+const texture = gl.createTexture();
 gl.bindTexture(gl.TEXTURE_2D, texture);
-gl.compressedTexImage2D(gl.TEXTURE_2D, 0, ext.COMPRESSED_RGBA_S3TC_DXT5_EXT, 512, 512, 0, textureData);
+gl.compressedTexImage2D(
+  gl.TEXTURE_2D,
+  0,
+  ext.COMPRESSED_RGBA_S3TC_DXT5_EXT,
+  512,
+  512,
+  0,
+  textureData,
+);
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 ```
@@ -190,18 +180,14 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
 ## Browser compatibility
 
-### compressedTexImage2D
-
 {{Compat}}
-
-### compressedTexImage3D
-
-{{Compat("api.WebGL2RenderingContext.compressedTexImage3D")}}
 
 ## See also
 
 - [Using WebGL extensions](/en-US/docs/Web/API/WebGL_API/Using_Extensions)
 - {{domxref("WebGLRenderingContext.compressedTexSubImage2D()")}}
+- {{domxref("WebGL2RenderingContext.compressedTexSubImage3D()")}}
+- {{domxref("WebGL2RenderingContext.compressedTexImage3D()")}}
 - {{domxref("WEBGL_compressed_texture_s3tc")}}
 - {{domxref("WEBGL_compressed_texture_s3tc_srgb")}}
 - {{domxref("WEBGL_compressed_texture_etc")}}

@@ -1,25 +1,16 @@
 ---
-title: ElementInternals.states
+title: "ElementInternals: states property"
+short-title: states
 slug: Web/API/ElementInternals/states
-tags:
-  - API
-  - Property
-  - Reference
-  - states
-  - ElementInternals
+page-type: web-api-instance-property
 browser-compat: api.ElementInternals.states
 ---
-{{DefaultAPISidebar("DOM")}}
+
+{{APIRef("Web Components")}}
 
 The **`states`** read-only property of the {{domxref("ElementInternals")}} interface returns a {{domxref("CustomStateSet")}} representing the possible states of the custom element.
 
-## Syntax
-
-```js
-let states = ElementInternals.states;
-```
-
-### Value
+## Value
 
 A {{domxref("CustomStateSet")}} which is a {{jsxref("Set")}} of strings.
 

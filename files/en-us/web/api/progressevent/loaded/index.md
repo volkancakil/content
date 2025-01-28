@@ -1,26 +1,22 @@
 ---
-title: ProgressEvent.loaded
+title: "ProgressEvent: loaded property"
+short-title: loaded
 slug: Web/API/ProgressEvent/loaded
-tags:
-  - API
-  - Progress Event
-  - ProgressEvent
-  - Property
+page-type: web-api-instance-property
 browser-compat: api.ProgressEvent.loaded
 ---
-{{APIRef("DOM Events")}}
 
-The **`ProgressEvent.loaded`** read-only property is an integer
-representing the amount of work already performed by the underlying process. The ratio
-of work done can be calculated with the property and `ProgressEvent.total`.
-When downloading a resource using HTTP, this only represent the part of the content
-itself, not headers and other overhead.
+{{APIRef("XMLHttpRequest API")}}{{AvailableInWorkers}}
 
-## Syntax
+The **`ProgressEvent.loaded`** read-only property is a 64-bit unsigned integer
+indicating the size, in bytes, of the data already transmitted or processed. The ratio can be calculated by dividing the value of this property by `ProgressEvent.total`.
+When downloading a resource using HTTP, this only counts the body of the HTTP message, and doesn't include headers and other overhead.
 
-```js
-value = ProgressEvent.loaded
-```
+Note that for compressed requests of unknown total size, `loaded` might contain the size of the compressed, or decompressed, data, depending on the browser. As of 2024, it contains the size of the compressed data in Firefox, and the size of the uncompressed data in Chrome.
+
+## Value
+
+A number.
 
 ## Specifications
 

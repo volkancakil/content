@@ -1,19 +1,13 @@
 ---
-title: ':first'
+title: ":first"
 slug: Web/CSS/:first
-tags:
-  - '@page'
-  - CSS
-  - Layout
-  - Pseudo-class
-  - Reference
-  - Selector
-  - Web
+page-type: css-pseudo-class
 browser-compat: css.selectors.first
 ---
+
 {{CSSRef}}
 
-The **`:first`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes), used with the  {{cssxref("@page")}} [at-rule](/en-US/docs/Web/CSS/At-rule), represents the first page of a printed document. (See {{cssxref(":first-child")}} for general first element of a node.)
+The **`:first`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Pseudo-classes), used with the {{cssxref("@page")}} [at-rule](/en-US/docs/Web/CSS/At-rule), represents the first page of a printed document. (See {{cssxref(":first-child")}} for general first element of a node.)
 
 ```css
 /* Selects the first page when printing */
@@ -23,11 +17,16 @@ The **`:first`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/P
 }
 ```
 
-> **Note:** You can't change all CSS properties with this pseudo-class. You can only change the margins, {{cssxref("orphans")}}, {{cssxref("widows")}}, and page breaks of the document. Furthermore, you may only use [absolute-length](/en-US/docs/Web/CSS/length#absolute_length_units) units when defining the margins. All other properties will be ignored.
+> [!NOTE]
+> You can't change all CSS properties with this pseudo-class. You can only change the margins, {{cssxref("orphans")}}, {{cssxref("widows")}}, and page breaks of the document. Furthermore, you may only use [absolute-length](/en-US/docs/Web/CSS/length#absolute_length_units) units when defining the margins. All other properties will be ignored.
 
 ## Syntax
 
-{{csssyntax}}
+```css
+:first {
+  /* ... */
+}
+```
 
 ## Examples
 
@@ -55,7 +54,7 @@ p {
 ### JavaScript
 
 ```js
-document.querySelector("button").addEventListener('click', () => {
+document.querySelector("button").addEventListener("click", () => {
   window.print();
 });
 ```

@@ -1,15 +1,10 @@
 ---
-title: 'CSP: worker-src'
+title: "CSP: worker-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/worker-src
-tags:
-  - CSP
-  - Content-Security-Policy
-  - Directive
-  - HTTP
-  - Reference
-  - Security
-browser-compat: http.headers.csp.Content-Security-Policy.worker-src
+page-type: http-csp-directive
+browser-compat: http.headers.Content-Security-Policy.worker-src
 ---
+
 {{HTTPSidebar}}
 
 The HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
@@ -37,7 +32,6 @@ scripts.
           {{CSP("default-src")}} directive, when governing worker
           execution.
         </p>
-        <p></p>
       </td>
     </tr>
   </tbody>
@@ -45,16 +39,22 @@ scripts.
 
 ## Syntax
 
-One or more sources can be allowed for the `worker-src` policy:
-
-```
-Content-Security-Policy: worker-src <source>;
-Content-Security-Policy: worker-src <source> <source>;
+```http
+Content-Security-Policy: worker-src 'none';
+Content-Security-Policy: worker-src <source-expression-list>;
 ```
 
-### Sources
+This directive may have one of the following values:
 
-{{page("Web/HTTP/Headers/Content-Security-Policy/connect-src", "Sources")}}
+- `'none'`
+  - : No resources of this type may be loaded. The single quotes are mandatory.
+- `<source-expression-list>`
+
+  - : A space-separated list of _source expression_ values. Resources of this type may be loaded if they match any of the given source expressions. For this directive, the following source expression values are applicable:
+
+    - [`<host-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Examples
 
@@ -62,7 +62,7 @@ Content-Security-Policy: worker-src <source> <source>;
 
 Given this CSP header:
 
-```
+```http
 Content-Security-Policy: worker-src https://example.com/
 ```
 
@@ -71,9 +71,9 @@ blocked and won't load:
 
 ```html
 <script>
-  var blockedWorker = new Worker("data:application/javascript,...");
+  let blockedWorker = new Worker("data:application/javascript,…");
   blockedWorker = new SharedWorker("https://not-example.com/");
-  navigator.serviceWorker.register('https://not-example.com/sw.js');
+  navigator.serviceWorker.register("https://not-example.com/sw.js");
 </script>
 ```
 

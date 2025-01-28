@@ -1,22 +1,12 @@
 ---
-title: VideoTrack.sourceBuffer
+title: "VideoTrack: sourceBuffer property"
+short-title: sourceBuffer
 slug: Web/API/VideoTrack/sourceBuffer
-tags:
-  - API
-  - HTML DOM
-  - MSE
-  - Media
-  - Media Source Extensions
-  - Property
-  - Read-only
-  - Reference
-  - SourceBuffer
-  - Video
-  - VideoTrack
-  - track
+page-type: web-api-instance-property
 browser-compat: api.VideoTrack.sourceBuffer
 ---
-{{APIRef("HTML DOM")}}
+
+{{APIRef("Media Source Extensions")}}
 
 The read-only **{{domxref("VideoTrack")}}**
 property **`sourceBuffer`** returns the
@@ -25,13 +15,7 @@ created by a {{domxref("SourceBuffer")}} or the {{domxref("SourceBuffer")}} has 
 removed from the {{domxref("MediaSource.sourceBuffers")}} attribute of its parent
 media source.
 
-## Syntax
-
-```js
-var sourceBuffer = VideoTrack.sourceBuffer;
-```
-
-### Value
+## Value
 
 A {{domxref("SourceBuffer")}} or null.
 

@@ -1,32 +1,25 @@
 ---
-title: WorkerNavigator.appName
+title: "WorkerNavigator: appName property"
+short-title: appName
 slug: Web/API/WorkerNavigator/appName
-tags:
-  - API
-  - Deprecated
-  - HTML DOM
-  - WorkerNavigator
-  - Property
-  - Reference
+page-type: web-api-instance-property
+status:
+  - deprecated
 browser-compat: api.WorkerNavigator.appName
 ---
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+
+{{APIRef("HTML DOM")}} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
 The value of the **`WorkerNavigator.appName`** property is always
-"`Netscape`", in any browser. This property is kept only for compatibility
+`"Netscape"`, in any browser. This property is kept only for compatibility
 purposes.
 
-> **Note:** Do not rely on this property to return a real browser name. All browsers return "`Netscape`" as the value of this property.
+> [!NOTE]
+> Do not rely on this property to return a real browser name. All browsers return `"Netscape"` as the value of this property.
 
-## Syntax
+## Value
 
-```js
-appName = navigator.appName
-```
-
-### Value
-
-The string "`Netscape`".
+The string `"Netscape"`.
 
 ## Specifications
 

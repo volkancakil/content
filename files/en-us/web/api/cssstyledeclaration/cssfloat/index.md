@@ -1,29 +1,22 @@
 ---
-title: CSSStyleDeclaration.cssFloat
+title: "CSSStyleDeclaration: cssFloat property"
+short-title: cssFloat
 slug: Web/API/CSSStyleDeclaration/cssFloat
-tags:
-  - API
-  - CSSOM
-  - CSSStyleDeclaration
-  - Reference
+page-type: web-api-instance-property
 browser-compat: api.CSSStyleDeclaration.cssFloat
 ---
+
 {{APIRef("CSSOM")}}
 
-The **`cssFloat`** property of the {{domxref("CSSStyleDeclaration")}} interface returns the result of invoking {{DOMxRef("CSSStyleDeclaration.getPropertyValue()")}} with `float` as an argument.
+The **`cssFloat`** property of the {{domxref("CSSStyleDeclaration")}} interface returns the result of invoking {{DOMxRef("CSSStyleDeclaration.getPropertyValue()")}} with `float` as an argument.
 
 When setting, it invokes {{DOMxRef("CSSStyleDeclaration.setProperty()")}} with `float` as the first argument, and the given value as the second argument. The given value must be a valid value for the {{cssxref("float")}} property.
 
-## Syntax
+## Value
 
-```js
-var float = CSSStyleDeclaration.cssFloat();
-CSSStyleDeclaration.cssFloat = "right"
-```
+A string.
 
-### Value
-
-A {{domxref('CSSOMString')}}.
+When set to the `null` value, that `null` value is converted to the empty string (`""`), so `csd.cssFloat = null` is equivalent to `csd.cssFloat = ""`.
 
 ## Example
 

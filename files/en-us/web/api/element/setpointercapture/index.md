@@ -1,15 +1,11 @@
 ---
-title: Element.setPointerCapture()
+title: "Element: setPointerCapture() method"
+short-title: setPointerCapture()
 slug: Web/API/Element/setPointerCapture
-tags:
-  - API
-  - DOM
-  - Element
-  - Method
-  - PointerEvent
-  - Reference
+page-type: web-api-instance-method
 browser-compat: api.Element.setPointerCapture
 ---
+
 {{APIRef("DOM")}}
 
 The **`setPointerCapture()`** method of the
@@ -17,28 +13,14 @@ The **`setPointerCapture()`** method of the
 _capture target_ of future pointer events. Subsequent events for the pointer will
 be targeted at the capture element until capture is released (via
 {{domxref("Element.releasePointerCapture()")}} or the
-{{domxref("HTMLElement/pointerup_event", "pointerup")}} event is fired).
+{{domxref("Element/pointerup_event", "pointerup")}} event is fired).
 
-> **Note:** When pointer capture is set,
-> {{domxref("HTMLElement/pointerover_event", "pointerover")}},
-> {{domxref("HTMLElement/pointerout_event", "pointerout")}},
-> {{domxref("HTMLElement/pointerenter_event", "pointerenter")}}, and
-> {{domxref("HTMLElement/pointerleave_event", "pointerleave")}} events are only generated
-> when crossing the boundary of the capture target. This has the effect of suppressing
-> these events on all other elements.
-
-### Overview of pointer capture
-
-_Pointer capture_ allows events for a particular _pointer event_
-({{domxref("PointerEvent")}}) to be re-targeted to a particular element instead of the
-normal (or _hit test_) target at a pointer's location. This can be used to ensure
-that an element continues to receive pointer events even if the pointer device's contact
-moves off the element (such as by scrolling or panning).
+See [pointer events](/en-US/docs/Web/API/Pointer_events#pointer_capture) for an overview and examples of how pointer capture works.
 
 ## Syntax
 
-```js
-targetElement.setPointerCapture(pointerId);
+```js-nolint
+setPointerCapture(pointerId)
 ```
 
 ### Parameters
@@ -49,17 +31,17 @@ targetElement.setPointerCapture(pointerId);
 
 ### Return value
 
-This method returns {{jsxref("undefined")}}.
+None ({{jsxref("undefined")}}).
 
 ### Exceptions
 
 - `NotFoundError` {{domxref("DOMException")}}
   - : Thrown if `pointerId` does not match any active pointer.
 
-## Example
+## Examples
 
 This example sets pointer capture on a {{HtmlElement("div")}} when you press down on
-it. This lets you slide the element horizontally, even when you pointer moves outside of
+it. This lets you slide the element horizontally, even when your pointer moves outside of
 its boundaries.
 
 ### HTML
@@ -98,7 +80,7 @@ function slide(e) {
   slider.style.transform = `translate(${e.clientX - 70}px)`;
 }
 
-const slider = document.getElementById('slider');
+const slider = document.getElementById("slider");
 
 slider.onpointerdown = beginSliding;
 slider.onpointerup = stopSliding;
@@ -106,7 +88,7 @@ slider.onpointerup = stopSliding;
 
 ### Result
 
-{{EmbedLiveSample("Example")}}
+{{EmbedLiveSample("Examples")}}
 
 ## Specifications
 
@@ -118,5 +100,6 @@ slider.onpointerup = stopSliding;
 
 ## See also
 
-- {{domxref("Element.releasePointerCapture")}}
-- {{domxref("Pointer_events","Pointer Events")}}
+- {{domxref("Element.hasPointerCapture","Element.hasPointerCapture()")}}
+- {{domxref("Element.releasePointerCapture","Element.releasePointerCapture()")}}
+- [Pointer events](/en-US/docs/Web/API/Pointer_events)

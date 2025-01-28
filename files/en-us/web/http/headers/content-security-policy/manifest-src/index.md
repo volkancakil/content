@@ -1,18 +1,10 @@
 ---
-title: 'CSP: manifest-src'
+title: "CSP: manifest-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/manifest-src
-tags:
-  - CSP
-  - Content-Security-Policy
-  - Directive
-  - HTTP
-  - Manifest
-  - Reference
-  - Security
-  - manifest-src
-  - source
-browser-compat: http.headers.csp.Content-Security-Policy.manifest-src
+page-type: http-csp-directive
+browser-compat: http.headers.Content-Security-Policy.manifest-src
 ---
+
 {{HTTPSidebar}}
 
 The HTTP
@@ -42,16 +34,22 @@ to the resource.
 
 ## Syntax
 
-One or more sources can be allowed for the `manifest-src` policy:
-
-```
-Content-Security-Policy: manifest-src <source>;
-Content-Security-Policy: manifest-src <source> <source>;
+```http
+Content-Security-Policy: manifest-src 'none';
+Content-Security-Policy: manifest-src <source-expression-list>;
 ```
 
-### Sources
+This directive may have one of the following values:
 
-{{page("Web/HTTP/Headers/Content-Security-Policy/connect-src", "Sources")}}
+- `'none'`
+  - : No resources of this type may be loaded. The single quotes are mandatory.
+- `<source-expression-list>`
+
+  - : A space-separated list of _source expression_ values. Resources of this type may be loaded if they match any of the given source expressions. For this directive, the following source expression values are applicable:
+
+    - [`<host-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Examples
 
@@ -59,14 +57,14 @@ Content-Security-Policy: manifest-src <source> <source>;
 
 Given this CSP header:
 
-```
+```http
 Content-Security-Policy: manifest-src https://example.com/
 ```
 
 The following {{HTMLElement("link")}} is blocked and won't load:
 
 ```html
-<link rel="manifest" href="https://not-example.com/manifest">
+<link rel="manifest" href="https://not-example.com/manifest" />
 ```
 
 ## Specifications

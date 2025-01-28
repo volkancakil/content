@@ -1,18 +1,10 @@
 ---
-title: 'CSP: default-src'
+title: "CSP: default-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/default-src
-tags:
-  - CSP
-  - Content-Security-Policy
-  - Directive
-  - HTTP
-  - Reference
-  - Security
-  - default
-  - default-src
-  - source
-browser-compat: http.headers.csp.Content-Security-Policy.default-src
+page-type: http-csp-directive
+browser-compat: http.headers.Content-Security-Policy.default-src
 ---
+
 {{HTTPSidebar}}
 
 The HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`** directive serves as a fallback for the other CSP {{Glossary("fetch directive", "fetch directives")}}. For each of the following directives that are absent, the user agent looks for the `default-src` directive and uses this value for it:
@@ -49,58 +41,18 @@ The HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`** direc
 
 ## Syntax
 
-One or more sources can be allowed for the `default-src` policy:
-
-```
-Content-Security-Policy: default-src <source>;
-Content-Security-Policy: default-src <source> <source>;
+```http
+Content-Security-Policy: default-src 'none';
+Content-Security-Policy: default-src <source-expression-list>;
 ```
 
-### Sources
+This directive may have one of the following values:
 
-\<source> can be one of the following:
-
-- `<host-source>`
-
-  - : Internet hosts by name or IP address, as well as an optional [URL scheme](/en-US/docs/Learn/Common_questions/What_is_a_URL) and/or port number. The site's address may include an optional leading wildcard (the asterisk character, `'*'`), and you may use a wildcard (again, `'*'`) as the port number, indicating that all legal ports are valid for the source.
-    Examples:
-
-    - `http://*.example.com`: Matches all attempts to load from any subdomain of example.com using the `http:` URL scheme.
-    - `mail.example.com:443`: Matches all attempts to access port 443 on mail.example.com.
-    - `https://store.example.com`: Matches all attempts to access store.example.com using `https:`.
-    - `*.example.com`: Matches all attempts to load from any subdomain of example.com using the current protocol.
-
-- `<scheme-source>`
-
-  - : A scheme such as `http:` or `https:`. The colon is required. Unlike other values below, single quotes shouldn't be used. You can also specify data schemes (not recommended).
-
-    - `data:` Allows [`data:` URIs](/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) to be used as a content source. _This is insecure; an attacker can also inject arbitrary data: URIs. Use this sparingly and definitely not for scripts._
-    - `mediastream:` Allows [`mediastream:` URIs](/en-US/docs/Web/API/Media_Streams_API) to be used as a content source.
-    - `blob:` Allows [`blob:` URIs](/en-US/docs/Web/API/Blob) to be used as a content source.
-    - `filesystem:` Allows [`filesystem:` URIs](/en-US/docs/Web/API/FileSystem) to be used as a content source.
-
-- `'self'`
-  - : Refers to the origin from which the protected document is being served, including the same URL scheme and port number. You must include the single quotes. Some browsers specifically exclude `blob` and `filesystem` from source directives. Sites needing to allow these content types can specify them using the Data attribute.
-- `'unsafe-eval'`
-  - : Allows the use of `eval()` and similar methods for creating code from strings. You must include the single quotes.
-- `'unsafe-hashes'`
-  - : Allows enabling specific inline [event handlers](/en-US/docs/Web/Events/Event_handlers). If you only need to allow inline event handlers and not inline {{HTMLElement("script")}} elements or `javascript:` URLs, this is a safer method than using the `unsafe-inline` expression.
-- `'unsafe-inline'`
-  - : Allows the use of inline resources, such as inline {{HTMLElement("script")}} elements, `javascript:` URLs, inline event handlers, and inline {{HTMLElement("style")}} elements. The single quotes are required.
 - `'none'`
-  - : Refers to the empty set; that is, no URLs match. The single quotes are required.
-- `'nonce-<base64-value>'`
+  - : No resources may be loaded. The single quotes are mandatory.
+- `<source-expression-list>`
 
-  - : An allow-list for specific inline scripts using a cryptographic nonce (number used once). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide an unguessable nonce, as bypassing a resource's policy is otherwise trivial. See [unsafe inline script](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script) for an example. Specifying nonce makes a modern browser ignore `'unsafe-inline'` which could still be set for older browsers without nonce support.
-
-    > **Note:** The CSP `nonce` source can only be applied to _nonceable_ elements (e.g., as the {{HTMLElement("img")}} element has no `nonce` attribute, there is no way to associate it with this CSP source).
-
-- `'<hash-algorithm>-<base64-value>'`
-  - : A sha256, sha384 or sha512 hash of scripts or styles. The use of this source consists of two portions separated by a dash: the encryption algorithm used to create the hash and the base64-encoded hash of the script or style. When generating the hash, don't include the \<script> or \<style> tags and note that capitalization and whitespace matter, including leading or trailing whitespace. See [unsafe inline script](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script) for an example. In CSP 2.0, this is applied only to inline scripts. CSP 3.0 allows it in the case of `script-src` for external scripts.
-- `'strict-dynamic'`
-  - : The `strict-dynamic` source expression specifies that the trust explicitly given to a script present in the markup, by accompanying it with a nonce or a hash, shall be propagated to all the scripts loaded by that root script. At the same time, any allow-list or source expressions such as `'self'` or `'unsafe-inline'` are ignored. See [script-src](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#strict-dynamic) for an example.
-- `'report-sample'`
-  - : Requires a sample of the violating code to be included in the violation report.
+  - : A space-separated list of _source expression_ values. Resources may be loaded if they match any of the given source expressions. For this directive, any of the source expression values listed in [Fetch directive syntax](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directive_syntax) are applicable.
 
 ## Examples
 
@@ -108,13 +60,13 @@ Content-Security-Policy: default-src <source> <source>;
 
 If there are other directives specified, `default-src` does not influence them. The following header:
 
-```
+```http
 Content-Security-Policy: default-src 'self'; script-src https://example.com
 ```
 
 is the same as:
 
-```
+```http
 Content-Security-Policy: connect-src 'self';
                          font-src 'self';
                          frame-src 'self';
@@ -125,6 +77,43 @@ Content-Security-Policy: connect-src 'self';
                          script-src https://example.com;
                          style-src 'self';
                          worker-src 'self'
+```
+
+### Firefox `default-src: none` SVG sprite blocking issue
+
+> [!NOTE]
+> This issue was fixed in Firefox 132; see [bug 1773976](https://bugzil.la/1773976).
+
+When creating a CSP, you can start with `default-src 'none'` to lock down all resource loading and then add further directives to open up the policy, allowing you to load just the resources you need. For example, to allow same-origin loading of images only:
+
+```http
+Content-Security-Policy: default-src 'none'; img-src 'self'
+```
+
+However, there is a problem here. If you are embedding SVG sprites defined in external files via the [`<use>`](/en-US/docs/Web/SVG/Element/use) element, for example:
+
+```svg
+<svg>
+  <use href="/images/icons.svg#icon"/>
+</svg>
+```
+
+your SVG images will be blocked in Firefox if you have a `default-src 'none'` policy set. Firefox does not treat the SVG as an embedded image like other browsers do, therefore `img-src 'self'` will not allow them to be loaded. You need to use `default-src 'self'` if you want your external sprites to load in Firefox.
+
+Alternatively, if the `default-src 'none'` policy is a hard requirement, you can include the SVG sprites inline in the HTML page:
+
+```html
+<body>
+  <svg style="display: none">
+    <symbol id="icon" viewBox="0 0 24 24">
+      <path d="…" />
+    </symbol>
+  </svg>
+  …
+  <svg>
+    <use href="#icon" />
+  </svg>
+</body>
 ```
 
 ## Specifications
@@ -146,4 +135,3 @@ Content-Security-Policy: connect-src 'self';
   - {{Glossary("Reporting directive")}}
   - [`upgrade-insecure-requests`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests)
   - [`block-all-mixed-content`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content)
-  - [`require-sri-for`](/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for) {{experimental_inline}}

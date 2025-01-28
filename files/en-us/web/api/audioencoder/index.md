@@ -1,28 +1,43 @@
 ---
 title: AudioEncoder
 slug: Web/API/AudioEncoder
-tags:
-  - API
-  - Interface
-  - Reference
-  - AudioEncoder
+page-type: web-api-interface
 browser-compat: api.AudioEncoder
 ---
-The **`AudioEncoder`** interface of the {{domxref('WebCodecs API','','','true')}} encodes {{domxref("AudioData")}} objects.
+
+{{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
+
+The **`AudioEncoder`** interface of the [WebCodecs API](/en-US/docs/Web/API/WebCodecs_API) encodes {{domxref("AudioData")}} objects.
+
+{{InheritanceDiagram}}
 
 ## Constructor
 
-- {{domxref("AudioEncoder.AudioEncoder()")}}
+- {{domxref("AudioEncoder.AudioEncoder", "AudioEncoder()")}}
   - : Creates a new `AudioEncoder` object.
 
-## Properties
+## Instance properties
 
-- {{domxref("AudioEncoder.encodeQueueSize")}}{{ReadOnlyInline}}
+_Inherits properties from its parent, {{DOMxRef("EventTarget")}}._
+
+- {{domxref("AudioEncoder.encodeQueueSize")}} {{ReadOnlyInline}}
   - : An integer representing the number of encode queue requests.
-- {{domxref("AudioEncoder.state")}}{{ReadOnlyInline}}
-  - : Represents the state of the underlying codec and whether it is configured for decoding.
+- {{domxref("AudioEncoder.state")}} {{ReadOnlyInline}}
+  - : Represents the state of the underlying codec and whether it is configured for encoding.
 
-## Methods
+### Events
+
+- {{domxref("AudioEncoder.dequeue_event", "dequeue")}}
+  - : Fires to signal a decrease in {{domxref("AudioEncoder.encodeQueueSize")}}.
+
+## Static methods
+
+- {{domxref("AudioEncoder.isConfigSupported_static", "AudioEncoder.isConfigSupported()")}}
+  - : Returns a promise indicating whether the provided `AudioEncoderConfig` is supported.
+
+## Instance methods
+
+_Inherits methods from its parent, {{DOMxRef("EventTarget")}}._
 
 - {{domxref("AudioEncoder.configure()")}}
   - : Enqueues a control message to configure the audio encoder for encoding chunks.

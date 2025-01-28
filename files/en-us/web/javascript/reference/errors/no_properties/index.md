@@ -1,24 +1,25 @@
 ---
-title: 'TypeError: "x" has no properties'
+title: "TypeError: null/undefined has no properties"
 slug: Web/JavaScript/Reference/Errors/No_properties
-tags:
-  - Error
-  - Errors
-  - JavaScript
-  - TypeError
+page-type: javascript-error
 ---
+
 {{jsSidebar("Errors")}}
 
 The JavaScript exception "null (or undefined) has no properties" occurs when you
-attempt to access properties of {{jsxref("null")}} and {{jsxref("undefined")}}. They
+attempt to access properties of [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null) and {{jsxref("undefined")}}. They
 don't have any.
 
 ## Message
 
-```js
-TypeError: Unable to get property {x} of undefined or null reference (Edge)
+```plain
+TypeError: Cannot read properties of undefined (reading 'x') (V8-based)
+TypeError: Cannot destructure 'x' as it is undefined. (V8-based)
+TypeError: Cannot destructure property 'x' of 'y' as it is undefined. (V8-based)
 TypeError: null has no properties (Firefox)
 TypeError: undefined has no properties (Firefox)
+TypeError: undefined is not an object (evaluating 'undefined.x') (Safari)
+TypeError: Right side of assignment cannot be destructured (Safari)
 ```
 
 ## Error type
@@ -27,8 +28,7 @@ TypeError: undefined has no properties (Firefox)
 
 ## What went wrong?
 
-Both, {{jsxref("null")}} and {{jsxref("undefined")}}, have no properties you could
-access.
+Both [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null) and {{jsxref("undefined")}} have no properties you could access. Therefore, you cannot use [property accessors](/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors) on them, or [destructure](/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) them.
 
 ## Examples
 
@@ -44,5 +44,5 @@ undefined.bar;
 
 ## See also
 
-- {{jsxref("null")}}
+- [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null)
 - {{jsxref("undefined")}}

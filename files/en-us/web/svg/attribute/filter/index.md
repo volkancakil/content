@@ -1,24 +1,25 @@
 ---
 title: filter
 slug: Web/SVG/Attribute/filter
-tags:
-  - SVG
-  - SVG Attribute
-  - SVG Filter
-browser-compat: svg.attributes.presentation.filter
+page-type: svg-attribute
+browser-compat: svg.global_attributes.filter
 ---
+
 {{SVGRef}}
 
-The **`filter`** attribute specifies the filter effects defined by the {{SVGElement("filter")}} element that shall be applied to its element.
+The **`filter`** attribute specifies the filter effects defined by the {{SVGElement("filter")}} element that shall be applied to its element.
 
-> **Note:** As a presentation attribute, `filter` can be used as a CSS property. See {{cssxref("filter", "CSS filter")}} for further information.
+> [!NOTE]
+> As a presentation attribute, `filter` can be used as a CSS property. See CSS {{cssxref("filter")}} for further information.
 
-As a presentation attribute, it can be applied to any element but it only has effect on [container elements](/en-US/docs/Web/SVG/Element#Container_elements) without the {{SVGElement("defs")}} element, all [graphics elements](/en-US/docs/Web/SVG/Element#Graphics_elements) and the {{SVGElement("use")}} element.
+As a presentation attribute, it can be applied to any element but it only has effect on [container elements](/en-US/docs/Web/SVG/Element#container_elements) without the {{SVGElement("defs")}} element, all [graphics elements](/en-US/docs/Web/SVG/Element#graphics_elements) and the {{SVGElement("use")}} element.
 
 ## Example
 
 ```css hidden
-html, body, svg {
+html,
+body,
+svg {
   height: 100%;
 }
 ```
@@ -44,11 +45,11 @@ html, body, svg {
       <td>
         <code>none</code>
         <a
-          href="/en-US/docs/CSS/Value_definition_syntax#Single_bar"
+          href="/en-US/docs/Web/CSS/Value_definition_syntax#single_bar"
           title="Single bar: exactly one of the entities must be present"
           >|</a
         >
-        <code>&#x3C;filter-function-list></code>
+        <code>&#x3C;filter-value-list></code>
       </td>
     </tr>
     <tr>
@@ -62,35 +63,11 @@ html, body, svg {
   </tbody>
 </table>
 
-For a description of the values see the {{cssxref("filter","CSS filter")}} property.
+For a description of the values see the CSS {{cssxref("filter")}} property.
 
 ## Specifications
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Specification</th>
-      <th scope="col">Status</th>
-      <th scope="col">Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{SpecName("Filters 1.0", "#FilterProperty", "filter")}}
-      </td>
-      <td>{{Spec2("Filters 1.0")}}</td>
-      <td>Extended the values by several special filter functions.</td>
-    </tr>
-    <tr>
-      <td>
-        {{SpecName("SVG1.1", "filters.html#FilterProperty", "filter")}}
-      </td>
-      <td>{{Spec2('SVG1.1')}}</td>
-      <td>Initial definition</td>
-    </tr>
-  </tbody>
-</table>
+{{Specifications}}
 
 ## Browser compatibility
 
@@ -98,5 +75,5 @@ For a description of the values see the {{cssxref("filter","CSS filter")}} prope
 
 ## See also
 
-*   {{SVGElement("filter")}}
-*   {{cssxref("filter","CSS filter")}}
+- {{SVGElement("filter")}}
+- {{cssxref("filter")}}

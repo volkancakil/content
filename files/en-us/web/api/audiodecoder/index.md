@@ -1,30 +1,43 @@
 ---
 title: AudioDecoder
 slug: Web/API/AudioDecoder
-tags:
-  - API
-  - Interface
-  - Reference
-  - AudioDecoder
+page-type: web-api-interface
 browser-compat: api.AudioDecoder
 ---
-{{securecontext_header}}{{DefaultAPISidebar("WebCodecs API")}}
+
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
 The **`AudioDecoder`** interface of the {{domxref('WebCodecs API','','',' ')}} decodes chunks of audio.
 
+{{InheritanceDiagram}}
+
 ## Constructor
 
-- {{domxref("AudioDecoder.AudioDecoder()")}}
+- {{domxref("AudioDecoder.AudioDecoder", "AudioDecoder()")}}
   - : Creates a new `AudioDecoder` object.
 
-## Properties
+## Instance properties
 
-- {{domxref("AudioDecoder.decodeQueueSize")}}{{ReadOnlyInline}}
+_Inherits properties from its parent, {{DOMxRef("EventTarget")}}._
+
+- {{domxref("AudioDecoder.decodeQueueSize")}} {{ReadOnlyInline}}
   - : An integer representing the number of decode queue requests.
-- {{domxref("AudioDecoder.state")}}{{ReadOnlyInline}}
+- {{domxref("AudioDecoder.state")}} {{ReadOnlyInline}}
   - : Represents the state of the underlying codec and whether it is configured for decoding.
 
-## Methods
+### Events
+
+- {{domxref("AudioDecoder.dequeue_event", "dequeue")}}
+  - : Fires to signal a decrease in {{domxref("AudioDecoder.decodeQueueSize")}}.
+
+## Static methods
+
+- {{domxref("AudioDecoder/isConfigSupported_static", "AudioDecoder.isConfigSupported()")}}
+  - : Returns a promise indicating whether the provided `AudioDecoderConfig` is supported.
+
+## Instance methods
+
+_Inherits methods from its parent, {{DOMxRef("EventTarget")}}._
 
 - {{domxref("AudioDecoder.configure()")}}
   - : Enqueues a control message to configure the audio decoder for decoding chunks.
@@ -37,7 +50,6 @@ The **`AudioDecoder`** interface of the {{domxref('WebCodecs API','','',' ')}} d
 - {{domxref("AudioDecoder.close()")}}
   - : Ends all pending work and releases system resources.
 
-
 ## Specifications
 
 {{Specifications}}
@@ -45,4 +57,3 @@ The **`AudioDecoder`** interface of the {{domxref('WebCodecs API','','',' ')}} d
 ## Browser compatibility
 
 {{Compat}}
-

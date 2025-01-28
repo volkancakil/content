@@ -1,46 +1,43 @@
 ---
-title: CustomStateSet.add()
+title: "CustomStateSet: add() method"
+short-title: add()
 slug: Web/API/CustomStateSet/add
-tags:
-  - API
-  - Method
-  - Reference
-  - add
-  - CustomStateSet
+page-type: web-api-instance-method
 browser-compat: api.CustomStateSet.add
 ---
-{{DefaultAPISidebar("DOM")}}
 
-The **`add`** method of the {{domxref("CustomStateSet")}} interface adds an item to the `CustomStateSet`, after checking that the value is in the correct format.
+{{APIRef("Web Components")}}
+
+The **`add`** method of the {{domxref("CustomStateSet")}} interface adds value representing a custom state to the `CustomStateSet`.
+
+Custom elements with a specific state can be selected using the [`:state()`](/en-US/docs/Web/CSS/:state) pseudo-class, specifying the desired state as an argument.
 
 ## Syntax
 
-```js
-CustomStateSet.add(value)
+```js-nolint
+add(value)
 ```
 
 ### Parameters
 
 - `value`
-  - : A {{domxref("DOMString")}} which must be a `<dashed-ident>`, with the form `--mystate`.
+  - : A string that represents the custom state.
 
-### Return Value
+### Return value
 
 Undefined.
 
-### Exceptions
-
-- {{domxref("DOMException")}} `SyntaxError`
-  - : Thrown if the string is not a `<dashed-ident>`.
-
 ## Examples
 
-The following function adds the state `--checked` to a `CustomStateSet`.
+The following function adds the state `checked` to a `CustomStateSet`.
 
 ```js
-set checked(flag) {
-  if (flag) {
-    this._internals.states.add('--checked');
+class MyCustomElement extends HTMLElement {
+  set checked(flag) {
+    if (flag) {
+      this._internals.states.add("checked");
+    }
+  }
 }
 ```
 
@@ -51,4 +48,3 @@ set checked(flag) {
 ## Browser compatibility
 
 {{Compat}}
-

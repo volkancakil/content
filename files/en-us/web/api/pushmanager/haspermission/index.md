@@ -1,27 +1,36 @@
 ---
-title: PushManager.hasPermission()
+title: "PushManager: hasPermission() method"
+short-title: hasPermission()
 slug: Web/API/PushManager/hasPermission
-tags:
-  - API
-  - Deprecated
-  - Method
-  - PushManager
-  - Reference
+page-type: web-api-instance-method
+status:
+  - deprecated
+  - non-standard
 browser-compat: api.PushManager.hasPermission
 ---
-{{deprecated_header}}{{ApiRef("Push API")}}
+
+{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
 The **`PushManager.hasPermission()`** method of the {{domxref("PushManager")}} interface returns a {{jsxref("Promise")}} that resolves to the `PushPermissionStatus` of the requesting webapp, which will be one of `granted`, `denied`, or `default`.
 
-> **Note:** This feature has been superseded by the {{domxref("PushManager.permissionState()")}} method.
+> [!NOTE]
+> This feature has been superseded by the {{domxref("PushManager.permissionState()")}} method.
 
 ## Syntax
 
-```js
-PushManager.hasPermission().then(function(pushPermissionStatus) { ... } );
+```js-nolint
+hasPermission()
 ```
 
-## Example
+### Parameters
+
+None.
+
+### Return value
+
+A {{jsxref("Promise")}} that resolves to the `PushPermissionStatus`.
+
+## Examples
 
 ```js
 // TBD

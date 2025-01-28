@@ -1,35 +1,43 @@
 ---
-title: Element.removeAttributeNode()
+title: "Element: removeAttributeNode() method"
+short-title: removeAttributeNode()
 slug: Web/API/Element/removeAttributeNode
-tags:
-  - API
-  - DOM
-  - Element
-  - Method
-  - NeedsSpecTable
-  - Reference
+page-type: web-api-instance-method
 browser-compat: api.Element.removeAttributeNode
 ---
+
 {{ APIRef("DOM") }}
 
-The **`removeAttributeNode()`** method of the
-{{domxref("Element")}} object removes the specified attribute from the current element.
+The **`removeAttributeNode()`** method of the {{domxref("Element")}} interface removes the specified {{domxref("Attr")}} node from the element.
+
+If you don't need to inspect the attribute node before removing it, you can use the {{domxref("Element.removeAttribute()")}} method instead.
 
 ## Syntax
 
-```js
-removedAttr = element.removeAttributeNode(attributeNode)
+```js-nolint
+removeAttributeNode(attributeNode)
 ```
 
-- _attributeNode_ is the `Attr` node that needs to be removed.
-- _removedAttr_ is the removed `Attr` node.
+### Parameters
 
-## Example
+- `attributeNode`
+  - : The attribute node to remove from the element.
+
+### Return value
+
+The attribute node that was removed.
+
+### Exceptions
+
+- `NotFoundError` {{DOMxRef("DOMException")}}
+  - : Thrown when the element's attribute list does not contain the attribute node.
+
+## Examples
 
 ```js
 // Given: <div id="top" align="center" />
-var d = document.getElementById("top");
-var d_align = d.getAttributeNode("align");
+const d = document.getElementById("top");
+const d_align = d.getAttributeNode("align");
 d.removeAttributeNode(d_align);
 // align is now removed: <div id="top" />
 ```
@@ -44,8 +52,6 @@ There is no `removeAttributeNodeNS` method; the
 `removeAttributeNode` method can remove both namespaced attributes and
 non-namespaced attributes.
 
-{{ DOMAttributeMethods() }}
-
 ## Specifications
 
 {{Specifications}}
@@ -53,3 +59,9 @@ non-namespaced attributes.
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- {{domxref("Document.createAttribute()")}}
+- {{domxref("Element.getAttributeNode()")}}
+- {{domxref("Element.setAttributeNode()")}}
